@@ -8,8 +8,10 @@ This plugin should be Win / Mac / Linux compatible - target JDK5. <br>
 Note: Debugging is available through 'Remote', on port 5007.<br>
 <br>
 TODO:<br>
-<b>1)</b> Debugger port selector; for now its fixed on 5007.
-<b>2)</b> Figure out why the debugger doesn't work out of the box; JetBrains?
-<b>3)</b> Better UI Layout- BoxLayout is not the greatest; GridBag?
-<b>4)</b> Unit Tests - sorry guys I got a bit lazy here.
-<b>5)</b> Bug fixes (?)
+<b>1)</b> Debugger port selector; for now its fixed on 5007.<br>
+<b>2)</b> Figure out why the debugger doesn't work out of the box; JetBrains?<br>
+<b>3)</b> Better UI Layout- BoxLayout is not the greatest; GridBag?<br>
+<b>4)</b> Unit Tests - sorry guys I got a bit lazy here.<br>
+<b>5)</b> Bug fixes (?)<br>
+<br>
+Thanks for dropping by.
