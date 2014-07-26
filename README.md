@@ -12,7 +12,7 @@ What's new:<br>
 <b>1)</b> Debugger port selector. <br>
 <b>2)</b> Better UI Layout. <br>
 <br>
-So far no bugs reported.<br>
+I'm going to start with those unit tests, soon..<br>
 <br><br>
 <b>0.0.1</b> - First release; Runs Jetty 8.1.<br>
 <b>*Note</b>: Debugging is available through 'Remote', on port 5007.<br>
