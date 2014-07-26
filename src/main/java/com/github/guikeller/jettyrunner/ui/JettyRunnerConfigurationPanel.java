@@ -141,12 +141,12 @@ public class JettyRunnerConfigurationPanel extends javax.swing.JPanel {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pathField.setToolTipText("Eg: /MyWebApp1 (Accepts multiple values)");
-        webappField.setToolTipText("Eg: /src/main/webapp (Accepts multiple values)");
-        classesField.setToolTipText("Eg: /target/classes (Accepts multiple values)");
+        pathField.setToolTipText("Eg: /MyWebApp1 (Accepts multiple values) [Mandatory - CSV]");
+        webappField.setToolTipText("Eg: /path/to/src/main/webapp (Accepts multiple values) [Mandatory - CSV]");
+        classesField.setToolTipText("Eg: /path/to/target/classes (Accepts multiple values) [Mandatory - CSV]");
         runOnPortField.setToolTipText("Eg: 8080 (single value)");
         debuggerField.setToolTipText("Eg: 5007 (single value) [create a 'Remote' conf to debug] ");
-        xmlField.setToolTipText("Eg: /src/main/resources/jetty.xml (Accepts multiple values) [Optional]");
+        xmlField.setToolTipText("Eg: /path/to/src/main/resources/jetty.xml (Accepts multiple values) [Optional - CSV]");
         browseButton.setToolTipText("You may select multiple files [Optional]");
 
     }// </editor-fold>

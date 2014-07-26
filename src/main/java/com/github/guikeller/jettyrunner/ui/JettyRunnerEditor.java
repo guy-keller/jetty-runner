@@ -38,7 +38,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
     protected void resetEditorFrom(JettyRunnerConfiguration jettyRunnerConfiguration) {
         Project project = jettyRunnerConfiguration.getProject();
         // WebApp Path
-        if(!jettyRunnerConfiguration.getWebappPaths().trim().isEmpty()) {
+        if(jettyRunnerConfiguration.getWebappPaths() != null && !jettyRunnerConfiguration.getWebappPaths().isEmpty()) {
             this.configurationPanel.getPathField().setText(jettyRunnerConfiguration.getWebappPaths());
         }else{
             String projectName = project.getName();
@@ -46,27 +46,27 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         }
 
         // WebApp Folder (one level down to web.xml"
-        if(!jettyRunnerConfiguration.getWebappFolders().trim().isEmpty()){
+        if(jettyRunnerConfiguration.getWebappFolders() != null && !jettyRunnerConfiguration.getWebappFolders().isEmpty()){
             this.configurationPanel.getWebappField().setText(jettyRunnerConfiguration.getWebappFolders());
         }else{
             String webAppsFolder = getWebAppsFolder(project);
             this.configurationPanel.getWebappField().setText(webAppsFolder);
         }
         // Classes directory
-        if(!jettyRunnerConfiguration.getClassesDirectories().trim().isEmpty()){
+        if(jettyRunnerConfiguration.getClassesDirectories() != null && !jettyRunnerConfiguration.getClassesDirectories().isEmpty()){
             this.configurationPanel.getClassesField().setText(jettyRunnerConfiguration.getClassesDirectories());
         }else{
             String outputDirectory = getMainOutputDirectory(project);
             this.configurationPanel.getClassesField().setText(outputDirectory);
         }
         // Runs on port
-        if(!jettyRunnerConfiguration.getRunningOnPort().trim().isEmpty()){
+        if(jettyRunnerConfiguration.getRunningOnPort() != null && !jettyRunnerConfiguration.getRunningOnPort().isEmpty()){
             this.configurationPanel.getRunOnPortField().setText(jettyRunnerConfiguration.getRunningOnPort());
         }else{
             this.configurationPanel.getRunOnPortField().setText("8080");
         }
         // Debugger port
-        if(!jettyRunnerConfiguration.getDebuggerPort().trim().isEmpty()){
+        if(jettyRunnerConfiguration.getDebuggerPort() != null && !jettyRunnerConfiguration.getDebuggerPort().isEmpty()){
             this.configurationPanel.getDebuggerField().setText(jettyRunnerConfiguration.getDebuggerPort());
         }else{
             this.configurationPanel.getDebuggerField().setText("5005");

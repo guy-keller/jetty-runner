@@ -31,13 +31,13 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
     private static final String DEBUGGER_PORT = PREFIX+"debuggerPort";
     private static final String JETTY_XML = PREFIX+"jettyXml";
 
-    private String webappPaths = "";
-    private String webappFolders = "";
-    private String classesDirectories = "";
+    private String webappPaths = new String();
+    private String webappFolders = new String();
+    private String classesDirectories = new String();
 
-    private String runningOnPort = "";
-    private String debuggerPort = "";
-    private String jettyXml = "";
+    private String runningOnPort = new String();
+    private String debuggerPort = new String();
+    private String jettyXml = new String();
 
 
     public JettyRunnerConfiguration(Project project, ConfigurationFactory factory, String name) {
