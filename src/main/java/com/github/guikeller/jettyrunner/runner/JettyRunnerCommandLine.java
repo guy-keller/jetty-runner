@@ -19,7 +19,8 @@ import org.jetbrains.annotations.NotNull;
 public class JettyRunnerCommandLine extends JavaCommandLineState {
 
     // TODO - Make the address (port) configurable
-    private static final String JDWP = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5007";
+    private static final String JDWP = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=";
+    private static final String XDEBUG = "-Xdebug";
 
     private static final String MAIN_CLASS = Runner.class.getName();
     private ExecutionEnvironment environment;
@@ -58,13 +59,13 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         String basePath = project.getBasePath();
         javaParams.setWorkingDirectory(basePath);
 
-        String path = this.getWebAppPath(basePath);
+        String path = this.getWebAppPath();
         javaParams.getProgramParametersList().addParametersString(path);
 
-        String classes = this.getClassesDirectory(basePath);
+        String classes = this.getClassesDirectory();
         javaParams.getProgramParametersList().addParametersString(classes);
 
-        String jettyXmls = this.getJettyXmlPaths(basePath);
+        String jettyXmls = this.getJettyXmlPaths();
         if(jettyXmls != null) {
             javaParams.getProgramParametersList().addParametersString(jettyXmls);
         }
@@ -73,13 +74,16 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         javaParams.getProgramParametersList().addParametersString(port);
 
         // Unfortunately life is short, and docs on writing a plugin even shorter
-        javaParams.getVMParametersList().addParametersString("-Xdebug");
-        javaParams.getVMParametersList().addParametersString(JDWP);
+        javaParams.getVMParametersList().addParametersString(XDEBUG);
+
+        // Debugger port configurable
+        String remotePort = JDWP + model.getDebuggerPort();
+        javaParams.getVMParametersList().addParametersString(remotePort);
 
         return javaParams;
     }
 
-    private String getWebAppPath(String basePath) {
+    private String getWebAppPath() {
         String paths = model.getWebappPaths();
         String folders = model.getWebappFolders();
 
@@ -103,7 +107,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
             String value = " --path ";
             for(int i=0; i<pathsArray.length; i++){
                 value += pathsArray[i] + " ";
-                String fullPath = basePath+foldersArray[i];
+                String fullPath = foldersArray[i];
                 value += PathUtil.toPresentableUrl(fullPath);
             }
             return value;
@@ -112,7 +116,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         throw new IllegalArgumentException("Invalid Path(s) or Folder(s): "+paths+" / "+folders);
     }
 
-    private String getClassesDirectory(String basePath) {
+    private String getClassesDirectory() {
         String classes = model.getClassesDirectories();
 
         String[] classArray = null;
@@ -123,14 +127,14 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         if(classArray != null && classArray.length > 0){
             String value = " --classes ";
             for (String clazz : classArray){
-                value += basePath+clazz;
+                value += clazz;
             }
             return PathUtil.toPresentableUrl(value);
         }
         throw new IllegalArgumentException("Invalid classes folder: "+classes);
     }
 
-    private String getJettyXmlPaths(String basePath) {
+    private String getJettyXmlPaths() {
         String xmls = model.getJettyXml();
 
         String[] xmlArray = null;
@@ -141,7 +145,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         if(xmlArray != null && xmlArray.length > 0){
             String value = " --config ";
             for (String jettyXml : xmlArray){
-                value += basePath+jettyXml;
+                value += jettyXml;
             }
             return PathUtil.toPresentableUrl(value);
         }

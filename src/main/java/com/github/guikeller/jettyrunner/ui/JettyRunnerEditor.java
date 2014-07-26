@@ -1,16 +1,24 @@
 package com.github.guikeller.jettyrunner.ui;
 
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
+import com.intellij.compiler.impl.ModuleCompileScope;
+import com.intellij.openapi.compiler.CompileContext;
+import com.intellij.openapi.compiler.CompileTask;
+import com.intellij.openapi.compiler.CompilerManager;
+import com.intellij.openapi.module.Module;
+import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.WriteExternalException;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.search.PsiShortNamesCache;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.UUID;
 
 /**
@@ -18,34 +26,63 @@ import java.util.UUID;
  */
 public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> {
 
-    private JTextField webappPathsField = new JTextField(20);
-    private JTextField webappFoldersField = new JTextField(20);
-    private JTextField classesDirectoriesField = new JTextField(20);
-
-    private JTextField runningOnPortField = new JTextField(20);
-    private JTextField jettyXmlField = new JTextField(20);
+    protected JettyRunnerConfigurationPanel configurationPanel;
+    private String mainOutputDirectory = "";
 
     public JettyRunnerEditor(JettyRunnerConfiguration jettyRunnerConfiguration){
-        super();
+        this.configurationPanel = new JettyRunnerConfigurationPanel();
         super.resetFrom(jettyRunnerConfiguration);
     }
 
     @Override
     protected void resetEditorFrom(JettyRunnerConfiguration jettyRunnerConfiguration) {
-        this.webappPathsField.setText(jettyRunnerConfiguration.getWebappPaths());
-        this.webappFoldersField.setText(jettyRunnerConfiguration.getWebappFolders());
-        this.classesDirectoriesField.setText(jettyRunnerConfiguration.getClassesDirectories());
-        this.runningOnPortField.setText(jettyRunnerConfiguration.getRunningOnPort());
-        this.jettyXmlField.setText(jettyRunnerConfiguration.getJettyXml());
+        Project project = jettyRunnerConfiguration.getProject();
+        // WebApp Path
+        if(!jettyRunnerConfiguration.getWebappPaths().trim().isEmpty()) {
+            this.configurationPanel.getPathField().setText(jettyRunnerConfiguration.getWebappPaths());
+        }else{
+            String projectName = project.getName();
+            this.configurationPanel.getPathField().setText("/"+projectName);
+        }
+
+        // WebApp Folder (one level down to web.xml"
+        if(!jettyRunnerConfiguration.getWebappFolders().trim().isEmpty()){
+            this.configurationPanel.getWebappField().setText(jettyRunnerConfiguration.getWebappFolders());
+        }else{
+            String webAppsFolder = getWebAppsFolder(project);
+            this.configurationPanel.getWebappField().setText(webAppsFolder);
+        }
+        // Classes directory
+        if(!jettyRunnerConfiguration.getClassesDirectories().trim().isEmpty()){
+            this.configurationPanel.getClassesField().setText(jettyRunnerConfiguration.getClassesDirectories());
+        }else{
+            String outputDirectory = getMainOutputDirectory(project);
+            this.configurationPanel.getClassesField().setText(outputDirectory);
+        }
+        // Runs on port
+        if(!jettyRunnerConfiguration.getRunningOnPort().trim().isEmpty()){
+            this.configurationPanel.getRunOnPortField().setText(jettyRunnerConfiguration.getRunningOnPort());
+        }else{
+            this.configurationPanel.getRunOnPortField().setText("8080");
+        }
+        // Debugger port
+        if(!jettyRunnerConfiguration.getDebuggerPort().trim().isEmpty()){
+            this.configurationPanel.getDebuggerField().setText(jettyRunnerConfiguration.getDebuggerPort());
+        }else{
+            this.configurationPanel.getDebuggerField().setText("5005");
+        }
+        // Jetty XML (Optional)
+        this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
     }
 
     @Override
     protected void applyEditorTo(JettyRunnerConfiguration jettyRunnerConfiguration) throws ConfigurationException {
-        jettyRunnerConfiguration.setWebappPaths(this.webappPathsField.getText());
-        jettyRunnerConfiguration.setWebappFolders(this.webappFoldersField.getText());
-        jettyRunnerConfiguration.setClassesDirectories(this.classesDirectoriesField.getText());
-        jettyRunnerConfiguration.setRunningOnPort(this.runningOnPortField.getText());
-        jettyRunnerConfiguration.setJettyXml(this.jettyXmlField.getText());
+        jettyRunnerConfiguration.setWebappPaths(this.configurationPanel.getPathField().getText());
+        jettyRunnerConfiguration.setWebappFolders(this.configurationPanel.getWebappField().getText());
+        jettyRunnerConfiguration.setClassesDirectories(this.configurationPanel.getClassesField().getText());
+        jettyRunnerConfiguration.setRunningOnPort(this.configurationPanel.getRunOnPortField().getText());
+        jettyRunnerConfiguration.setDebuggerPort(this.configurationPanel.getDebuggerField().getText());
+        jettyRunnerConfiguration.setJettyXml(this.configurationPanel.getXmlField().getText());
         try {
             // Not entirely sure if 'I have' to do this - the framework could do
             jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX+UUID.randomUUID().toString()));
@@ -57,78 +94,41 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
     @NotNull
     @Override
     protected JComponent createEditor() {
+        return this.configurationPanel;
+    }
 
-        JPanel controlsPanel = new JPanel();
-        controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS));
+    // Helpers
 
-        JLabel howToLabel = new JLabel();
-        howToLabel.setText("The fields below may accept multiple values (comma separated).");
-        controlsPanel.add(howToLabel);
+    private String getMainOutputDirectory(Project project){
+        final CompilerManager compilerManager = CompilerManager.getInstance(project);
+        final Module[] modules = ModuleManager.getInstance(project).getModules();
+        final ModuleCompileScope compileScope = new ModuleCompileScope(project, modules, false);
 
-        JLabel noteLabel = new JLabel();
-        noteLabel.setText("*Note: Hover over the fields and buttons below for tips.");
-        controlsPanel.add(noteLabel);
-
-        JLabel spacing = new JLabel();
-        spacing.setText(" ");
-        controlsPanel.add(spacing);
-
-        JPanel pathPanel = new JPanel();
-        pathPanel.add(new JLabel("Path: "));
-        pathPanel.add(this.webappPathsField);
-        this.webappPathsField.setToolTipText("Eg: /MyWebApp1 (Accepts multiple values)");
-        controlsPanel.add(pathPanel);
-
-        JPanel foldersPanel = new JPanel();
-        foldersPanel.add(new JLabel("WebApp Folder: "));
-        foldersPanel.add(this.webappFoldersField);
-        this.webappFoldersField.setToolTipText("Eg: /src/main/webapp (Accepts multiple values)");
-        controlsPanel.add(foldersPanel);
-
-        JPanel classesPanel = new JPanel();
-        classesPanel.add(new JLabel("Classes Folder: "));
-        classesPanel.add(this.classesDirectoriesField);
-        this.classesDirectoriesField.setToolTipText("Eg: /target/classes (Accepts multiple values)");
-        controlsPanel.add(classesPanel);
-
-        JPanel portPanel = new JPanel();
-        portPanel.add(new JLabel("Run on Port: "));
-        portPanel.add(this.runningOnPortField);
-        this.runningOnPortField.setToolTipText("Eg: 8080 (single value)");
-        controlsPanel.add(portPanel);
-
-        JPanel jettyPanel = new JPanel();
-        jettyPanel.add(new JLabel("Jetty Xml: "));
-        jettyPanel.add(this.jettyXmlField);
-        this.jettyXmlField.setToolTipText("Eg: /src/main/resources/jetty.xml (Accepts multiple values) [Optional]");
-        controlsPanel.add(jettyPanel);
-
-        JButton browseToXmlsButton = new JButton("Browse XML");
-        browseToXmlsButton.setToolTipText("You may select multiple files [Optional]");
-        browseToXmlsButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setMultiSelectionEnabled(Boolean.TRUE);
-                int result = fileChooser.showOpenDialog(new JFrame());
-                if(result == JFileChooser.APPROVE_OPTION) {
-                    String paths = new String();
-                    File[] selectedFiles = fileChooser.getSelectedFiles();
-                    if(selectedFiles != null && selectedFiles.length > 0) {
-                        for (File selectedFile : selectedFiles) {
-                            paths += selectedFile.getAbsolutePath() + ",";
-                        }
-                        paths = paths.substring(0, (paths.length() - 1));
-                    }
-                    jettyXmlField.setText(paths);
+        CompileTask compileTask = new CompileTask() {
+            public boolean execute(CompileContext compileContext) {
+                VirtualFile mainOutputDirectory = compileContext.getModuleOutputDirectory(modules[0]);
+                if(mainOutputDirectory != null) {
+                    JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectory.getPresentableUrl();
                 }
+                return true;
             }
-        });
-        controlsPanel.add(browseToXmlsButton);
+        };
+        compilerManager.executeTask(compileTask, compileScope, "JettyRunner", null);
+        return mainOutputDirectory;
+    }
 
-        JPanel mainPanel = new JPanel();
-        mainPanel.setBorder(BorderFactory.createTitledBorder("Jetty Runner - Run Jetty Run"));
-        mainPanel.add(controlsPanel);
+    private String getWebAppsFolder(Project project){
+        PsiShortNamesCache namesCache = PsiShortNamesCache.getInstance(project);
+        PsiFile[] webXML = namesCache.getFilesByName("web.xml");
+        if (webXML == null || webXML.length < 1) return "";
 
-        return mainPanel;
+        PsiFile file = webXML[0];
+        PsiDirectory webInfFolder = file.getParent();
+        if(webInfFolder == null) return "";
+        PsiDirectory webappFolder = webInfFolder.getParent();
+        if(webappFolder == null) return "";
+
+        VirtualFile virtualFile = webappFolder.getVirtualFile();
+        return virtualFile.getPresentableUrl();
     }
 }

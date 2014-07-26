@@ -22,20 +22,22 @@ import java.util.UUID;
  */
 public class JettyRunnerConfiguration extends LocatableConfigurationBase {
 
-    public static final String PREFIX = "JettyRunner-";
+    public static final String PREFIX = "JettyRunnerV02-";
 
     private static final String WEBAPP_PATHS = PREFIX+"webappPaths";
     private static final String WEBAPP_FOLDERS = PREFIX+"webappFolders";
     private static final String CLASSES_DIRS = PREFIX+"classesDirectories";
     private static final String RUNNING_PORT = PREFIX+"runningOnPort";
+    private static final String DEBUGGER_PORT = PREFIX+"debuggerPort";
     private static final String JETTY_XML = PREFIX+"jettyXml";
 
-    private String webappPaths;
-    private String webappFolders;
-    private String classesDirectories;
+    private String webappPaths = "";
+    private String webappFolders = "";
+    private String classesDirectories = "";
 
-    private String runningOnPort;
-    private String jettyXml;
+    private String runningOnPort = "";
+    private String debuggerPort = "";
+    private String jettyXml = "";
 
 
     public JettyRunnerConfiguration(Project project, ConfigurationFactory factory, String name) {
@@ -64,6 +66,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
         this.webappFolders = storedValues.getValue(WEBAPP_FOLDERS);
         this.classesDirectories = storedValues.getValue(CLASSES_DIRS);
         this.runningOnPort = storedValues.getValue(RUNNING_PORT);
+        this.debuggerPort = storedValues.getValue(DEBUGGER_PORT);
         this.jettyXml = storedValues.getValue(JETTY_XML);
     }
 
@@ -77,6 +80,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
         storedValues.setValue(WEBAPP_FOLDERS, this.webappFolders);
         storedValues.setValue(CLASSES_DIRS, this.classesDirectories);
         storedValues.setValue(RUNNING_PORT, this.runningOnPort);
+        storedValues.setValue(DEBUGGER_PORT, this.debuggerPort);
         storedValues.setValue(JETTY_XML, this.jettyXml);
     }
 
@@ -136,5 +140,13 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
 
     public void setJettyXml(String jettyXml) {
         this.jettyXml = jettyXml;
+    }
+
+    public String getDebuggerPort() {
+        return debuggerPort;
+    }
+
+    public void setDebuggerPort(String debuggerPort) {
+        this.debuggerPort = debuggerPort;
     }
 }
