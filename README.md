@@ -8,10 +8,10 @@ This plugin should be Win / Mac / Linux compatible - min req: JVM 5.0 <br>
 <b>0.0.3</b> - Third release; <br>
 <br>
 What's new: <br>
-<b>1)</b> Run and Debug Configurations now work! 
+<b>1)</b> Run and Debug Configurations now work! <br>
 <b>2)</b> Internal code refactoring and documentation. <br>
 <b>3)</b> UI Layout created using IntelliJ. <br>
-<b>4)</b> Some Unit Tests. <br>
+<b>4)</b> Some Unit Tests - a starting point. <br>
 <br>
 <b>0.0.2</b> - Second release; <br>
 <b>*Note</b>: Debugging is available through 'Remote', the port is configurable within the plugin.<br>

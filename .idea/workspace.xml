@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2e2c82b-0f9b-4b02-9a6f-a83cbece806a" name="Default" comment="Version 0.3&#10;&#10;Release ready">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jetty_runner_libs.xml" />
-      <change type="DELETED" beforePath="C:\dev\IdeaProjects\jetty-runner\.idea\libraries\jetty_runner_8_1_9_v20130131.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jetty-runner.iml" afterPath="$PROJECT_DIR$/jetty-runner.iml" />
+    <list default="true" id="f2e2c82b-0f9b-4b02-9a6f-a83cbece806a" name="Default" comment="Version 0.3&#10;&#10;Libs didn't merge properly between v0.0.3 branch and master.&#10;Release ready - should be available on JetBrains shortly.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="40ad330e-ea4f-432a-bc0b-e0abe770ec57" name="Revert: Version 0.3 - Refactoring, documentation and added libs to test. (bcb60e00254e53f763563cc4829173834b351ebb)" comment="" />
@@ -88,9 +87,9 @@
         <option value="$PROJECT_DIR$/src/test/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramRunner.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationTypeTest.java" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyRunnerCommandLine.java" />
+        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -139,6 +138,30 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="jetty-runner" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jetty-runner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jetty-runner" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jetty-runner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jetty-runner" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -482,7 +505,11 @@
       <created>1406632316288</created>
       <updated>1406632316288</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Version 0.3&#10;&#10;Libs didn't merge properly between v0.0.3 branch and master.&#10;Release ready - should be available on JetBrains shortly.">
+      <created>1406632819991</created>
+      <updated>1406632819991</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -566,7 +593,8 @@
     <MESSAGE value="Version 0.3&#10;&#10;Sorted the run / debug problem.&#10;General code tidy up.&#10;First Unit Test!" />
     <MESSAGE value="Version 0.3&#10;&#10;Another test and resource for it." />
     <MESSAGE value="Version 0.3&#10;&#10;Release ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.3&#10;&#10;Release ready" />
+    <MESSAGE value="Version 0.3&#10;&#10;Libs didn't merge properly between v0.0.3 branch and master.&#10;Release ready - should be available on JetBrains shortly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.3&#10;&#10;Libs didn't merge properly between v0.0.3 branch and master.&#10;Release ready - should be available on JetBrains shortly." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -935,10 +963,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyRunnerCommandLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="3026">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21364452" vertical-offset="0" max-vertical-offset="731">
-          <caret line="7" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.18312387" vertical-offset="119" max-vertical-offset="731">
+          <caret line="13" column="50" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -948,19 +986,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58219177" vertical-offset="17" max-vertical-offset="1071">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.56567425" vertical-offset="17" max-vertical-offset="1071">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="50" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyRunnerCommandLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="3026">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
