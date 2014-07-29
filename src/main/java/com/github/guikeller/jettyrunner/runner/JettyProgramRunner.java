@@ -11,9 +11,13 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Created by Gui on 14/07/2014.
+ * Jetty Program Runner - Boilerplate
+ * @see com.intellij.execution.runners.DefaultProgramRunner
+ * @author Gui Keller
  */
 public class JettyProgramRunner extends DefaultProgramRunner {
+
+    private static final String RUN = "Run";
 
     public JettyProgramRunner(){
         super();
@@ -21,11 +25,14 @@ public class JettyProgramRunner extends DefaultProgramRunner {
 
     @NotNull
     public String getRunnerId() {
-        return "JettyRunner-GK";
+        return "JettyRunner-By-GuiKeller";
     }
 
     public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
         if(!(runProfile instanceof JettyRunnerConfiguration)){
+            return false;
+        }
+        if(!RUN.equals(value)) {
             return false;
         }
         return true;

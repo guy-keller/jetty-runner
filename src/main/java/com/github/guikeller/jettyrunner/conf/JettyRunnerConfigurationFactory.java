@@ -8,7 +8,9 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Created by Gui on 12/07/2014.
+ * Jetty Runner Configuration Factory
+ * @see com.intellij.execution.configurations.ConfigurationFactory
+ * @author Gui Keller
  */
 public class JettyRunnerConfigurationFactory extends ConfigurationFactory {
 

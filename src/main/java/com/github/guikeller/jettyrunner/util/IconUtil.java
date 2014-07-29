@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.net.URL;
 
 /**
- * Created by Gui on 12/07/2014.
+ * IconUtil - Loads the jetty icon
+ * @author Gui Keller
  */
 public class IconUtil {
 

@@ -5,10 +5,12 @@ import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.Icon;
+import javax.swing.*;
 
 /**
- * Created by Gui Keller on 12/07/2014.
+ * Jetty Runner Configuration Type
+ * @see com.intellij.execution.configurations.ConfigurationType
+ * @author Gui Keller
  */
 public class JettyRunnerConfigurationType implements ConfigurationType {
 
@@ -21,7 +23,7 @@ public class JettyRunnerConfigurationType implements ConfigurationType {
     }
 
     public String getConfigurationTypeDescription() {
-        return "IntelliJ IDEA Jetty (Basic) Runner";
+        return "IntelliJ IDEA Jetty Runner";
     }
 
     public Icon getIcon() {
@@ -30,7 +32,7 @@ public class JettyRunnerConfigurationType implements ConfigurationType {
 
     @NotNull
     public String getId() {
-        return "JettyRunner-GK";
+        return "JettyRunner-By-GuiKeller";
     }
 
     public ConfigurationFactory[] getConfigurationFactories() {

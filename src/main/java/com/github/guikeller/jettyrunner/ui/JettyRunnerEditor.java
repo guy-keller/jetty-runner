@@ -22,70 +22,74 @@ import javax.swing.*;
 import java.util.UUID;
 
 /**
- * Created by Gui on 12/07/2014.
+ * Controller - Jetty Runner Editor
+ * @see com.intellij.openapi.options.SettingsEditor
+ * @author Gui Keller
  */
 public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> {
 
-    protected JettyRunnerConfigurationPanel configurationPanel;
-    private String mainOutputDirectory = "";
+    private JettyRunnerConfPanel configurationPanel;
+    private String mainOutputDirectory;
 
-    public JettyRunnerEditor(JettyRunnerConfiguration jettyRunnerConfiguration){
-        this.configurationPanel = new JettyRunnerConfigurationPanel();
+    public JettyRunnerEditor(JettyRunnerConfiguration jettyRunnerConfiguration) {
+        this.configurationPanel = new JettyRunnerConfPanel();
         super.resetFrom(jettyRunnerConfiguration);
     }
 
+    /**
+     * This is invoked when the form is first loaded.
+     * The values may be stored in disk, if not, set some defaults
+     * @param jettyRunnerConfiguration jettyRunnerConfiguration
+     */
     @Override
     protected void resetEditorFrom(JettyRunnerConfiguration jettyRunnerConfiguration) {
         Project project = jettyRunnerConfiguration.getProject();
         // WebApp Path
-        if(jettyRunnerConfiguration.getWebappPaths() != null && !jettyRunnerConfiguration.getWebappPaths().isEmpty()) {
+        if (jettyRunnerConfiguration.getWebappPaths() != null) {
             this.configurationPanel.getPathField().setText(jettyRunnerConfiguration.getWebappPaths());
-        }else{
+        } else {
             String projectName = project.getName();
             this.configurationPanel.getPathField().setText("/"+projectName);
         }
-
         // WebApp Folder (one level down to web.xml"
-        if(jettyRunnerConfiguration.getWebappFolders() != null && !jettyRunnerConfiguration.getWebappFolders().isEmpty()){
+        if (jettyRunnerConfiguration.getWebappFolders() != null) {
             this.configurationPanel.getWebappField().setText(jettyRunnerConfiguration.getWebappFolders());
-        }else{
+        } else {
             String webAppsFolder = getWebAppsFolder(project);
             this.configurationPanel.getWebappField().setText(webAppsFolder);
         }
         // Classes directory
-        if(jettyRunnerConfiguration.getClassesDirectories() != null && !jettyRunnerConfiguration.getClassesDirectories().isEmpty()){
+        if (jettyRunnerConfiguration.getClassesDirectories() != null) {
             this.configurationPanel.getClassesField().setText(jettyRunnerConfiguration.getClassesDirectories());
-        }else{
+        } else {
             String outputDirectory = getMainOutputDirectory(project);
             this.configurationPanel.getClassesField().setText(outputDirectory);
         }
         // Runs on port
-        if(jettyRunnerConfiguration.getRunningOnPort() != null && !jettyRunnerConfiguration.getRunningOnPort().isEmpty()){
+        if (jettyRunnerConfiguration.getRunningOnPort() != null) {
             this.configurationPanel.getRunOnPortField().setText(jettyRunnerConfiguration.getRunningOnPort());
-        }else{
+        } else {
             this.configurationPanel.getRunOnPortField().setText("8080");
-        }
-        // Debugger port
-        if(jettyRunnerConfiguration.getDebuggerPort() != null && !jettyRunnerConfiguration.getDebuggerPort().isEmpty()){
-            this.configurationPanel.getDebuggerField().setText(jettyRunnerConfiguration.getDebuggerPort());
-        }else{
-            this.configurationPanel.getDebuggerField().setText("5005");
         }
         // Jetty XML (Optional)
         this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
     }
 
+    /**
+     * This is invoked when the user fills the form and pushes apply/ok
+     * @param jettyRunnerConfiguration jettyRunnerConfiguration
+     * @throws ConfigurationException ex
+     */
     @Override
     protected void applyEditorTo(JettyRunnerConfiguration jettyRunnerConfiguration) throws ConfigurationException {
         jettyRunnerConfiguration.setWebappPaths(this.configurationPanel.getPathField().getText());
         jettyRunnerConfiguration.setWebappFolders(this.configurationPanel.getWebappField().getText());
         jettyRunnerConfiguration.setClassesDirectories(this.configurationPanel.getClassesField().getText());
         jettyRunnerConfiguration.setRunningOnPort(this.configurationPanel.getRunOnPortField().getText());
-        jettyRunnerConfiguration.setDebuggerPort(this.configurationPanel.getDebuggerField().getText());
         jettyRunnerConfiguration.setJettyXml(this.configurationPanel.getXmlField().getText());
         try {
             // Not entirely sure if 'I have' to do this - the framework could do
-            jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX+UUID.randomUUID().toString()));
+            jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX + UUID.randomUUID().toString()));
         } catch (WriteExternalException e) {
             throw new RuntimeException(e);
         }
@@ -94,40 +98,55 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
     @NotNull
     @Override
     protected JComponent createEditor() {
-        return this.configurationPanel;
+        return this.configurationPanel.getMainPanel();
     }
 
     // Helpers
 
-    private String getMainOutputDirectory(Project project){
+    /**
+     * Retrieves the output directory for the main module
+     * @param project Project
+     * @return String value
+     */
+    private String getMainOutputDirectory(Project project) {
+        // Preparing things up for a sneaky "CompileTask"
         final CompilerManager compilerManager = CompilerManager.getInstance(project);
         final Module[] modules = ModuleManager.getInstance(project).getModules();
         final ModuleCompileScope compileScope = new ModuleCompileScope(project, modules, false);
-
+        final Module mainModule = modules[0];
+        // Though a "CompileTask" I can get hold of the "CompileContext"
         CompileTask compileTask = new CompileTask() {
             public boolean execute(CompileContext compileContext) {
-                VirtualFile mainOutputDirectory = compileContext.getModuleOutputDirectory(modules[0]);
-                if(mainOutputDirectory != null) {
-                    JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectory.getPresentableUrl();
-                }
+                // Through the "CompileContext" I can get the output directory of the main module
+                VirtualFile mainOutputDirectory = compileContext.getModuleOutputDirectory(mainModule);
+                JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectory.getPresentableUrl();
                 return true;
             }
         };
-        compilerManager.executeTask(compileTask, compileScope, "JettyRunner", null);
-        return mainOutputDirectory;
+        // Executes the task (synchronously), which invokes that internal 'execute' method
+        compilerManager.executeTask(compileTask, compileScope, "JettyRunner-By-GuiKeller", null);
+        return this.mainOutputDirectory;
     }
 
-    private String getWebAppsFolder(Project project){
+    /**
+     * Returns the most probable WebApps folder
+     * @param project Project
+     * @return String value
+     */
+    private String getWebAppsFolder(Project project) {
+        // Using the api to look for the web.xml
         PsiShortNamesCache namesCache = PsiShortNamesCache.getInstance(project);
         PsiFile[] webXML = namesCache.getFilesByName("web.xml");
         if (webXML == null || webXML.length < 1) return "";
-
+        // Grab the first one that the api found
         PsiFile file = webXML[0];
+        // The parent folder is the "WEB-INF" folder
         PsiDirectory webInfFolder = file.getParent();
-        if(webInfFolder == null) return "";
+        if (webInfFolder == null) return "";
+        // The parent folder to "WEB-INF" is the WebApps folder
         PsiDirectory webappFolder = webInfFolder.getParent();
-        if(webappFolder == null) return "";
-
+        if (webappFolder == null) return "";
+        // Folder found, returns it to the user
         VirtualFile virtualFile = webappFolder.getVirtualFile();
         return virtualFile.getPresentableUrl();
     }

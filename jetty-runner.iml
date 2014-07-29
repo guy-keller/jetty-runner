@@ -12,7 +12,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jetty-runner-8.1.9.v20130131" level="project" />
+    <orderEntry type="library" name="jetty-runner-libs" level="project" />
   </component>
 </module>
 
