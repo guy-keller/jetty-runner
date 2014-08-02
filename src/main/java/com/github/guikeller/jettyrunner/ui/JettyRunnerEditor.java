@@ -88,7 +88,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         jettyRunnerConfiguration.setRunningOnPort(this.configurationPanel.getRunOnPortField().getText());
         jettyRunnerConfiguration.setJettyXml(this.configurationPanel.getXmlField().getText());
         try {
-            // Not entirely sure if 'I have' to do this - the framework could do
+            // Not entirely sure if 'I have' to do this - the IntelliJ framework may do
             jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX + UUID.randomUUID().toString()));
         } catch (WriteExternalException e) {
             throw new RuntimeException(e);
@@ -149,5 +149,9 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         // Folder found, returns it to the user
         VirtualFile virtualFile = webappFolder.getVirtualFile();
         return virtualFile.getPresentableUrl();
+    }
+
+    public void setConfigurationPanel(JettyRunnerConfPanel configurationPanel) {
+        this.configurationPanel = configurationPanel;
     }
 }
