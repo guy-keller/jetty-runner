@@ -11,7 +11,7 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Jetty Program Runner - Boilerplate
+ * Jetty Program Runner
  * @see com.intellij.execution.runners.DefaultProgramRunner
  * @author Gui Keller
  */
@@ -32,6 +32,7 @@ public class JettyProgramRunner extends DefaultProgramRunner {
         if(!(runProfile instanceof JettyRunnerConfiguration)){
             return false;
         }
+        // Values passed are: Run or Debug
         if(!RUN.equals(value)) {
             return false;
         }

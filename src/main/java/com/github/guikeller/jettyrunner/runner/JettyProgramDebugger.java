@@ -44,15 +44,14 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
     @Override
     protected RunContentDescriptor createContentDescriptor(Project project, RunProfileState state, RunContentDescriptor contentToReuse, ExecutionEnvironment env)
                 throws ExecutionException {
-        // Now we figure out if it the run or debug button has been hit
+        // Now we figure out if it the Debug button has been hit
         Executor executor = env.getExecutor();
-        String id = executor.getId();
         // If it was the debug, then we do some extra magic
         if(executor instanceof DefaultDebugExecutor) {
             // Get hold of the JavaParameters
             JavaCommandLine javaCommandLine = (JavaCommandLine) state;
             JavaParameters javaParameters = javaCommandLine.getJavaParameters();
-            // Making the assumption that JVM is 5.0 onwards
+            // Making the assumption that JVM is 6.0 onwards
             javaParameters.getVMParametersList().addParametersString(XDEBUG);
             // Debugger port
             String debuggerPort = DebuggerUtils.getInstance().findAvailableDebugAddress(true);
@@ -63,7 +62,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
             // Attaches the remote configuration to the VM and then starts it up
             return attachVirtualMachine(project, state, contentToReuse, env, connection, true);
         }else{
-            // If it was run, then don't do anything special
+            // If it was somethings else, then we don't do anything special
             return super.createContentDescriptor(project,state,contentToReuse,env);
         }
     }

@@ -79,7 +79,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
      * Jetty expects: /Path1 /path/to/WebApps
      * @return String value
      */
-    private String getWebAppPath() {
+    protected String getWebAppPath() {
         String paths = model.getWebappPaths();
         String folders = model.getWebappFolders();
         // Multiple values allowed - CSV
@@ -104,18 +104,18 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
             for(int i=0; i<pathsArray.length; i++){
                 String path = pathsArray[i];
                 String folderPath = PathUtil.toPresentableUrl(foldersArray[i]);
-                value.append(path).append(" ").append(folderPath);
+                value.append(path).append(" ").append(folderPath).append(" ");
             }
             return value.toString();
         }
-        throw new IllegalArgumentException("Numer of Path(s) and Folder(s) must math: "+paths+" / "+folders);
+        throw new IllegalArgumentException("Number of Path(s) and Folder(s) must math: "+paths+" / "+folders);
     }
 
     /**
      * Retrieves the "classes" parameter
      * @return String
      */
-    private String getClassesDirectory() {
+    protected String getClassesDirectory() {
         String classesDirectories = model.getClassesDirectories();
         // Multiple values allowed - CSV
         String[] classesFolders = null;
@@ -138,7 +138,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
      * Using the specified jetty XML files
      * @return String
      */
-    private String getJettyXmlPaths() {
+    protected String getJettyXmlPaths() {
         String xmls = model.getJettyXml();
         // Multiple values allowed - CSV
         String[] xmlArray = null;
@@ -160,13 +160,17 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
      * Retrieves the "port" parameter
      * @return String
      */
-    private String getPort() {
+    protected String getPort() {
         String runningOnPort = model.getRunningOnPort();
         //Single value - not optional
         if(runningOnPort != null && !runningOnPort.isEmpty()){
             return " --port "+runningOnPort+" ";
         }
         throw new IllegalArgumentException("Invalid port: "+runningOnPort);
+    }
+
+    public void setModel(JettyRunnerConfiguration model) {
+        this.model = model;
     }
 
 }

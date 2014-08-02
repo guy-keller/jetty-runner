@@ -27,7 +27,7 @@ import java.util.UUID;
  */
 public class JettyRunnerConfiguration extends LocatableConfigurationBase {
 
-    public static final String PREFIX = "JettyRunnerV03-";
+    public static final String PREFIX = "JettyRunnerV04-";
 
     private static final String WEBAPP_PATHS = PREFIX+"webappPaths";
     private static final String WEBAPP_FOLDERS = PREFIX+"webappFolders";
@@ -58,12 +58,12 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
         return new JettyRunnerCommandLine(executionEnvironment, this);
     }
 
-    // Persistence of values
+    // Persistence of values in disk
 
     @Override
     public void readExternal(Element element) throws InvalidDataException {
         super.readExternal(element);
-        // Reads the values from disk
+        // Reads the values from the disk
         Project project = super.getProject();
         PropertiesComponent storedValues = PropertiesComponent.getInstance(project);
         this.webappPaths = storedValues.getValue(WEBAPP_PATHS);
