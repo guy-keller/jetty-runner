@@ -24,8 +24,6 @@ What's new:<br>
 <b>2)</b> Better UI Layout. <br>
 <b>3)</b> Required values are automatically discovered and set!<br>
 <br>
-I'm going to start writing those unit tests, soon..<br>
-<br>
 <b>0.0.1</b> - First release; Uses: <b>jetty-runner-8.1.9</b> <br>
 <br>
 <b>TODO:</b> <br>
