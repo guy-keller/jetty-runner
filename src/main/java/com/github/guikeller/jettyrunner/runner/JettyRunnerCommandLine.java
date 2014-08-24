@@ -51,6 +51,11 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         String jarPath = PathUtil.getJarPathForClass(Runner.class);
         javaParams.getClassPath().add(jarPath);
         javaParams.setMainClass(MAIN_CLASS);
+        // Jetty XML - configured by the user
+        String jettyXmls = this.getJettyXmlPaths();
+        if(jettyXmls != null) {
+            javaParams.getProgramParametersList().addParametersString(jettyXmls);
+        }
         // Dynamic variables - working directory
         String basePath = project.getBasePath();
         javaParams.setWorkingDirectory(basePath);
@@ -60,11 +65,6 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         // Classes - configured by the user
         String classes = this.getClassesDirectory();
         javaParams.getProgramParametersList().addParametersString(classes);
-        // Jetty XML - configured by the user
-        String jettyXmls = this.getJettyXmlPaths();
-        if(jettyXmls != null) {
-            javaParams.getProgramParametersList().addParametersString(jettyXmls);
-        }
         // Port - configured by the user (default 8080)
         String port = this.getPort();
         javaParams.getProgramParametersList().addParametersString(port);
