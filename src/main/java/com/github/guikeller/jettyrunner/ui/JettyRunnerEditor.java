@@ -73,6 +73,8 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         }
         // Jetty XML (Optional)
         this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
+        // Vm Args (Optional)
+        this.configurationPanel.getVmArgsField().setText(jettyRunnerConfiguration.getVmArgs());
     }
 
     /**
@@ -87,6 +89,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         jettyRunnerConfiguration.setClassesDirectories(this.configurationPanel.getClassesField().getText());
         jettyRunnerConfiguration.setRunningOnPort(this.configurationPanel.getRunOnPortField().getText());
         jettyRunnerConfiguration.setJettyXml(this.configurationPanel.getXmlField().getText());
+        jettyRunnerConfiguration.setVmArgs(this.configurationPanel.getVmArgsField().getText());
         try {
             // Not entirely sure if 'I have' to do this - the IntelliJ framework may do
             jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX + UUID.randomUUID().toString()));

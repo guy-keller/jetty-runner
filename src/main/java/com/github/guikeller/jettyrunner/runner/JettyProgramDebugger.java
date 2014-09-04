@@ -19,10 +19,12 @@ import org.jetbrains.annotations.Nullable;
  */
 public class JettyProgramDebugger extends GenericDebuggerRunner {
 
+    // These are JVM 6 onwards hence the JVM6 as min requirement
     private static final String XDEBUG = "-Xdebug";
     private static final String JDWP = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=";
 
     private static final String LOCALHOST = "127.0.0.1";
+
 
     public JettyProgramDebugger(){
         super();
@@ -46,12 +48,12 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
                 throws ExecutionException {
         // Now we figure out if it the Debug button has been hit
         Executor executor = env.getExecutor();
-        // If it was the debug, then we do some extra magic
+        // If was the debug, then we do some extra magic
         if(executor instanceof DefaultDebugExecutor) {
             // Get hold of the JavaParameters
             JavaCommandLine javaCommandLine = (JavaCommandLine) state;
             JavaParameters javaParameters = javaCommandLine.getJavaParameters();
-            // Making the assumption that JVM is 6.0 onwards
+            // Making the assumption that it's JVM 6.0 onwards
             javaParameters.getVMParametersList().addParametersString(XDEBUG);
             // Debugger port
             String debuggerPort = DebuggerUtils.getInstance().findAvailableDebugAddress(true);
@@ -62,7 +64,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
             // Attaches the remote configuration to the VM and then starts it up
             return attachVirtualMachine(project, state, contentToReuse, env, connection, true);
         }else{
-            // If it was somethings else, then we don't do anything special
+            // If it was something else then we don't do anything special
             return super.createContentDescriptor(project,state,contentToReuse,env);
         }
     }
@@ -71,4 +73,5 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
     protected RunContentDescriptor doExecute(@NotNull Project project, @NotNull RunProfileState state, RunContentDescriptor contentToReuse, @NotNull ExecutionEnvironment env) throws ExecutionException {
         return super.doExecute(project, state, contentToReuse, env);
     }
+
 }

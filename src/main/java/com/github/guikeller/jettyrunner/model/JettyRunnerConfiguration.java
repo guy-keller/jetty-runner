@@ -27,14 +27,14 @@ import java.util.UUID;
  */
 public class JettyRunnerConfiguration extends LocatableConfigurationBase {
 
-    public static final String PREFIX = "JettyRunnerV04-";
+    public static final String PREFIX = "JettyRunnerV05-";
 
     private static final String WEBAPP_PATHS = PREFIX+"webappPaths";
     private static final String WEBAPP_FOLDERS = PREFIX+"webappFolders";
     private static final String CLASSES_DIRS = PREFIX+"classesDirectories";
     private static final String RUNNING_PORT = PREFIX+"runningOnPort";
-    private static final String DEBUGGER_PORT = PREFIX+"debuggerPort";
     private static final String JETTY_XML = PREFIX+"jettyXml";
+    private static final String VM_ARGS = PREFIX+"vmArgs";
 
     private String webappPaths;
     private String webappFolders;
@@ -42,6 +42,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
 
     private String runningOnPort;
     private String jettyXml;
+    private String vmArgs;
 
 
     public JettyRunnerConfiguration(Project project, ConfigurationFactory factory, String name) {
@@ -71,6 +72,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
         this.classesDirectories = storedValues.getValue(CLASSES_DIRS);
         this.runningOnPort = storedValues.getValue(RUNNING_PORT);
         this.jettyXml = storedValues.getValue(JETTY_XML);
+        this.vmArgs = storedValues.getValue(VM_ARGS);
     }
 
     @Override
@@ -84,6 +86,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
         storedValues.setValue(CLASSES_DIRS, this.classesDirectories);
         storedValues.setValue(RUNNING_PORT, this.runningOnPort);
         storedValues.setValue(JETTY_XML, this.jettyXml);
+        storedValues.setValue(VM_ARGS, this.vmArgs);
     }
 
     public JettyRunnerConfiguration clone(){
@@ -97,7 +100,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
             Project project = super.getProject();
             ConfigurationFactory factory = super.getFactory();
             RunConfiguration template = factory.createTemplateConfiguration(project);
-            // Copies the values by reading and returns the new configuration
+            // Copies the values by reading the previous conf and returns the new configuration
             JettyRunnerConfiguration configuration = (JettyRunnerConfiguration) template;
             configuration.setName(super.getName());
             configuration.readExternal(element);
@@ -148,6 +151,14 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
 
     public void setJettyXml(String jettyXml) {
         this.jettyXml = jettyXml;
+    }
+
+    public String getVmArgs() {
+        return vmArgs;
+    }
+
+    public void setVmArgs(String vmArgs) {
+        this.vmArgs = vmArgs;
     }
 
 }

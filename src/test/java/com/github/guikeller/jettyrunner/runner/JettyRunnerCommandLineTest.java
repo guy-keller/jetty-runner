@@ -65,4 +65,18 @@ public class JettyRunnerCommandLineTest {
         assertNotNull(port);
         assertEquals(" --port 8080 ",port);
     }
+
+    @Test
+    public void testGetVmArgs() {
+        JettyRunnerConfiguration conf = Mockito.mock(JettyRunnerConfiguration.class);
+        Mockito.when(conf.getVmArgs()).thenReturn("-Xms256m");
+
+        JettyRunnerCommandLine runner = Whitebox.newInstance(JettyRunnerCommandLine.class);
+        runner.setModel(conf);
+
+        String vmArgs = runner.getVmArgs();
+        assertNotNull(vmArgs);
+        assertEquals("-Xms256m",vmArgs);
+    }
+
 }

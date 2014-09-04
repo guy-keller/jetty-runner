@@ -5,6 +5,12 @@ A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
 This plugin should be Win / Mac / Linux compatible - min req: JVM6 <br>
 <br>
+<b>0.0.5</b> - Fifth release; <br>
+What's new: <br>
+<b>1)</b> Added the VM Args field to the conf panel - optional. <br>
+<b>2)</b> Bug fixing the jetty xml field/parameter, thanks to: tchudyk - github. <br>
+<b>3)</b> Tidied up the code and docs a bit more. <br>
+<br>
 <b>0.0.4</b> - Fourth release; <br>
 What's new: <br>
 <b>1)</b> More unit tests - important bits tested (some felt in the too hard basket). <br>

@@ -19,6 +19,16 @@ public class JettyRunnerConfPanel {
     private JTextField runOnPortField;
     private JTextField xmlField;
     private JButton browseButton;
+    private JTextField vmArgsField;
+    private JLabel spacerLabel;
+    private JLabel vmArgsLabel;
+    private JLabel firstMsgLabel;
+    private JLabel xmlLabel;
+    private JLabel runOnPortLabel;
+    private JLabel classesLabel;
+    private JLabel webappLabel;
+    private JLabel pathLabel;
+    private JLabel secondMsgLabel;
 
     public JettyRunnerConfPanel() {
         // Action executed when clicked on browse
@@ -68,6 +78,10 @@ public class JettyRunnerConfPanel {
 
     public JTextField getXmlField() {
         return xmlField;
+    }
+
+    public JTextField getVmArgsField() {
+        return vmArgsField;
     }
 
 }

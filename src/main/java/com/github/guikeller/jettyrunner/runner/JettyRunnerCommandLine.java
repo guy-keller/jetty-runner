@@ -68,6 +68,11 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         // Port - configured by the user (default 8080)
         String port = this.getPort();
         javaParams.getProgramParametersList().addParametersString(port);
+        // VM Args
+        String vmArgs = this.getVmArgs();
+        if(vmArgs != null) {
+            javaParams.getVMParametersList().addParametersString(vmArgs);
+        }
         // All done, run it
         return javaParams;
     }
@@ -167,6 +172,11 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
             return " --port "+runningOnPort+" ";
         }
         throw new IllegalArgumentException("Invalid port: "+runningOnPort);
+    }
+
+    protected String getVmArgs() {
+        String vmArgs = model.getVmArgs();
+        return vmArgs != null && !vmArgs.isEmpty() ? vmArgs : null;
     }
 
     public void setModel(JettyRunnerConfiguration model) {

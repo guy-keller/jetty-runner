@@ -38,6 +38,9 @@ public class JettyRunnerEditorTest {
         JTextField xmlField = Mockito.mock(JTextField.class);
         Mockito.when(confPanel.getXmlField()).thenReturn(xmlField);
 
+        JTextField vmArgsField = Mockito.mock(JTextField.class);
+        Mockito.when(confPanel.getVmArgsField()).thenReturn(vmArgsField);
+
         JettyRunnerEditor editor = Whitebox.newInstance(JettyRunnerEditor.class);
         editor.setConfigurationPanel(confPanel);
 
@@ -56,12 +59,14 @@ public class JettyRunnerEditorTest {
         Mockito.verify(confPanel, Mockito.times(1)).getWebappField();
         Mockito.verify(confPanel, Mockito.times(1)).getRunOnPortField();
         Mockito.verify(confPanel, Mockito.times(1)).getXmlField();
+        Mockito.verify(confPanel, Mockito.times(1)).getVmArgsField();
 
         Mockito.verify(classesField, Mockito.times(1)).getText();
         Mockito.verify(pathField, Mockito.times(1)).getText();
         Mockito.verify(webappField, Mockito.times(1)).getText();
         Mockito.verify(runOnPortField, Mockito.times(1)).getText();
         Mockito.verify(xmlField, Mockito.times(1)).getText();
+        Mockito.verify(vmArgsField, Mockito.times(1)).getText();
 
     }
 }
