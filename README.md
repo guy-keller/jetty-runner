@@ -12,7 +12,6 @@ What's new: <br>
 <b>3)</b> Tidied up the code and docs a bit more. <br>
 <br>
 <b>0.0.3</b> - Third release; <br>
-<br>
 What's new: <br>
 <b>1)</b> Run and Debug Configurations now work! <br>
 <b>2)</b> Internal code refactoring and documentation. <br>
@@ -20,18 +19,12 @@ What's new: <br>
 <b>4)</b> Some Unit Tests - a starting point. <br>
 <br>
 <b>0.0.2</b> - Second release; <br>
-<b>*Note</b>: Debugging is available through 'Remote', the port is configurable within the plugin.<br>
-<br>
 What's new:<br>
 <b>1)</b> Debugger port selector. <br>
 <b>2)</b> Better UI Layout. <br>
 <b>3)</b> Required values are automatically discovered and set!<br>
 <br>
-I'm going to start writing those unit tests, soon..<br>
-<br><br>
-<b>0.0.1</b> - First release; Uses jetty-runner-8.1.9 <br>
-<b>*Note</b>: Debugging is available through 'Remote', on port 5007.<br>
-<br>
+<b>0.0.1</b> - First release; Uses: <b>jetty-runner-8.1.9</b> <br>
 <br>
 <b>TODO:</b> <br>
 <b>1)</b> Debugger port selector; for now its fixed on 5007. [DONE]<br>
