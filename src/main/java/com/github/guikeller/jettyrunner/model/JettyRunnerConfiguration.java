@@ -4,12 +4,10 @@ import com.github.guikeller.jettyrunner.runner.JettyRunnerCommandLine;
 import com.github.guikeller.jettyrunner.ui.JettyRunnerEditor;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
-import com.intellij.execution.configurations.ConfigurationFactory;
-import com.intellij.execution.configurations.LocatableConfigurationBase;
-import com.intellij.execution.configurations.RunConfiguration;
-import com.intellij.execution.configurations.RunProfileState;
+import com.intellij.execution.configurations.*;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.ide.util.PropertiesComponent;
+import com.intellij.openapi.module.Module;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.InvalidDataException;
@@ -25,7 +23,7 @@ import java.util.UUID;
  * @see com.intellij.execution.configurations.LocatableConfigurationBase
  * @author Gui Keller
  */
-public class JettyRunnerConfiguration extends LocatableConfigurationBase {
+public class JettyRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
 
     public static final String PREFIX = "JettyRunnerV05-";
 
@@ -109,6 +107,11 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase {
             // I have no idea why this would happen
             throw new RuntimeException(e);
         }
+    }
+
+    @NotNull
+    public Module[] getModules() {
+        return new Module[0];
     }
 
     // Getters and Setters
