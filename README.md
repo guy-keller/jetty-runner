@@ -1,6 +1,18 @@
 Jetty-Runner
 ============
 
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="9UQK68THKAFHY">
+<input type="hidden" name="lc" value="NZ">
+<input type="hidden" name="item_name" value="IDEA Jetty Runner">
+<input type="hidden" name="item_number" value="JettyRunner">
+<input type="hidden" name="currency_code" value="NZD">
+<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
 A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
