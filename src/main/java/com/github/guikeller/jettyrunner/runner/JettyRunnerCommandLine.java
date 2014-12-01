@@ -11,7 +11,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.util.PathUtil;
 import org.jetbrains.annotations.NotNull;
-import org.mortbay.jetty.runner.Runner;
+import org.eclipse.jetty.runner.Runner;
+
 
 /**
  * Jetty Runner Command Line - Starts / Executes Jetty
@@ -44,7 +45,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         Module[] modules = ModuleManager.getInstance(project).getModules();
         if (modules != null && modules.length > 0) {
             for (Module module : modules) {
-                javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES_AND_TESTS);
+                javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
             }
         }
         // Dynamically adds the jetty-runner.jar to the classpath

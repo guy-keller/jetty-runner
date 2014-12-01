@@ -7,7 +7,7 @@
       <root url="jar://$PROJECT_DIR$/lib/mockito-all-1.9.5.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/objenesis-2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/powermock-mockito-1.5.5-full.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/mortbay-jetty-runner-8.1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-runner-9.2.5.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
