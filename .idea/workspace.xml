@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2e2c82b-0f9b-4b02-9a6f-a83cbece806a" name="Default" comment="Version 0.0.6&#10;&#10;Added the Make Before Launch and is now added by default.&#10;Tried to upgrade to eclipse-jetty-runner-9.2.3 with no success.&#10;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/mortbay-jetty-runner-8.1.9.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyRunnerCommandLine.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyRunnerCommandLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/README.txt" afterPath="$PROJECT_DIR$/lib/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jetty-runner.iml" afterPath="$PROJECT_DIR$/jetty-runner.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jetty_runner_libs.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jetty_runner_libs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="40ad330e-ea4f-432a-bc0b-e0abe770ec57" name="Revert: Version 0.3 - Refactoring, documentation and added libs to test. (bcb60e00254e53f763563cc4829173834b351ebb)" comment="" />
     <ignored path="jetty-runner.iws" />
@@ -37,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyRunnerCommandLine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7822178" vertical-offset="63" max-vertical-offset="3438">
-              <caret line="47" column="93" selection-start-line="47" selection-start-column="93" selection-end-line="47" selection-end-column="93" />
+              <caret line="47" column="83" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -842,7 +835,7 @@
       <changelist id="40ad330e-ea4f-432a-bc0b-e0abe770ec57" name="Revert: Version 0.3 - Refactoring, documentation and added libs to test. (bcb60e00254e53f763563cc4829173834b351ebb)" comment="" />
       <created>1405122519030</created>
       <updated>1405122519030</updated>
-      <workItem from="1417441054504" duration="926000" />
+      <workItem from="1417441054504" duration="1024000" />
     </task>
     <task id="LOCAL-00001" summary="Removing the .idea folder from the gitignore.">
       <created>1405832729722</created>
@@ -904,7 +897,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="926000" />
+    <option name="totallyTimeSpent" value="1024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1918" y="-3" width="1924" height="1172" extended-state="7" />
@@ -1361,7 +1354,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyRunnerCommandLine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7822178" vertical-offset="63" max-vertical-offset="3438">
-          <caret line="47" column="93" selection-start-line="47" selection-start-column="93" selection-end-line="47" selection-end-column="93" />
+          <caret line="47" column="83" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

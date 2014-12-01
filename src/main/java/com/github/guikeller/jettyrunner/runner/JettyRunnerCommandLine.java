@@ -45,7 +45,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         Module[] modules = ModuleManager.getInstance(project).getModules();
         if (modules != null && modules.length > 0) {
             for (Module module : modules) {
-                javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES_AND_TESTS);
+                javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
             }
         }
         // Dynamically adds the jetty-runner.jar to the classpath
