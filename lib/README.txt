@@ -1,2 +1,2 @@
-mortbay-jetty-runner-8.1.9 = jetty-runner-8.1.9.v20130131.jar
-http://central.maven.org/maven2/org/mortbay/jetty/jetty-runner/8.1.9.v20130131/
+jetty-runner-9.2.5 = jetty-runner-9.2.5.v20141112.jar
+http://central.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.2.5.v20141112/
