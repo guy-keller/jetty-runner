@@ -4,18 +4,24 @@ A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 [Found the pluging useful? Make a donation!](https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc) <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
-This plugin should be Win / Mac / Linux compatible - min req: JVM6 <br>
+This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
 <br>
-*Known limitations:<br> 
-<b>1)</b> Your project will have to use the <i>servlet-api-2.5</i>
+*Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
+Many thanks for the kind contributions on github, cheers guys! <br>
 <br>
+<br>
+<b>0.0.7</b> Seventh release - dcritchl; <br>
+What's new: <br>
+<b>1)</b> Switched from jetty-runner-8.1.9 (servlet-api-2.5) to jetty-runner-9.2.5 (servlet-api-3.1). <br>
+<b>2)</b> Fixed a bug where test classes and resources were being added to Jetty's classpath. <br>
+<b>3)</b> Updated documentation and requirements for version 0.0.7 <br>
 <br>
 <b>0.0.6</b> - Sixth release; <br>
 What's new: <br>
 <b>1)</b> Added build before launch as requested. <br>
 <b>2)</b> Added known limitations and more info around jetty. <br>
 <br>
-<b>0.0.5</b> - Fifth release; <br>
+<b>0.0.5</b> - Fifth release - tchudyk; <br>
 What's new: <br>
 <b>1)</b> Added the VM Args field to the conf panel - optional. <br>
 <b>2)</b> Bug fixing the jetty xml field/parameter, thanks to: tchudyk - github. <br>
