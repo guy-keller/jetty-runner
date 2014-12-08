@@ -6,8 +6,8 @@ A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
 This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
 <br>
-*Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
-Many thanks for the kind contributions on github, cheers guys! <br>
+Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
+Many thanks for the kind contributions on GitHub, cheers guys! <br>
 <br>
 <br>
 <b>0.0.7</b> Seventh release - dcritchl; <br>
