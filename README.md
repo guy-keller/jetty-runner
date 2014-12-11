@@ -53,6 +53,8 @@ What's new:<br>
 <b>2)</b> Figure out why the debugger doesn't work out of the box; JetBrains? [DONE]<br>
 <b>3)</b> Better UI Layout- BoxLayout is not the greatest; GridBag? [DONE]<br>
 <b>4)</b> Unit Tests - Important bits.[DONE]<br>
-<b>5)</b> Improvements around the known limitations [?] (pull-requests are welcome)<br>
+<b>5)</b> Improvements around the known limitations [DONE]<br>
+<b>6)</b> Bug fixes [Ongoing]<br>
+Pull requests are welcome.<br>
 <br>
 Thanks for dropping by.<br/>
