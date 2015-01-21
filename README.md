@@ -10,6 +10,13 @@ Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>
 Many thanks for the kind contributions on GitHub, cheers guys! <br>
 <br>
 <br>
+<b>0.0.8</b> Eighth release; <br>
+What's new: <br>
+<b>1)</b> New transparent icon. <br>
+<b>2)</b> Refactoring to support IDEA 14. <br>
+<b>3)</b> Corrected an error message - spelling mistake. <br>
+<b>4)</b> Updated documentation and requirements for version 0.0.8 <br>
+<br>
 <b>0.0.7</b> Seventh release - dcritchl; <br>
 What's new: <br>
 <b>1)</b> Switched from jetty-runner-8.1.9 (servlet-api-2.5) to jetty-runner-9.2.5 (servlet-api-3.1). <br>

@@ -10,8 +10,8 @@ import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.util.PathUtil;
-import org.jetbrains.annotations.NotNull;
 import org.eclipse.jetty.runner.Runner;
+import org.jetbrains.annotations.NotNull;
 
 
 /**
@@ -114,7 +114,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
             }
             return value.toString();
         }
-        throw new IllegalArgumentException("Number of Path(s) and Folder(s) must math: "+paths+" / "+folders);
+        throw new IllegalArgumentException("Number of Path(s) and Folder(s) must match: "+paths+" / "+folders);
     }
 
     /**

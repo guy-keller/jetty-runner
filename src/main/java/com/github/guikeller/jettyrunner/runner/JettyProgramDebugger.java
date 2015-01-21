@@ -44,7 +44,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
 
     @Nullable
     @Override
-    protected RunContentDescriptor createContentDescriptor(Project project, RunProfileState state, RunContentDescriptor contentToReuse, ExecutionEnvironment env)
+    protected RunContentDescriptor createContentDescriptor(RunProfileState state, ExecutionEnvironment env)
                 throws ExecutionException {
         // Now we figure out if it the Debug button has been hit
         Executor executor = env.getExecutor();
@@ -62,10 +62,10 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
             // Creating a 'Remote' configuration on the fly
             RemoteConnection connection = new RemoteConnection(true, LOCALHOST, debuggerPort, false);
             // Attaches the remote configuration to the VM and then starts it up
-            return attachVirtualMachine(project, state, contentToReuse, env, connection, true);
+            return super.attachVirtualMachine(state, env, connection, true);
         }else{
             // If it was something else then we don't do anything special
-            return super.createContentDescriptor(project,state,contentToReuse,env);
+            return super.createContentDescriptor(state, env);
         }
     }
 
