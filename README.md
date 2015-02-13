@@ -1,7 +1,7 @@
 Jetty-Runner
 ============
 A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
-[Did you find the plugin useful? Make a donation!](https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc){:target="_blank"} <br>
+<a href="https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc" target="_blank">Did you find the plugin useful? Make a donation!</a> <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
 This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
