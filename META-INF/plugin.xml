@@ -1,12 +1,12 @@
 <idea-plugin version="2">
   <id>JettyRunner-GK</id>
   <name>IDEA Jetty Runner</name>
-  <version>0.0.8</version>
+  <version>0.0.9</version>
   <vendor email="guikeller@gmail.com" url="https://github.com/guikeller/jetty-runner">IntelliJ Jetty Runner</vendor>
 
   <description><![CDATA[
       A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
-      <a href="https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc">Found the pluging useful? Make a donation!</a> <br>
+      <a href="https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc" target="_blank">Did you find the plugin useful? Make a donation!</a> <br>
       <br>
       If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
       This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
@@ -18,6 +18,14 @@
     ]]></description>
 
   <change-notes><![CDATA[
+<b>0.0.9</b> Ninth release; <br>
+What's new: <br>
+<b>1)</b> Changed the colour of the donation link in the configuration window. <br>
+<b>2)</b> Corrected some spelling mistakes / wording. <br>
+<b>3)</b> Bumped to version v0.0.9 <br>
+The plugin seems pretty stable, I will wait a bit before bumping to v1.0.0<br>
+Many thanks for all the contributions and bug reports on GitHub. Cheers!<br>
+<br>
 <b>0.0.8</b> Eighth release; <br>
 What's new: <br>
 <b>1)</b> New transparent icon. <br>

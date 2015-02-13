@@ -210,8 +210,7 @@
               <forms defaultalign-horz="false"/>
             </constraints>
             <properties>
-              <foreground color="-16776961"/>
-              <text value="Click Here to Make a Donation"/>
+              <text value="Did you find the plugin useful? Click here to make a donation!"/>
               <toolTipText value="Click Here to Make a Donation"/>
             </properties>
           </component>

@@ -25,7 +25,7 @@ import java.util.UUID;
  */
 public class JettyRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
 
-    public static final String PREFIX = "JettyRunnerV008-";
+    public static final String PREFIX = "JettyRunnerV009-";
 
     private static final String WEBAPP_PATHS = PREFIX+"webappPaths";
     private static final String WEBAPP_FOLDERS = PREFIX+"webappFolders";

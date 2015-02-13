@@ -1,7 +1,7 @@
 Jetty-Runner
 ============
 A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
-[Found the pluging useful? Make a donation!](https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc) <br>
+[Did you find the plugin useful? Make a donation!](https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc){:target="_blank"} <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
 This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
@@ -9,6 +9,14 @@ This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
 Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
 Many thanks for the kind contributions on GitHub, cheers guys! <br>
 <br>
+<br>
+<b>0.0.9</b> Ninth release; <br>
+What's new: <br>
+<b>1)</b> Changed the colour of the donation link in the configuration window. <br>
+<b>2)</b> Corrected some spelling mistakes / wording. <br>
+<b>3)</b> Links now open in a new window or tab. <br>
+The plugin seems pretty stable, I will wait a bit before bumping to v1.0.0<br>
+Many thanks for all the contributions and bug reports on GitHub. Cheers!<br>
 <br>
 <b>0.0.8</b> Eighth release; <br>
 What's new: <br>
@@ -61,7 +69,7 @@ What's new:<br>
 <b>3)</b> Better UI Layout- BoxLayout is not the greatest; GridBag? [DONE]<br>
 <b>4)</b> Unit Tests - Important bits.[DONE]<br>
 <b>5)</b> Improvements around the known limitations [DONE]<br>
-<b>6)</b> Bug fixes [Ongoing]<br>
+<b>6)</b> Bug fixes other improvements [Ongoing]<br>
 Pull requests are welcome.<br>
 <br>
 Thanks for dropping by.<br/>
