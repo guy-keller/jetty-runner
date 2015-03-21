@@ -10,6 +10,11 @@ Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>
 Many thanks for the kind contributions on GitHub, cheers guys! <br>
 <br>
 <br>
+<b>1.0.0</b> The Big 1.0! <br>
+What's new: <br>
+<b>1)</b> Fixed a bug where changing the running port does not take effect - GitHub Issue #8 <br>
+<b>2)</b> Bumped configuration to version v1.0.0 <br>
+<br>
 <b>0.0.9</b> Ninth release; <br>
 What's new: <br>
 <b>1)</b> Changed the colour of the donation link in the configuration window. <br>
