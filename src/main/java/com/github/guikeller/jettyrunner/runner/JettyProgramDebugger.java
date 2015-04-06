@@ -32,7 +32,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
 
     @NotNull
     public String getRunnerId() {
-        return "JettyRunner-By-GuiKeller";
+        return "JettyDebugger-By-GuiKeller";
     }
 
     public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
