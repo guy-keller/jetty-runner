@@ -9,6 +9,15 @@ This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
 Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
 Many thanks for the kind contributions on GitHub, cheers guys! <br>
 <br>
+<b>Features: <br>
+1) Required values are automatically discovered and set.<br>
+2) Run and Debug - out of the box.<br>
+3) User friendly UI - created using IntelliJ.<br>
+4) Internal code is documented and it is relatively easy to follow / read.<br>
+5) A good coverage of unit tests.<br>
+6) Uses jetty-runner-9.2.5<br>
+</b>
+<br>
 <br>
 <b>1.0.0</b> The Big 1.0! <br>
 What's new: <br>
@@ -71,10 +80,10 @@ What's new:<br>
 <b>TODO:</b> <br>
 <b>1)</b> Debugger port selector; for now its fixed on 5007. [DONE]<br>
 <b>2)</b> Figure out why the debugger doesn't work out of the box; JetBrains? [DONE]<br>
-<b>3)</b> Better UI Layout- BoxLayout is not the greatest; GridBag? [DONE]<br>
+<b>3)</b> Better UI Layout - BoxLayout is not the greatest; GridBag? [DONE]<br>
 <b>4)</b> Unit Tests - Important bits.[DONE]<br>
 <b>5)</b> Improvements around the known limitations [DONE]<br>
-<b>6)</b> Bug fixes other improvements [Ongoing]<br>
+<b>6)</b> Bug fixes; other improvements [Ongoing]<br>
 Pull requests are welcome.<br>
 <br>
 Thanks for dropping by.<br/>
