@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * Jetty Program Debugger - Jetty Runner on Debug mode or Normal mode
+ * @see com.intellij.debugger.impl.GenericDebuggerRunner
  * @author Gui Keller
  */
 public class JettyProgramDebugger extends GenericDebuggerRunner {
@@ -30,22 +31,25 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
         super();
     }
 
+    @Override
     @NotNull
     public String getRunnerId() {
         return "JettyRunner-By-GuiKeller";
     }
 
+    @Override
     public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
+        // It can only run JettyRunnerConfigurations
         if(!(runProfile instanceof JettyRunnerConfiguration)){
             return false;
         }
         return true;
     }
 
-    @Nullable
     @Override
+    @Nullable
     protected RunContentDescriptor createContentDescriptor(RunProfileState state, ExecutionEnvironment env)
-                throws ExecutionException {
+            throws ExecutionException {
         // Now we figure out if it the Debug button has been hit
         Executor executor = env.getExecutor();
         // If was the debug, then we do some extra magic
@@ -53,7 +57,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
             // Get hold of the JavaParameters
             JavaCommandLine javaCommandLine = (JavaCommandLine) state;
             JavaParameters javaParameters = javaCommandLine.getJavaParameters();
-            // Making the assumption that it's JVM 6.0 onwards
+            // Making the assumption that it's JVM 7 onwards
             javaParameters.getVMParametersList().addParametersString(XDEBUG);
             // Debugger port
             String debuggerPort = DebuggerUtils.getInstance().findAvailableDebugAddress(true);

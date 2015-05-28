@@ -1,6 +1,5 @@
 package com.github.guikeller.jettyrunner.model;
 
-import com.github.guikeller.jettyrunner.runner.JettyRunnerCommandLine;
 import com.github.guikeller.jettyrunner.ui.JettyRunnerEditor;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
@@ -25,13 +24,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Jetty Runner Configuration - Model
+ * Jetty Runner Configuration - UI Model
  * @see com.intellij.execution.configurations.LocatableConfigurationBase
  * @author Gui Keller
  */
 public class JettyRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
 
-    public static final String PREFIX = "JettyRunnerV111-";
+    public static final String PREFIX = "JettyRunnerV112-";
     public static final String WEBAPP_PATH_FIELD = PREFIX + "WebAppPath";
     public static final String WEBAPP_FOLDER_FIELD = PREFIX + "WebAppFolder";
     public static final String CLASSES_DIRECTORY_FIELD = PREFIX + "ClassesDirectory";
@@ -59,13 +58,17 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
         this.project = project;
     }
 
+    @Override
     @NotNull
     public SettingsEditor<JettyRunnerConfiguration> getConfigurationEditor() {
+        // Instantiates a new UI (Conf Window)
         return new JettyRunnerEditor(this);
     }
 
+    @Override
     @Nullable
     public RunProfileState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment executionEnvironment) throws ExecutionException {
+        // Runner Model
         return new JettyRunnerCommandLine(executionEnvironment, this);
     }
 
@@ -102,6 +105,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
         }
     }
 
+    @Override
     @NotNull
     public Module[] getModules() {
         ModuleManager moduleManager = ModuleManager.getInstance(this.project);

@@ -18,8 +18,6 @@ import java.net.URL;
  */
 public class JettyRunnerConfPanel {
 
-    private static final String DONATION_URL = "https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc";
-
     private JPanel mainPanel;
     private JTextField pathField;
     private JTextField webappField;
@@ -38,11 +36,10 @@ public class JettyRunnerConfPanel {
     private JLabel webappLabel;
     private JLabel pathLabel;
     private JLabel secondMsgLabel;
-    private JLabel donationLabel;
     private JLabel envVarLabel;
 
     public JettyRunnerConfPanel() {
-        // Action executed when clicked on browse
+        // Action executed when clicked on "Browse XML"
         browseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Shows a file chooser
@@ -62,18 +59,6 @@ public class JettyRunnerConfPanel {
                         String value = paths.substring(0, (paths.length() - 1));
                         xmlField.setText(value);
                     }
-                }
-            }
-        });
-        // Action executed when clicked on Make a Donation
-        donationLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        donationLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URL(DONATION_URL).toURI());
-                }catch(Exception ex){
-                    throw new RuntimeException("Please try accessing: "+DONATION_URL, ex);
                 }
             }
         });

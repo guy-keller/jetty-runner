@@ -1,14 +1,15 @@
-package com.github.guikeller.jettyrunner.runner;
+package com.github.guikeller.jettyrunner.model;
 
-import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.Assert.*;
 
 @RunWith(PowerMockRunner.class)
 public class JettyRunnerCommandLineTest {
@@ -24,7 +25,7 @@ public class JettyRunnerCommandLineTest {
 
         String webAppPath = runner.getWebAppPath();
         assertNotNull(webAppPath);
-        assertEquals(" --path /Test C:\\path\\to\\test\\webapp ", webAppPath);
+        assertEquals(" --path /Test C:/path/to/test/webapp ", webAppPath);
     }
 
     @Test
@@ -37,7 +38,7 @@ public class JettyRunnerCommandLineTest {
 
         String classesDirectory = runner.getClassesDirectory();
         assertNotNull(classesDirectory);
-        assertEquals(" --classes C:\\path\\to\\test\\bin ",classesDirectory);
+        assertEquals(" --classes C:/path/to/test/bin ",classesDirectory);
     }
 
     @Test
@@ -50,7 +51,7 @@ public class JettyRunnerCommandLineTest {
 
         String xmlPaths = runner.getJettyXmlPaths();
         assertNotNull(xmlPaths);
-        assertEquals(" --config C:\\path\\to\\test\\xml ",xmlPaths);
+        assertEquals(" --config C:/path/to/test/xml ",xmlPaths);
     }
 
     @Test
@@ -77,6 +78,39 @@ public class JettyRunnerCommandLineTest {
         String vmArgs = runner.getVmArgs();
         assertNotNull(vmArgs);
         assertEquals("-Xms256m",vmArgs);
+    }
+
+    @Test
+    public void testGetEnvVars() {
+        Map<String, String> envVar = new HashMap<String, String>(0);
+        envVar.put("KEY", "VALUE");
+
+        JettyRunnerConfiguration conf = Mockito.mock(JettyRunnerConfiguration.class);
+        Mockito.when(conf.getEnvironmentVariables()).thenReturn(envVar);
+
+        JettyRunnerCommandLine runner = Whitebox.newInstance(JettyRunnerCommandLine.class);
+        runner.setModel(conf);
+
+        Map<String, String> envVars = runner.getEnvVars();
+        assertNotNull(envVars);
+        assertEquals(1, envVars.size());
+        assertEquals("KEY", envVars.keySet().iterator().next());
+        assertEquals("VALUE", envVars.values().iterator().next());
+    }
+
+    @Test
+    public void testIsPassParentEnvVars() {
+        JettyRunnerConfiguration conf = Mockito.mock(JettyRunnerConfiguration.class);
+        Mockito.when(conf.isPassParentEnvironmentVariables()).thenReturn(true, false);
+
+        JettyRunnerCommandLine runner = Whitebox.newInstance(JettyRunnerCommandLine.class);
+        runner.setModel(conf);
+
+        boolean value1 = runner.isPassParentEnvironmentVariables();
+        assertTrue(value1);
+
+        boolean value2 = runner.isPassParentEnvironmentVariables();
+        assertFalse(value2);
     }
 
 }

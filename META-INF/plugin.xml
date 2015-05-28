@@ -1,37 +1,39 @@
 <idea-plugin version="2">
-  <id>JettyRunner-GK</id>
-  <name>IDEA Jetty Runner</name>
-  <version>1.1.1</version>
-  <vendor email="guikeller@gmail.com" url="https://github.com/guikeller/jetty-runner">IntelliJ Jetty Runner</vendor>
+    <id>JettyRunner-GK</id>
+    <name>IDEA Jetty Runner</name>
+    <version>1.1.2</version>
+    <vendor email="guikeller@gmail.com" url="https://github.com/guikeller/jetty-runner">IntelliJ Jetty Runner</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
-      <a href="https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc" target="_blank">Did you find the plugin useful? Make a donation!</a> <br>
       <br>
       If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
       This plugin should be Win / Mac / Linux compatible. <br>
       <br>
       Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
       Many thanks for the kind contributions on GitHub, cheers guys! <br>
-      Minimum requirement: JVM / JDK / JRE v7 <br>
       <br>
-      tags: jetty, container, webapp, runner, tomcat
+      Minimum requirement: JVM / JDK / JRE v7 <br>
+      tags: jetty, container, webapp, runner, tomcat, runner
     ]]></description>
 
-  <change-notes><![CDATA[
-Head over to <a href="https://github.com/guikeller/jetty-runner" target="_blank">GitHub</a> to see the latest change notes. <br>
+    <change-notes><![CDATA[
+Head over to <a href="https://github.com/guikeller/jetty-runner" target="_blank">GitHub</a> to see the latest change notes and learn more about this plugin. <br>
 Thanks for dropping by.
     ]]>
-  </change-notes>
+    </change-notes>
 
-  <idea-version since-build="131"/>
+    <idea-version since-build="131"/>
 
-  <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.lang</depends>
 
-  <extensions defaultExtensionNs="com.intellij">
-      <configurationType implementation="com.github.guikeller.jettyrunner.conf.JettyRunnerConfigurationType" />
-      <programRunner id="Run" implementation="com.github.guikeller.jettyrunner.runner.JettyProgramRunner" order="first"/>
-      <programRunner id="Debug" implementation="com.github.guikeller.jettyrunner.runner.JettyProgramDebugger" order="last" />
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Initialises the UI when the user selects the plugin from the menu -->
+        <configurationType implementation="com.github.guikeller.jettyrunner.conf.JettyRunnerConfigurationType"/>
+        <!-- Run - It reads the values written by the UI and spawns a new process that runs Jetty -->
+        <programRunner id="Run" implementation="com.github.guikeller.jettyrunner.runner.JettyProgramRunner" order="first"/>
+        <!-- Debug - same as run but stops on breakpoints, you get the idea -->
+        <programRunner id="Debug" implementation="com.github.guikeller.jettyrunner.runner.JettyProgramDebugger" order="last"/>
+    </extensions>
 
 </idea-plugin>

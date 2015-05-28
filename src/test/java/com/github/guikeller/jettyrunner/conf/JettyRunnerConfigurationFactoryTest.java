@@ -13,6 +13,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JettyRunnerConfiguration.class, IconUtil.class})
@@ -27,5 +28,6 @@ public class JettyRunnerConfigurationFactoryTest {
         Project project = Mockito.mock(Project.class);
         RunConfiguration configuration = factory.createTemplateConfiguration(project);
         assertNotNull(configuration);
+        assertTrue(factory.isConfigurationSingletonByDefault());
     }
 }

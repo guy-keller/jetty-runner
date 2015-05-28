@@ -10,6 +10,7 @@ import java.net.URL;
 public class IconUtil {
 
     private static final IconUtil INSTANCE = new IconUtil();
+    private static final Icon ICON = loadIcon();
 
     private IconUtil(){
         super();
@@ -19,9 +20,13 @@ public class IconUtil {
         return INSTANCE;
     }
 
-    public Icon getIcon(){
+    protected static Icon loadIcon() {
         URL resource = INSTANCE.getClass().getResource("/jetty-icon.png");
         return new ImageIcon(resource);
+    }
+
+    public Icon getIcon(){
+        return ICON;
     }
 
 }

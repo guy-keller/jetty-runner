@@ -23,6 +23,7 @@ public class JettyRunnerConfigurationFactory extends ConfigurationFactory {
         return new JettyRunnerConfiguration(project, this, "Jetty Runner");
     }
 
+    @Override
     public boolean isConfigurationSingletonByDefault() {
         return true;
     }

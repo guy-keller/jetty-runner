@@ -18,23 +18,28 @@ public class JettyRunnerConfigurationType implements ConfigurationType {
         super();
     }
 
+    @Override
     public String getDisplayName() {
         return "Jetty Runner";
     }
 
+    @Override
     public String getConfigurationTypeDescription() {
         return "IntelliJ IDEA Jetty Runner";
     }
 
+    @Override
     public Icon getIcon() {
         return IconUtil.getInstance().getIcon();
     }
 
+    @Override
     @NotNull
     public String getId() {
         return "JettyRunner-By-GuiKeller";
     }
 
+    @Override
     public ConfigurationFactory[] getConfigurationFactories() {
         JettyRunnerConfigurationFactory factory = new JettyRunnerConfigurationFactory(this);
         return new ConfigurationFactory[]{factory};

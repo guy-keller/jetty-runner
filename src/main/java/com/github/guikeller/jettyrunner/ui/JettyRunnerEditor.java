@@ -103,8 +103,9 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         jettyRunnerConfiguration.setVmArgs(this.configurationPanel.getVmArgsField().getText());
         jettyRunnerConfiguration.setPassParentEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().isPassParentEnvs());
         // Deals with adding / removing env vars before saving to the conf file
-        addOrRemoveEnvVar(jettyRunnerConfiguration.getEnvironmentVariables(), this.configurationPanel.getEnvironmentVariables().getEnvs());
-        jettyRunnerConfiguration.setEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().getEnvs());
+        Map<String, String> envVars = this.configurationPanel.getEnvironmentVariables().getEnvs();
+        addOrRemoveEnvVar(jettyRunnerConfiguration.getEnvironmentVariables(), envVars);
+        jettyRunnerConfiguration.setEnvironmentVariables(envVars);
         try {
             // Not entirely sure if 'I have' to do this - the IntelliJ framework may do
             jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX + UUID.randomUUID().toString()));
@@ -175,16 +176,19 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
      * @param newVars Map<String,String>
      */
     private void addOrRemoveEnvVar(Map<String, String> currentVars, Map<String, String> newVars){
-        if(!currentVars.isEmpty()) {
+        // Removes the current env vars
+        if(currentVars !=null && !currentVars.isEmpty()) {
             Set<String> keys = currentVars.keySet();
             for (String key : keys) {
                 System.clearProperty(key);
             }
         }
-        if(!newVars.isEmpty()){
+        // Adds the new env vars
+        if(newVars != null && !newVars.isEmpty()){
             Set<String> keys = newVars.keySet();
             for(String key : keys) {
-                System.setProperty(key, newVars.get(key));
+                String value = newVars.get(key);
+                System.setProperty(key, value);
             }
         }
     }

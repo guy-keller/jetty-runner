@@ -1,13 +1,15 @@
 Jetty-Runner
 ============
 A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
-<a href="https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc" target="_blank">Did you find the plugin useful? Make a donation!</a> <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
-This plugin should be Win / Mac / Linux compatible - min req: JVM / JDK / JRE v7 <br>
+This plugin should be Win / Mac / Linux compatible. <br>
 <br>
 Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
 Many thanks for the kind contributions here on GitHub, cheers guys! <br>
+<br>
+Minimum requirement: JVM / JDK / JRE v7 <br>
+tags: jetty, container, webapp, runner, tomcat, runner
 <br>
 <b>Features: <br>
 1) Required values are automatically discovered and set.<br>
@@ -15,11 +17,16 @@ Many thanks for the kind contributions here on GitHub, cheers guys! <br>
 3) User friendly UI - created using IntelliJ.<br>
 4) Internal code is documented and it is relatively easy to follow / read.<br>
 5) A good coverage of unit tests.<br>
-6) Uses jetty-runner-9.2.5<br>
-</b>
+6) Uses jetty-runner-9.2.5</b> <br>
 <br>
 <br>
-<b>1.1.1</b> Leafs Falling <br>
+<b>1.1.2</b> Leaves Falling - Tidy Up! <br>
+What's new: <br>
+<b>1)</b> Internal code refactoring, updated tests, updated documentation, added a license (MIT). <br>
+<b>2)</b> Removed donation links, if you're interested in making a donation contact me. <br>
+<br>
+<br>
+<b>1.1.1</b> Leaves Falling <br>
 What's new: <br>
 <b>1)</b> Fixed bug around saving configurations - GitHub Issue #12 <br>
 <b>2)</b> Added new feature, env vars - GitHub Issue #13 <br>

@@ -1,6 +1,7 @@
 package com.github.guikeller.jettyrunner.ui;
 
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
+import com.intellij.execution.configuration.EnvironmentVariablesComponent;
 import org.jdom.Element;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,6 +42,9 @@ public class JettyRunnerEditorTest {
         JTextField vmArgsField = Mockito.mock(JTextField.class);
         Mockito.when(confPanel.getVmArgsField()).thenReturn(vmArgsField);
 
+        EnvironmentVariablesComponent environmentVariables = Mockito.mock(EnvironmentVariablesComponent.class);
+        Mockito.when(confPanel.getEnvironmentVariables()).thenReturn(environmentVariables);
+
         JettyRunnerEditor editor = Whitebox.newInstance(JettyRunnerEditor.class);
         editor.setConfigurationPanel(confPanel);
 
@@ -60,6 +64,7 @@ public class JettyRunnerEditorTest {
         Mockito.verify(confPanel, Mockito.times(1)).getRunOnPortField();
         Mockito.verify(confPanel, Mockito.times(1)).getXmlField();
         Mockito.verify(confPanel, Mockito.times(1)).getVmArgsField();
+        Mockito.verify(confPanel, Mockito.times(2)).getEnvironmentVariables();
 
         Mockito.verify(classesField, Mockito.times(1)).getText();
         Mockito.verify(pathField, Mockito.times(1)).getText();
@@ -67,6 +72,8 @@ public class JettyRunnerEditorTest {
         Mockito.verify(runOnPortField, Mockito.times(1)).getText();
         Mockito.verify(xmlField, Mockito.times(1)).getText();
         Mockito.verify(vmArgsField, Mockito.times(1)).getText();
+        Mockito.verify(environmentVariables, Mockito.times(1)).getEnvs();
+        Mockito.verify(environmentVariables, Mockito.times(1)).isPassParentEnvs();
 
     }
 }

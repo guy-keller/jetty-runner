@@ -1,6 +1,5 @@
 package com.github.guikeller.jettyrunner.model;
 
-import com.github.guikeller.jettyrunner.runner.JettyRunnerCommandLine;
 import com.github.guikeller.jettyrunner.ui.JettyRunnerEditor;
 import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.RunProfileState;

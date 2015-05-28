@@ -31,8 +31,6 @@
         <rowspec value="center:max(d;4px):noGrow"/>
         <rowspec value="top:4dlu:noGrow"/>
         <rowspec value="center:max(d;4px):noGrow"/>
-        <rowspec value="top:3dlu:noGrow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
         <colspec value="fill:d:noGrow"/>
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:d:grow"/>
@@ -41,7 +39,7 @@
           <forms/>
         </constraints>
         <properties>
-          <toolTipText value="@author: Gui Keller"/>
+          <toolTipText value="Support the project by giving it a Star on GitHub or making a donation."/>
         </properties>
         <border type="none" title="Jetty Runner - Run Jetty Run"/>
         <children>
@@ -51,7 +49,7 @@
               <forms defaultalign-horz="false"/>
             </constraints>
             <properties>
-              <text value="Welcome to Jetty Runner - feel free to change the default configuration."/>
+              <text value="Jetty Runner - feel free to change the default configuration values."/>
             </properties>
           </component>
           <component id="ba705" class="javax.swing.JLabel" binding="secondMsgLabel">
@@ -186,16 +184,6 @@
               <toolTipText value=""/>
             </properties>
           </component>
-          <component id="92730" class="javax.swing.JLabel" binding="donationLabel">
-            <constraints>
-              <grid row="22" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <forms defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <text value="Did you find the plugin useful? Click here to make a donation!"/>
-              <toolTipText value="Click Here to Make a Donation"/>
-            </properties>
-          </component>
           <component id="c3534" class="com.intellij.execution.configuration.EnvironmentVariablesComponent" binding="environmentVariables">
             <constraints>
               <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -203,6 +191,7 @@
             </constraints>
             <properties>
               <text value=""/>
+              <toolTipText value="Warning: Experimental feature, use with extreme caution."/>
             </properties>
           </component>
           <component id="a4aff" class="javax.swing.JLabel" binding="vmArgsLabel">
@@ -232,7 +221,7 @@
             </constraints>
             <properties>
               <text value="Env Vars:"/>
-              <toolTipText value="Warning: Use with extreme caution"/>
+              <toolTipText value="Warning: Experimental feature, use with extreme caution."/>
             </properties>
           </component>
         </children>

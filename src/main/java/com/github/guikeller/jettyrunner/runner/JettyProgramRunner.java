@@ -27,12 +27,15 @@ public class JettyProgramRunner extends DefaultProgramRunner {
         return "JettyRunner-By-GuiKeller";
     }
 
+    @Override
     public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
+        // It can only run JettyRunnerConfigurations
         if(!(runProfile instanceof JettyRunnerConfiguration)){
             return false;
         }
         // Values passed are: Run or Debug
         if(!RUN.equals(value)) {
+            // Fallback on the JettyProgramDebugger
             return false;
         }
         return true;
