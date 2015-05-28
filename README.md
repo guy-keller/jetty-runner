@@ -89,5 +89,4 @@ What's new:<br>
 <b>0.0.1</b> - First release; Uses: <b>jetty-runner-8.1.9</b> (jetty-7.6.13)<br>
 <br>
 Pull requests are welcome.<br>
-<br>
 Thanks for dropping by.<br/>
