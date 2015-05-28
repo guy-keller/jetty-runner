@@ -13,6 +13,9 @@ import com.intellij.util.PathUtil;
 import org.eclipse.jetty.runner.Runner;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Map;
+import java.util.Set;
+
 
 /**
  * Jetty Runner Command Line - Starts / Executes Jetty
@@ -73,6 +76,18 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         String vmArgs = this.getVmArgs();
         if(vmArgs != null) {
             javaParams.getVMParametersList().addParametersString(vmArgs);
+        }
+        // Env Vars
+        Map<String, String> environmentVariables = model.getEnvironmentVariables();
+        if(environmentVariables != null && !environmentVariables.isEmpty()) {
+            // The below should work, but does not
+            boolean passParentEnvironmentVariables = model.isPassParentEnvironmentVariables();
+            javaParams.setupEnvs(environmentVariables, passParentEnvironmentVariables);
+            // This is a workaround for the problem above..
+            Set<String> keys = environmentVariables.keySet();
+            for(String key : keys) {
+                javaParams.getVMParametersList().addProperty(key, environmentVariables.get(key));
+            }
         }
         // All done, run it
         return javaParams;

@@ -1,5 +1,7 @@
 package com.github.guikeller.jettyrunner.ui;
 
+import com.intellij.execution.configuration.EnvironmentVariablesComponent;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,6 +28,7 @@ public class JettyRunnerConfPanel {
     private JTextField xmlField;
     private JButton browseButton;
     private JTextField vmArgsField;
+    private EnvironmentVariablesComponent environmentVariables;
     private JLabel spacerLabel;
     private JLabel vmArgsLabel;
     private JLabel firstMsgLabel;
@@ -36,6 +39,7 @@ public class JettyRunnerConfPanel {
     private JLabel pathLabel;
     private JLabel secondMsgLabel;
     private JLabel donationLabel;
+    private JLabel envVarLabel;
 
     public JettyRunnerConfPanel() {
         // Action executed when clicked on browse
@@ -101,6 +105,10 @@ public class JettyRunnerConfPanel {
 
     public JTextField getVmArgsField() {
         return vmArgsField;
+    }
+
+    public EnvironmentVariablesComponent getEnvironmentVariables() {
+        return environmentVariables;
     }
 
 }

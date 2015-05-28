@@ -4,10 +4,10 @@ A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 <a href="https://www.googledrive.com/host/0Bxt4cirHQpFvYTFoZUJPbEtNWmc" target="_blank">Did you find the plugin useful? Make a donation!</a> <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
-This plugin should be Win / Mac / Linux compatible - min req: JVM7 <br>
+This plugin should be Win / Mac / Linux compatible - min req: JVM / JDK / JRE v7 <br>
 <br>
 Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
-Many thanks for the kind contributions on GitHub, cheers guys! <br>
+Many thanks for the kind contributions here on GitHub, cheers guys! <br>
 <br>
 <b>Features: <br>
 1) Required values are automatically discovered and set.<br>
@@ -18,6 +18,11 @@ Many thanks for the kind contributions on GitHub, cheers guys! <br>
 6) Uses jetty-runner-9.2.5<br>
 </b>
 <br>
+<br>
+<b>1.1.1</b> Leafs Falling <br>
+What's new: <br>
+<b>1)</b> Fixed bug around saving configurations - GitHub Issue #12 <br>
+<b>2)</b> Added new feature, env vars - GitHub Issue #13 <br>
 <br>
 <b>1.0.0</b> The Big 1.0! <br>
 What's new: <br>

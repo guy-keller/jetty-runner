@@ -4,19 +4,25 @@ import com.github.guikeller.jettyrunner.runner.JettyRunnerCommandLine;
 import com.github.guikeller.jettyrunner.ui.JettyRunnerEditor;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
-import com.intellij.execution.configurations.*;
+import com.intellij.execution.configuration.EnvironmentVariablesComponent;
+import com.intellij.execution.configurations.ConfigurationFactory;
+import com.intellij.execution.configurations.LocatableConfigurationBase;
+import com.intellij.execution.configurations.RunProfileState;
+import com.intellij.execution.configurations.RunProfileWithCompileBeforeLaunchOption;
 import com.intellij.execution.runners.ExecutionEnvironment;
-import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.module.Module;
+import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.InvalidDataException;
+import com.intellij.openapi.util.JDOMExternalizerUtil;
 import com.intellij.openapi.util.WriteExternalException;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Jetty Runner Configuration - Model
@@ -25,14 +31,14 @@ import java.util.UUID;
  */
 public class JettyRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
 
-    public static final String PREFIX = "JettyRunnerV100-";
-
-    private static final String WEBAPP_PATHS = PREFIX+"webappPaths";
-    private static final String WEBAPP_FOLDERS = PREFIX+"webappFolders";
-    private static final String CLASSES_DIRS = PREFIX+"classesDirectories";
-    private static final String RUNNING_PORT = PREFIX+"runningOnPort";
-    private static final String JETTY_XML = PREFIX+"jettyXml";
-    private static final String VM_ARGS = PREFIX+"vmArgs";
+    public static final String PREFIX = "JettyRunnerV111-";
+    public static final String WEBAPP_PATH_FIELD = PREFIX + "WebAppPath";
+    public static final String WEBAPP_FOLDER_FIELD = PREFIX + "WebAppFolder";
+    public static final String CLASSES_DIRECTORY_FIELD = PREFIX + "ClassesDirectory";
+    public static final String RUN_PORT_FIELD = PREFIX + "RunOnPort";
+    public static final String JETTY_XML_FIELD = PREFIX + "JettyXML";
+    public static final String VM_ARGS_FIELD = PREFIX + "VmArgs";
+    public static final String PASS_PARENT_ENV_VARS_FIELD = PREFIX + "PassParentEnvVars";
 
     private String webappPaths;
     private String webappFolders;
@@ -42,9 +48,15 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     private String jettyXml;
     private String vmArgs;
 
+    private Map<String, String> environmentVariables = new HashMap<String,String>(0);
+    private boolean passParentEnvironmentVariables = false;
+
+    private Project project;
+
 
     public JettyRunnerConfiguration(Project project, ConfigurationFactory factory, String name) {
         super(project, factory, name);
+        this.project = project;
     }
 
     @NotNull
@@ -62,56 +74,38 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     @Override
     public void readExternal(Element element) throws InvalidDataException {
         super.readExternal(element);
-        // Reads the values from the disk
-        Project project = super.getProject();
-        PropertiesComponent storedValues = PropertiesComponent.getInstance(project);
-        this.webappPaths = storedValues.getValue(WEBAPP_PATHS);
-        this.webappFolders = storedValues.getValue(WEBAPP_FOLDERS);
-        this.classesDirectories = storedValues.getValue(CLASSES_DIRS);
-        this.runningOnPort = storedValues.getValue(RUNNING_PORT);
-        this.jettyXml = storedValues.getValue(JETTY_XML);
-        this.vmArgs = storedValues.getValue(VM_ARGS);
+        // Reads the conf file into this class
+        this.webappPaths = JDOMExternalizerUtil.readField(element, WEBAPP_PATH_FIELD);
+        this.webappFolders = JDOMExternalizerUtil.readField(element, WEBAPP_FOLDER_FIELD);
+        this.classesDirectories = JDOMExternalizerUtil.readField(element, CLASSES_DIRECTORY_FIELD);
+        this.runningOnPort = JDOMExternalizerUtil.readField(element, RUN_PORT_FIELD);
+        this.jettyXml = JDOMExternalizerUtil.readField(element, JETTY_XML_FIELD);
+        this.vmArgs = JDOMExternalizerUtil.readField(element, VM_ARGS_FIELD);
+        String passParentEnvironmentVariablesValue = JDOMExternalizerUtil.readField(element, PASS_PARENT_ENV_VARS_FIELD);
+        this.passParentEnvironmentVariables = Boolean.valueOf(passParentEnvironmentVariablesValue);
+        EnvironmentVariablesComponent.readExternal(element, this.environmentVariables);
     }
 
     @Override
     public void writeExternal(Element element) throws WriteExternalException {
         super.writeExternal(element);
-        // Persists the values in disk
-        Project project = super.getProject();
-        PropertiesComponent storedValues = PropertiesComponent.getInstance(project);
-        storedValues.setValue(WEBAPP_PATHS, this.webappPaths);
-        storedValues.setValue(WEBAPP_FOLDERS, this.webappFolders);
-        storedValues.setValue(CLASSES_DIRS, this.classesDirectories);
-        storedValues.setValue(RUNNING_PORT, this.runningOnPort);
-        storedValues.setValue(JETTY_XML, this.jettyXml);
-        storedValues.setValue(VM_ARGS, this.vmArgs);
-    }
-
-    public JettyRunnerConfiguration clone(){
-        try {
-            super.clone();
-            // Duplication of a configuration
-            Element element = new Element(PREFIX+UUID.randomUUID().toString());
-            // Write the values to the new element using the current values
-            this.writeExternal(element);
-            // Creates a new running configuration
-            Project project = super.getProject();
-            ConfigurationFactory factory = super.getFactory();
-            RunConfiguration template = factory.createTemplateConfiguration(project);
-            // Copies the values by reading the previous conf and returns the new configuration
-            JettyRunnerConfiguration configuration = (JettyRunnerConfiguration) template;
-            configuration.setName(super.getName());
-            configuration.readExternal(element);
-            return configuration;
-        } catch (Exception e) {
-            // I have no idea why this would happen
-            throw new RuntimeException(e);
+        // Stores the values of this class into the parent
+        JDOMExternalizerUtil.writeField(element, WEBAPP_PATH_FIELD, this.getWebappPaths());
+        JDOMExternalizerUtil.writeField(element, WEBAPP_FOLDER_FIELD, this.getWebappFolders());
+        JDOMExternalizerUtil.writeField(element, CLASSES_DIRECTORY_FIELD, this.getClassesDirectories());
+        JDOMExternalizerUtil.writeField(element, RUN_PORT_FIELD, this.getRunningOnPort());
+        JDOMExternalizerUtil.writeField(element, JETTY_XML_FIELD, this.getJettyXml());
+        JDOMExternalizerUtil.writeField(element, VM_ARGS_FIELD, this.getVmArgs());
+        JDOMExternalizerUtil.writeField(element, PASS_PARENT_ENV_VARS_FIELD, ""+this.isPassParentEnvironmentVariables());
+        if(this.environmentVariables != null && !this.environmentVariables.isEmpty()){
+            EnvironmentVariablesComponent.writeExternal(element, this.getEnvironmentVariables());
         }
     }
 
     @NotNull
     public Module[] getModules() {
-        return new Module[0];
+        ModuleManager moduleManager = ModuleManager.getInstance(this.project);
+        return moduleManager.getModules();
     }
 
     // Getters and Setters
@@ -162,6 +156,22 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
 
     public void setVmArgs(String vmArgs) {
         this.vmArgs = vmArgs;
+    }
+
+    public Map<String, String> getEnvironmentVariables() {
+        return environmentVariables;
+    }
+
+    public void setEnvironmentVariables(Map<String, String> environmentVariables) {
+        this.environmentVariables = environmentVariables;
+    }
+
+    public boolean isPassParentEnvironmentVariables() {
+        return passParentEnvironmentVariables;
+    }
+
+    public void setPassParentEnvironmentVariables(boolean passParentEnvironmentVariables) {
+        this.passParentEnvironmentVariables = passParentEnvironmentVariables;
     }
 
 }

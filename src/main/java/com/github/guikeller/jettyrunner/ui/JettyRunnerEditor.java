@@ -19,6 +19,8 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -45,34 +47,43 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
     protected void resetEditorFrom(JettyRunnerConfiguration jettyRunnerConfiguration) {
         Project project = jettyRunnerConfiguration.getProject();
         // WebApp Path
-        if (jettyRunnerConfiguration.getWebappPaths() != null) {
-            this.configurationPanel.getPathField().setText(jettyRunnerConfiguration.getWebappPaths());
+        String webappPaths = jettyRunnerConfiguration.getWebappPaths();
+        if (webappPaths != null && !"".equals(webappPaths.trim())) {
+            this.configurationPanel.getPathField().setText(webappPaths);
         } else {
             String projectName = project.getName();
             this.configurationPanel.getPathField().setText("/"+projectName);
         }
         // WebApp Folder (one level down to web.xml"
-        if (jettyRunnerConfiguration.getWebappFolders() != null) {
-            this.configurationPanel.getWebappField().setText(jettyRunnerConfiguration.getWebappFolders());
+        String webappFolders = jettyRunnerConfiguration.getWebappFolders();
+        if (webappFolders != null && !"".equals(webappFolders.trim())) {
+            this.configurationPanel.getWebappField().setText(webappFolders);
         } else {
             String webAppsFolder = getWebAppsFolder(project);
             this.configurationPanel.getWebappField().setText(webAppsFolder);
         }
         // Classes directory
-        if (jettyRunnerConfiguration.getClassesDirectories() != null) {
-            this.configurationPanel.getClassesField().setText(jettyRunnerConfiguration.getClassesDirectories());
+        String classesDirectories = jettyRunnerConfiguration.getClassesDirectories();
+        if (classesDirectories != null && !"".equals(classesDirectories.trim())) {
+            this.configurationPanel.getClassesField().setText(classesDirectories);
         } else {
             String outputDirectory = getMainOutputDirectory(project);
             this.configurationPanel.getClassesField().setText(outputDirectory);
         }
         // Runs on port
-        if (jettyRunnerConfiguration.getRunningOnPort() != null) {
-            this.configurationPanel.getRunOnPortField().setText(jettyRunnerConfiguration.getRunningOnPort());
+        String runningOnPort = jettyRunnerConfiguration.getRunningOnPort();
+        if (runningOnPort != null && !"".equals(runningOnPort)) {
+            this.configurationPanel.getRunOnPortField().setText(runningOnPort);
         } else {
             this.configurationPanel.getRunOnPortField().setText("8080");
         }
         // Jetty XML (Optional)
         this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
+        // Env Vars (Optional)
+        Map<String, String> environmentVariables = jettyRunnerConfiguration.getEnvironmentVariables();
+        if(environmentVariables != null && !environmentVariables.isEmpty()){
+            this.configurationPanel.getEnvironmentVariables().setEnvs(environmentVariables);
+        }
         // Vm Args (Optional)
         this.configurationPanel.getVmArgsField().setText(jettyRunnerConfiguration.getVmArgs());
     }
@@ -90,6 +101,10 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         jettyRunnerConfiguration.setRunningOnPort(this.configurationPanel.getRunOnPortField().getText());
         jettyRunnerConfiguration.setJettyXml(this.configurationPanel.getXmlField().getText());
         jettyRunnerConfiguration.setVmArgs(this.configurationPanel.getVmArgsField().getText());
+        jettyRunnerConfiguration.setPassParentEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().isPassParentEnvs());
+        // Deals with adding / removing env vars before saving to the conf file
+        addOrRemoveEnvVar(jettyRunnerConfiguration.getEnvironmentVariables(), this.configurationPanel.getEnvironmentVariables().getEnvs());
+        jettyRunnerConfiguration.setEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().getEnvs());
         try {
             // Not entirely sure if 'I have' to do this - the IntelliJ framework may do
             jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX + UUID.randomUUID().toString()));
@@ -152,6 +167,26 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         // Folder found, returns it to the user
         VirtualFile virtualFile = webappFolder.getVirtualFile();
         return virtualFile.getPresentableUrl();
+    }
+
+    /**
+     * Adds / removes variables to the System Environment Variables
+     * @param currentVars Map<String,String>
+     * @param newVars Map<String,String>
+     */
+    private void addOrRemoveEnvVar(Map<String, String> currentVars, Map<String, String> newVars){
+        if(!currentVars.isEmpty()) {
+            Set<String> keys = currentVars.keySet();
+            for (String key : keys) {
+                System.clearProperty(key);
+            }
+        }
+        if(!newVars.isEmpty()){
+            Set<String> keys = newVars.keySet();
+            for(String key : keys) {
+                System.setProperty(key, newVars.get(key));
+            }
+        }
     }
 
     public void setConfigurationPanel(JettyRunnerConfPanel configurationPanel) {

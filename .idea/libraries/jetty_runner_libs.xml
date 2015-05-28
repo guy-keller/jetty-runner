@@ -1,18 +1,9 @@
 <component name="libraryTable">
   <library name="jetty-runner-libs">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/cglib-nodep-2.2.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/javassist-3.18.2-GA.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/junit-4.11.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/mockito-all-1.9.5.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/objenesis-2.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/powermock-mockito-1.5.5-full.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/eclipse-jetty-runner-9.2.5.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/lib/mockito-all-1.9.5.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/powermock-mockito-1.5.5-full.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
