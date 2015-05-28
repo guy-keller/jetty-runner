@@ -9,7 +9,7 @@ Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>
 Many thanks for the kind contributions here on GitHub, cheers guys! <br>
 <br>
 Minimum requirement: JVM / JDK / JRE v7 <br>
-tags: jetty, container, webapp, runner, tomcat, runner
+tags: jetty, container, webapp, runner, tomcat, runner <br>
 <br>
 <b>Features: <br>
 1) Required values are automatically discovered and set.<br>
@@ -24,7 +24,6 @@ tags: jetty, container, webapp, runner, tomcat, runner
 What's new: <br>
 <b>1)</b> Internal code refactoring, updated tests, updated documentation, added a license (MIT). <br>
 <b>2)</b> Removed donation links, if you're interested in making a donation contact me. <br>
-<br>
 <br>
 <b>1.1.1</b> Leaves Falling <br>
 What's new: <br>
@@ -89,13 +88,6 @@ What's new:<br>
 <br>
 <b>0.0.1</b> - First release; Uses: <b>jetty-runner-8.1.9</b> (jetty-7.6.13)<br>
 <br>
-<b>TODO:</b> <br>
-<b>1)</b> Debugger port selector; for now its fixed on 5007. [DONE]<br>
-<b>2)</b> Figure out why the debugger doesn't work out of the box; JetBrains? [DONE]<br>
-<b>3)</b> Better UI Layout - BoxLayout is not the greatest; GridBag? [DONE]<br>
-<b>4)</b> Unit Tests - Important bits.[DONE]<br>
-<b>5)</b> Improvements around the known limitations [DONE]<br>
-<b>6)</b> Bug fixes; other improvements [Ongoing]<br>
 Pull requests are welcome.<br>
 <br>
 Thanks for dropping by.<br/>
