@@ -1,7 +1,7 @@
 language: java
 
 jdk:
-  - oraclejdk8
+  - oraclejdk7
 
 os:
   - linux
@@ -13,10 +13,6 @@ branches:
 cache:
   directories:
    - $HOME/.gradle
-
-before_script:
-  - git fetch
-  - git rebase
 
 script:
   - gradle clean test check --info
