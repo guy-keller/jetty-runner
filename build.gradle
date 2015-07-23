@@ -1,0 +1,134 @@
+// Plugins repository
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // Cobertura code coverage with unit tests
+        classpath "net.saliman:gradle-cobertura-plugin:2.2.7"
+    }
+}
+
+// Plugins used
+apply plugin: 'java'
+apply plugin: 'idea'
+
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+apply plugin: 'checkstyle'
+apply plugin: 'cobertura'
+
+
+// Source and Target are Java 7
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+// Repositories for the project itself
+// Files under lib and maven central
+repositories {
+    flatDir {
+        dirs 'lib/compile', 'lib/test'
+    }
+
+    maven {
+        // My own m2 repo with the IntelliJ CE jars
+        url 'https://copy.com/3PHpwV7ZNMgo4YzU/public/repo'
+    }
+
+    mavenCentral();
+}
+
+// Project dependencies
+dependencies {
+    // Third Party dependencies - Local lib folder
+    compile(name : 'eclipse-jetty-runner-9.2.5');
+    // IntelliJ CE Dependencies - Copy.com/Repo
+    compile('com.github.guikeller.jetty-runner:util:14.1.4');
+    compile('com.github.guikeller.jetty-runner:idea:14.1.4');
+    compile('com.github.guikeller.jetty-runner:idea_rt:14.1.4');
+    compile('com.github.guikeller.jetty-runner:openapi:14.1.4');
+    compile('com.github.guikeller.jetty-runner:annotations:14.1.4');
+    compile('com.github.guikeller.jetty-runner:jdom:14.1.4');
+    compile('com.github.guikeller.jetty-runner:extensions:14.1.4');
+    // IntelliJ CE Dependencies - Test - Copy.com/Repo
+    testCompile('com.github.guikeller.jetty-runner:trove4j:14.1.4');
+    testCompile('com.github.guikeller.jetty-runner:picocontainer:14.1.4');
+    testCompile('com.github.guikeller.jetty-runner:log4j:14.1.4');
+    testCompile('com.github.guikeller.jetty-runner:slf4j-api-1.7.10:14.1.4');
+    testCompile('com.github.guikeller.jetty-runner:slf4j-log4j12-1.7.10:14.1.4');
+    // Unit Test Dependencies - Local lib folder
+    testCompile(name : 'cglib-nodep-2.2.2');
+    testCompile(name : 'javassist-3.18.2-GA');
+    testCompile(name : 'objenesis-2.1');
+    testCompile(name : 'junit-4.11');
+    testCompile(name : 'mockito-all-1.9.5');
+    testCompile(name : 'powermock-mockito-1.5.5-full');
+}
+
+
+// Configuring plugins - Code Analysis
+
+// JUnit
+test {
+    reports {
+        junitXml.enabled = false
+        html.enabled = true
+    }
+}
+
+// FindBugs
+tasks.withType(FindBugs) {
+    ignoreFailures = true
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+// Checkstyle
+tasks.withType(Checkstyle) {
+    ignoreFailures = true
+    configFile = new File('src/test/resources/checkstyle.xml')
+}
+
+// checkstyle to generate html
+task checkstyleHtml << {
+    ant.xslt(in: checkstyleMain.reports.xml.destination,
+            style: 'src/test/resources/checkstyle.xslt',
+            out: new File(checkstyleMain.reports.xml.destination.parent, 'main.html'))
+}
+checkstyleMain.finalizedBy checkstyleHtml
+
+// PMD
+tasks.withType(Pmd) {
+    ignoreFailures = true
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+// add CPD to check (Copy Paste Detector)
+check << {
+    // Create dir
+    File outDir = new File('build/reports/cpd/')
+    outDir.mkdirs()
+    // Runs defines and runs the task
+    ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask', classpath: configurations.pmd.asPath)
+    ant.cpd(minimumTokenCount: '100', format: 'xml', outputFile: new File(outDir , 'cpd.xml')) {
+        fileset(dir: "src/main/java") {
+            include(name: '**/*.java')
+        }
+    }
+    // Transform the cpd xml into html
+    ant.xslt( in : 'build/reports/cpd/cpd.xml',
+        style : 'src/test/resources/cpd.xslt',
+        out : 'build/reports/cpd/cpd.html')
+}
+
+// Adding Cobertura to the test goal/target - instrumentation
+test.dependsOn coberturaCheck
+
+// To run all tests and generate all reports:
+// $gradle clean test check --info
+// Thanks for using IDEA Jetty Runner
