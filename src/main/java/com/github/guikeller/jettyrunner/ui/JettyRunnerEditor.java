@@ -2,6 +2,7 @@ package com.github.guikeller.jettyrunner.ui;
 
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.compiler.impl.ModuleCompileScope;
+import com.intellij.notification.*;
 import com.intellij.openapi.compiler.CompileContext;
 import com.intellij.openapi.compiler.CompileTask;
 import com.intellij.openapi.compiler.CompilerManager;
@@ -31,7 +32,7 @@ import java.util.UUID;
 public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> {
 
     private JettyRunnerConfPanel configurationPanel;
-    private String mainOutputDirectory;
+    private String mainOutputDirectory = "";
 
     public JettyRunnerEditor(JettyRunnerConfiguration jettyRunnerConfiguration) {
         this.configurationPanel = new JettyRunnerConfPanel();
@@ -127,7 +128,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
      * @param project Project
      * @return String value
      */
-    private String getMainOutputDirectory(Project project) {
+    private String getMainOutputDirectory(final Project project) {
         // Preparing things up for a sneaky "CompileTask"
         final CompilerManager compilerManager = CompilerManager.getInstance(project);
         final Module[] modules = ModuleManager.getInstance(project).getModules();
@@ -138,7 +139,15 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
             public boolean execute(CompileContext compileContext) {
                 // Through the "CompileContext" I can get the output directory of the main module
                 VirtualFile mainOutputDirectory = compileContext.getModuleOutputDirectory(mainModule);
-                JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectory.getPresentableUrl();
+                if(mainOutputDirectory != null) {
+                    String mainOutputDirectoryValue = mainOutputDirectory.getPresentableUrl();
+                    JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectoryValue;
+                } else {
+                    // Project hasn't been compiled yet, so there is no output directory
+                    NotificationGroup notificationGroup = new NotificationGroup("IDEA Jetty Runner", NotificationDisplayType.BALLOON, true);
+                    Notification notification = notificationGroup.createNotification("Jetty Runner - Couldn't determine the classes folder:<br>Please compile / make your project before creating the conf.", NotificationType.ERROR);
+                    Notifications.Bus.notify(notification, project);
+                }
                 return true;
             }
         };
