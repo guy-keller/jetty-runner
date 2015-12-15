@@ -3,13 +3,9 @@ package com.github.guikeller.jettyrunner.ui;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.File;
-import java.net.URL;
 
 /**
  * View / Presentation - Created using the WYSIWYG editor.
@@ -23,6 +19,7 @@ public class JettyRunnerConfPanel {
     private JTextField webappField;
     private JTextField classesField;
     private JTextField runOnPortField;
+    private JTextField moduleField;
     private JTextField xmlField;
     private JButton browseButton;
     private JTextField vmArgsField;
@@ -32,6 +29,7 @@ public class JettyRunnerConfPanel {
     private JLabel firstMsgLabel;
     private JLabel xmlLabel;
     private JLabel runOnPortLabel;
+    private JLabel moduleLabel;
     private JLabel classesLabel;
     private JLabel webappLabel;
     private JLabel pathLabel;
@@ -82,6 +80,10 @@ public class JettyRunnerConfPanel {
 
     public JTextField getRunOnPortField() {
         return runOnPortField;
+    }
+
+    public JTextField getModuleField() {
+        return moduleField;
     }
 
     public JTextField getXmlField() {

@@ -1,6 +1,5 @@
 package com.github.guikeller.jettyrunner.model;
 
-import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.JavaCommandLineState;
 import com.intellij.execution.configurations.JavaParameters;
@@ -48,8 +47,12 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         // All modules to use the same things
         Module[] modules = ModuleManager.getInstance(project).getModules();
         if (modules != null && modules.length > 0) {
+            String selectedModule = model.getModule();
             for (Module module : modules) {
-                javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
+                // add this module if no filter defined by the user or if this module is the filtered one!
+                if (selectedModule == null || selectedModule.isEmpty() || module.getName().equals(selectedModule)) {
+                    javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
+                }
             }
         }
         // Dynamically adds the jetty-runner.jar to the classpath

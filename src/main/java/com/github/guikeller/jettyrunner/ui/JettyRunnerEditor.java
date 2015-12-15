@@ -78,6 +78,13 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         } else {
             this.configurationPanel.getRunOnPortField().setText("8080");
         }
+        // Runs module
+        String module = jettyRunnerConfiguration.getModule();
+        if (module != null && !"".equals(module)) {
+            this.configurationPanel.getModuleField().setText(module);
+        } else {
+            this.configurationPanel.getModuleField().setText("");
+        }
         // Jetty XML (Optional)
         this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
         // Env Vars (Optional)
@@ -100,6 +107,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         jettyRunnerConfiguration.setWebappFolders(this.configurationPanel.getWebappField().getText());
         jettyRunnerConfiguration.setClassesDirectories(this.configurationPanel.getClassesField().getText());
         jettyRunnerConfiguration.setRunningOnPort(this.configurationPanel.getRunOnPortField().getText());
+        jettyRunnerConfiguration.setModule(this.configurationPanel.getModuleField().getText());
         jettyRunnerConfiguration.setJettyXml(this.configurationPanel.getXmlField().getText());
         jettyRunnerConfiguration.setVmArgs(this.configurationPanel.getVmArgsField().getText());
         jettyRunnerConfiguration.setPassParentEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().isPassParentEnvs());
