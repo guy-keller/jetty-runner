@@ -19,9 +19,9 @@ apply plugin: 'checkstyle'
 apply plugin: 'cobertura'
 
 
-// Source and Target are Java 7
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+// Source and Target are Java 8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 // Repositories for the project itself
 // Files under lib and maven central

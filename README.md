@@ -6,9 +6,10 @@ If you require full support please consider buying the IntelliJ IDEA Enterprise 
 This plugin should be Win / Mac / Linux compatible. <br>
 <br>
 Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
+Protocols: HTTP / 1.1 (RFC 7230), HTTP / 2 (RFC 7540), WebSocket (RFC 6455, JSR 356), FastCGI. <br>
 Many thanks for the kind contributions here on GitHub, cheers guys! <br>
 <br>
-Minimum requirement: JVM / JDK / JRE v7 <br>
+Minimum requirement: JVM / JDK / JRE v8 <br>
 tags: jetty, container, webapp, runner, tomcat, runner <br>
 <br>
 <b>Features: <br>
@@ -17,8 +18,10 @@ tags: jetty, container, webapp, runner, tomcat, runner <br>
 3) User friendly UI - created using IntelliJ.<br>
 4) Internal code is documented and it is relatively easy to follow / read.<br>
 5) A good coverage of unit tests.<br>
-6) Uses jetty-runner-9.2.5</b> <br>
+6) Uses jetty-runner-9.3.11</b> <br>
 <br>
+Project page: https://plugins.jetbrains.com/plugin/7505 <br>
+Thanks all for your help and collaboration, cheers! <br>
 <br>
 Check the build status on Travis CI - https://travis-ci.org/guikeller/jetty-runner <br>
 <br>
@@ -30,7 +33,3 @@ Code Analysis Reports: <br>
  - PMD report - http://guikeller.freewebhost.co.nz/reports/pmd/main.html <br>
  - Checkstyle report - http://guikeller.freewebhost.co.nz/reports/checkstyle/main.html <br>
 <br>
-<br>
-Project page: https://plugins.jetbrains.com/plugin/7505 <br>
-<br>
-Thanks all for your help and collaboration, cheers!
