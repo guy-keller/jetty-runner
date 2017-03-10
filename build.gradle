@@ -1,3 +1,9 @@
+// Prior to running gradle please run the create_repo.sh
+// the script is on the scripts folder
+
+// To run all tests and generate all reports:
+// $gradle clean test check --info
+
 // Plugins repository
 buildscript {
     repositories {
@@ -24,24 +30,19 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Repositories for the project itself
-// Files under lib and maven central
+// Files under lib and maven local and central
 repositories {
     flatDir {
         dirs 'lib/compile', 'lib/test'
     }
-
-    maven {
-        // My own m2 repo with the IntelliJ CE jars
-        url 'https://copy.com/3PHpwV7ZNMgo4YzU/public/repo'
-    }
-
-    mavenCentral();
+    mavenLocal()
+    mavenCentral()
 }
 
 // Project dependencies
 dependencies {
     // Third Party dependencies - Local lib folder
-    compile(name : 'eclipse-jetty-runner-9.2.5');
+    compile(name : 'eclipse-jetty-runner-9.3.11');
     // IntelliJ CE Dependencies - Copy.com/Repo
     compile('com.github.guikeller.jetty-runner:util:14.1.4');
     compile('com.github.guikeller.jetty-runner:idea:14.1.4');
@@ -129,6 +130,4 @@ check << {
 // Adding Cobertura to the test goal/target - instrumentation
 test.dependsOn coberturaCheck
 
-// To run all tests and generate all reports:
-// $gradle clean test check --info
 // Thanks for using IDEA Jetty Runner
