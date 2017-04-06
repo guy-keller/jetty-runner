@@ -34,7 +34,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
     @Override
     @NotNull
     public String getRunnerId() {
-        return "JettyRunner-By-GuiKeller";
+        return "JettyDebugger-By-GuiKeller";
     }
 
     @Override
