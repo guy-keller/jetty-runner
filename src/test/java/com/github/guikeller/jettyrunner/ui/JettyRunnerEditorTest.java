@@ -36,6 +36,9 @@ public class JettyRunnerEditorTest {
         JTextField runOnPortField = Mockito.mock(JTextField.class);
         Mockito.when(confPanel.getRunOnPortField()).thenReturn(runOnPortField);
 
+        JTextField moduleField = Mockito.mock(JTextField.class);
+        Mockito.when(confPanel.getModuleField()).thenReturn(moduleField);
+
         JTextField xmlField = Mockito.mock(JTextField.class);
         Mockito.when(confPanel.getXmlField()).thenReturn(xmlField);
 
