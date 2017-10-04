@@ -34,11 +34,7 @@ public class JettyProgramRunner extends DefaultProgramRunner {
             return false;
         }
         // Values passed are: Run or Debug
-        if(!RUN.equals(value)) {
-            // Fallback on the JettyProgramDebugger
-            return false;
-        }
-        return true;
+        return RUN.equals(value);
     }
 
     @Override

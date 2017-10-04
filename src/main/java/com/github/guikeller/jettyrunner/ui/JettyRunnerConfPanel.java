@@ -40,25 +40,23 @@ public class JettyRunnerConfPanel {
 
     public JettyRunnerConfPanel() {
         // Action executed when clicked on "Browse XML"
-        browseButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Shows a file chooser
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setMultiSelectionEnabled(Boolean.TRUE);
-                // Checking whether the user clicked okay
-                int result = fileChooser.showOpenDialog(new JFrame());
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    StringBuffer paths = new StringBuffer();
-                    File[] selectedFiles = fileChooser.getSelectedFiles();
-                    if (selectedFiles != null && selectedFiles.length > 0) {
-                        for (File selectedFile : selectedFiles) {
-                            // Selected files in CSV format
-                            paths.append(selectedFile.getAbsolutePath() + ",");
-                        }
-                        // Removing the comma at the end
-                        String value = paths.substring(0, (paths.length() - 1));
-                        xmlField.setText(value);
+        browseButton.addActionListener(e -> {
+            // Shows a file chooser
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setMultiSelectionEnabled(Boolean.TRUE);
+            // Checking whether the user clicked okay
+            int result = fileChooser.showOpenDialog(new JFrame());
+            if (result == JFileChooser.APPROVE_OPTION) {
+                StringBuffer paths = new StringBuffer();
+                File[] selectedFiles = fileChooser.getSelectedFiles();
+                if (selectedFiles != null && selectedFiles.length > 0) {
+                    for (File selectedFile : selectedFiles) {
+                        // Selected files in CSV format
+                        paths.append(selectedFile.getAbsolutePath() + ",");
                     }
+                    // Removing the comma at the end
+                    String value = paths.substring(0, (paths.length() - 1));
+                    xmlField.setText(value);
                 }
             }
         });

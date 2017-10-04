@@ -6,6 +6,7 @@ import org.mockito.Mockito;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,40 +19,43 @@ public class JettyRunnerCommandLineTest {
     public void testGetWebAppPath() {
         JettyRunnerConfiguration conf = Mockito.mock(JettyRunnerConfiguration.class);
         Mockito.when(conf.getWebappPaths()).thenReturn("/Test");
-        Mockito.when(conf.getWebappFolders()).thenReturn("C:/path/to/test/webapp");
+        String folder = "C:/path/to/test/webapp";
+        Mockito.when(conf.getWebappFolders()).thenReturn(folder);
 
         JettyRunnerCommandLine runner = Whitebox.newInstance(JettyRunnerCommandLine.class);
         runner.setModel(conf);
 
         String webAppPath = runner.getWebAppPath();
         assertNotNull(webAppPath);
-        assertEquals(" --path /Test C:/path/to/test/webapp ", webAppPath);
+        assertEquals(" --path /Test " + folder.replace('/', File.separatorChar) + " ", webAppPath);
     }
 
     @Test
     public void testGetClassesDirectory() {
         JettyRunnerConfiguration conf = Mockito.mock(JettyRunnerConfiguration.class);
-        Mockito.when(conf.getClassesDirectories()).thenReturn("C:/path/to/test/bin");
+        String folder = "C:/path/to/test/bin";
+        Mockito.when(conf.getClassesDirectories()).thenReturn(folder);
 
         JettyRunnerCommandLine runner = Whitebox.newInstance(JettyRunnerCommandLine.class);
         runner.setModel(conf);
 
         String classesDirectory = runner.getClassesDirectory();
         assertNotNull(classesDirectory);
-        assertEquals(" --classes C:/path/to/test/bin ",classesDirectory);
+        assertEquals(" --classes " + folder.replace('/', File.separatorChar) + " ",classesDirectory);
     }
 
     @Test
     public void testGetJettyXmlPaths() {
         JettyRunnerConfiguration conf = Mockito.mock(JettyRunnerConfiguration.class);
-        Mockito.when(conf.getJettyXml()).thenReturn("C:/path/to/test/xml");
+        String folder = "C:/path/to/test/xml";
+        Mockito.when(conf.getJettyXml()).thenReturn(folder);
 
         JettyRunnerCommandLine runner = Whitebox.newInstance(JettyRunnerCommandLine.class);
         runner.setModel(conf);
 
         String xmlPaths = runner.getJettyXmlPaths();
         assertNotNull(xmlPaths);
-        assertEquals(" --config C:/path/to/test/xml ",xmlPaths);
+        assertEquals(" --config " + folder.replace('/', File.separatorChar) + " ",xmlPaths);
     }
 
     @Test
@@ -82,7 +86,7 @@ public class JettyRunnerCommandLineTest {
 
     @Test
     public void testGetEnvVars() {
-        Map<String, String> envVar = new HashMap<String, String>(0);
+        Map<String, String> envVar = new HashMap<>(0);
         envVar.put("KEY", "VALUE");
 
         JettyRunnerConfiguration conf = Mockito.mock(JettyRunnerConfiguration.class);

@@ -20,7 +20,7 @@ public class IconUtil {
         return INSTANCE;
     }
 
-    protected static Icon loadIcon() {
+    private static Icon loadIcon() {
         URL resource = INSTANCE.getClass().getResource("/jetty-icon.png");
         return new ImageIcon(resource);
     }

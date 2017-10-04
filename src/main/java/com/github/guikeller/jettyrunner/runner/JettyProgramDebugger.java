@@ -40,10 +40,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
     @Override
     public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
         // It can only run JettyRunnerConfigurations
-        if(!(runProfile instanceof JettyRunnerConfiguration)){
-            return false;
-        }
-        return true;
+        return runProfile instanceof JettyRunnerConfiguration;
     }
 
     @Override
