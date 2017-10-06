@@ -1,6 +1,5 @@
 package com.github.guikeller.jettyrunner.model;
 
-import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.JavaCommandLineState;
 import com.intellij.execution.configurations.JavaParameters;

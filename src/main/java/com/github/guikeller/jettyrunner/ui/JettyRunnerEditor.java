@@ -135,21 +135,18 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         final ModuleCompileScope compileScope = new ModuleCompileScope(project, modules, false);
         final Module mainModule = modules[0];
         // Though a "CompileTask" I can get hold of the "CompileContext"
-        CompileTask compileTask = new CompileTask() {
-            public boolean execute(CompileContext compileContext) {
-                // Through the "CompileContext" I can get the output directory of the main module
-                VirtualFile mainOutputDirectory = compileContext.getModuleOutputDirectory(mainModule);
-                if(mainOutputDirectory != null) {
-                    String mainOutputDirectoryValue = mainOutputDirectory.getPresentableUrl();
-                    JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectoryValue;
-                } else {
-                    // Project hasn't been compiled yet, so there is no output directory
-                    NotificationGroup notificationGroup = new NotificationGroup("IDEA Jetty Runner", NotificationDisplayType.BALLOON, true);
-                    Notification notification = notificationGroup.createNotification("Jetty Runner - Couldn't determine the classes folder:<br>Please compile / make your project before creating the conf.", NotificationType.ERROR);
-                    Notifications.Bus.notify(notification, project);
-                }
-                return true;
+        CompileTask compileTask = compileContext -> {
+            // Through the "CompileContext" I can get the output directory of the main module
+            VirtualFile mainOutputDirectory = compileContext.getModuleOutputDirectory(mainModule);
+            if(mainOutputDirectory != null) {
+                JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectory.getPresentableUrl();
+            } else {
+                // Project hasn't been compiled yet, so there is no output directory
+                NotificationGroup notificationGroup = new NotificationGroup("IDEA Jetty Runner", NotificationDisplayType.BALLOON, true);
+                Notification notification = notificationGroup.createNotification("Jetty Runner - Couldn't determine the classes folder:<br>Please compile / make your project before creating the conf.", NotificationType.ERROR);
+                Notifications.Bus.notify(notification, project);
             }
+            return true;
         };
         // Executes the task (synchronously), which invokes that internal 'execute' method
         compilerManager.executeTask(compileTask, compileScope, "JettyRunner-By-GuiKeller", null);

@@ -13,7 +13,7 @@ cd /tmp/IJ/lib
 IDEA_VERSION="14.1.4"
 
 # Installs to the repo on the home directory
-for JAR_FILE in *.jar
+for JAR_FILE in annotations.jar extensions.jar idea.jar idea_rt.jar jdom.jar openapi.jar trove4j.jar util.jar
 do
   echo Installing "${JAR_FILE}" to Repository
   # Reverts the string, removes first five, revert back to normal
