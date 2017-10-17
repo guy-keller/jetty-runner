@@ -11,9 +11,9 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
     </content>
-    <orderEntry type="jdk" jdkName="IntelliJ IDEA Community Edition IC-162.2032.8" jdkType="IDEA JDK" />
+    <orderEntry type="jdk" jdkName="IntelliJ IDEA IU-172.3544.35" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jetty-runner-libs" level="project" />
-    <orderEntry type="library" scope="TEST" name="jetty-runner-test-libs" level="project" />
+    <orderEntry type="library" name="jetty-runner-test" level="project" />
   </component>
 </module>

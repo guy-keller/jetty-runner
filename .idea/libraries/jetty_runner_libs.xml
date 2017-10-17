@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="jetty-runner-libs">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/compile/eclipse-jetty-runner-9.3.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/compile/jetty-runner-9.4.6.v20170531.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>JettyRunner-GK</id>
     <name>IDEA Jetty Runner</name>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <vendor email="guikeller@gmail.com" url="https://github.com/guikeller/jetty-runner">IntelliJ Jetty Runner</vendor>
 
     <description><![CDATA[
