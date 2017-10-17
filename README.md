@@ -34,4 +34,10 @@ tags: jetty, container, webapp, runner, tomcat, runner <br>
  - PMD report - http://www.indexerapp.com/jetty-runner/reports/pmd/main.html <br>
  - Checkstyle report - http://www.indexerapp.com/jetty-runner/reports/checkstyle/main.html <br>
 
-Many thanks to <b>IndexerApp.com</b> for generously hosting our code analysis reports.
+<p>
+ Many thanks to the following collaborations:<br>
+ @tchudyk - Pull Request #1<br>
+ @dcritchl - Pull Request #3<br>
+ @emongstad - Pull Request #46<br>
+ IndexerApp.com for hosting our code health reports.
+</p>
