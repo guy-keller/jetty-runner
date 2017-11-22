@@ -9,8 +9,6 @@ Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>
 Protocols: HTTP / 1.1 (RFC 7230), HTTP / 2 (RFC 7540), WebSocket (RFC 6455, JSR 356), FastCGI. <br>
 Many thanks for the kind contributions here on GitHub, cheers guys! <br>
 <br>
-Check the build status on Travis CI<br>
-https://travis-ci.org/guikeller/jetty-runner<br>
 <br>
 Project page: https://plugins.jetbrains.com/plugin/7505 <br>
 Thanks all for your help and collaboration, cheers! <br>
@@ -26,7 +24,7 @@ tags: jetty, container, webapp, runner, tomcat, runner <br>
 5) A good coverage of unit tests.<br>
 6) Uses jetty-runner-9.4.6<br>
 
-<b>Getting Started</b><br>
+<b>PLEASE READ THE: Getting Started</b><br>
 https://github.com/guikeller/jetty-runner/wiki/Getting-Started
 
 <b>Code Analysis Reports:</b><br>
@@ -38,9 +36,16 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
  - Checkstyle report - http://www.indexerapp.com/jetty-runner/reports/checkstyle/main.html <br>
 
 <p>
- Many thanks to the following collaborations:<br>
+ <b>Many thanks to the following collaborations:</b><br>
  @tchudyk - Pull Request #1<br>
  @dcritchl - Pull Request #3<br>
  @emongstad - Pull Request #46<br>
- IndexerApp.com for hosting our code health reports.
+ And http://www.IndexerApp.com for hosting our static code analysis reports.
+</p>
+
+<p>
+ <b>Project Status: ACTIVE!</b> <br>
+ The project is well and alive thanks for asking! :wink: <br>
+ Not that as the project is well tested, reliable and stable <br> 
+ Changes occur when a new Jetty version is released or a reproduceable bug is reported.
 </p>
