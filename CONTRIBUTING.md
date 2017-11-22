@@ -19,7 +19,7 @@ Here are some notes on how to report the bug so we can fix it as fast as possibl
 Did you follow the Getting Started? I need to be able to replicate the issue / bug! <br>
 https://github.com/guikeller/jetty-runner/wiki/Getting-Started
 <p>
-First have a look on the [open and closed issues](https://github.com/guikeller/jetty-runner/issues) and if the issue is not there please do raise a new issue.
+First have a look on the https://github.com/guikeller/jetty-runner/issues (open and closed issues) and if the issue is not there please do raise a new issue.
 
 While raising an issue please provide the following info below.
 - Explain, as detailed as possible, how to reproduce the issue / bug.
