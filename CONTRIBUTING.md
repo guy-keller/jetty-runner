@@ -9,16 +9,20 @@ Here is a quick guideline on how to request a new feature:
  - Open up a new issue and try to be as detailed as possible.
  - Try describing it as a story - [Here is a How To](https://help.rallydev.com/writing-great-user-story)
  - Optionally, if you can provide a mock up that would be great too.
+ - Pull Requests are also very much welcome.
 
 ## Issues
 
 Found a bug? 
 Here are some notes on how to report the bug so we can fix it as fast as possible:
-
-First have a quick look on the [closed issues](https://github.com/guikeller/jetty-runner/issues?q=is%3Aissue+is%3Aclosed) and if the issue is not there please do raise a new issue.
+<p>
+Did you follow the Getting Started? I need to be able to replicate the issue / bug! <br>
+https://github.com/guikeller/jetty-runner/wiki/Getting-Started
+<p>
+First have a look on the [open and closed issues](https://github.com/guikeller/jetty-runner/issues) and if the issue is not there please do raise a new issue.
 
 While raising an issue please provide the following info below.
-- Explain, as detailed as possible, how to reproduce the issue.
+- Explain, as detailed as possible, how to reproduce the issue / bug.
 - Include what you expected to happen, as well as what actually happened and logs.
 - Provide your environment details; JVM Version, Plugin Version, IntelliJ Version
 - If it helps, feel free to [attach a
