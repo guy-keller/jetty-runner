@@ -9,7 +9,6 @@ Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>
 Protocols: HTTP / 1.1 (RFC 7230), HTTP / 2 (RFC 7540), WebSocket (RFC 6455, JSR 356), FastCGI. <br>
 Many thanks for the kind contributions here on GitHub, cheers guys! <br>
 <br>
-<br>
 Project page: https://plugins.jetbrains.com/plugin/7505 <br>
 Thanks all for your help and collaboration, cheers! <br>
 <br>
