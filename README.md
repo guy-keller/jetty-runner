@@ -4,13 +4,12 @@ A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
 This plugin should be Win / Mac / Linux compatible. <br>
+Please leave us a star if you are using the plugin, thanks! :smile: <br>
 <br>
 Compatible with <b>servlet-api</b> versions: <i>3.1, 3.0, 2.5, 2.4, 2.3, 2.2</i>. <br>
 Protocols: HTTP / 1.1 (RFC 7230), HTTP / 2 (RFC 7540), WebSocket (RFC 6455, JSR 356), FastCGI. <br>
-Many thanks for the kind contributions here on GitHub, cheers guys! <br>
 <br>
 Project page: https://plugins.jetbrains.com/plugin/7505 <br>
-Thanks all for your help and collaboration, cheers! <br>
 <br>
 Minimum requirement: JVM / JDK / JRE v8 <br>
 tags: jetty, container, webapp, runner, tomcat, runner <br>
@@ -44,7 +43,7 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
 
 <p>
  <b>Project Status: ACTIVE!</b> <br>
- The project is well and alive thanks for asking! :wink: <br>
- Not that as the project is well tested, reliable and stable <br> 
- Changes occur when a new Jetty version is released or a reproduceable bug is reported.
+ The project is well and alive thanks for your interest! :wink: <br>
+ Note that as the project is well tested, reliable and stable changes will be occasional.<br> 
+ Changes will happen when a new Jetty version is released or a reproduceable bug is reported.
 </p>
