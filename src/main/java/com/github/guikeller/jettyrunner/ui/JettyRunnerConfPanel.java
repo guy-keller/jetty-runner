@@ -3,13 +3,7 @@ package com.github.guikeller.jettyrunner.ui;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.File;
-import java.net.URL;
 
 /**
  * View / Presentation - Created using the WYSIWYG editor.
@@ -37,6 +31,8 @@ public class JettyRunnerConfPanel {
     private JLabel pathLabel;
     private JLabel secondMsgLabel;
     private JLabel envVarLabel;
+    private JLabel moduleLabel;
+    private JComboBox<String> moduleComboBox;
 
     public JettyRunnerConfPanel() {
         // Action executed when clicked on "Browse XML"
@@ -94,4 +90,7 @@ public class JettyRunnerConfPanel {
         return environmentVariables;
     }
 
+    public JComboBox<String> getModuleComboBox() {
+        return moduleComboBox;
+    }
 }

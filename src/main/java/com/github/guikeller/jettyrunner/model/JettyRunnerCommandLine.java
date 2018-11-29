@@ -5,7 +5,6 @@ import com.intellij.execution.configurations.JavaCommandLineState;
 import com.intellij.execution.configurations.JavaParameters;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.util.PathUtil;
@@ -44,8 +43,9 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         Project project = this.environment.getProject();
         ProjectRootManager manager = ProjectRootManager.getInstance(project);
         javaParams.setJdk(manager.getProjectSdk());
+
         // All modules to use the same things
-        Module[] modules = ModuleManager.getInstance(project).getModules();
+        Module[] modules = this.model.getModules();
         if (modules != null && modules.length > 0) {
             for (Module module : modules) {
                 javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);

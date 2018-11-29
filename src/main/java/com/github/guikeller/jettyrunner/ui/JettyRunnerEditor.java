@@ -3,7 +3,6 @@ package com.github.guikeller.jettyrunner.ui;
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.compiler.impl.ModuleCompileScope;
 import com.intellij.notification.*;
-import com.intellij.openapi.compiler.CompileContext;
 import com.intellij.openapi.compiler.CompileTask;
 import com.intellij.openapi.compiler.CompilerManager;
 import com.intellij.openapi.module.Module;
@@ -68,7 +67,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         if (classesDirectories != null && !"".equals(classesDirectories.trim())) {
             this.configurationPanel.getClassesField().setText(classesDirectories);
         } else {
-            String outputDirectory = getMainOutputDirectory(project);
+            String outputDirectory = getMainOutputDirectory(project, jettyRunnerConfiguration.getModules());
             this.configurationPanel.getClassesField().setText(outputDirectory);
         }
         // Runs on port
@@ -78,6 +77,22 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         } else {
             this.configurationPanel.getRunOnPortField().setText("8080");
         }
+
+        // Choose modules (all modules default)
+        String selectedModuleName = jettyRunnerConfiguration.getSelectedModuleName();
+
+        final Module[] modules = ModuleManager.getInstance(project).getModules();
+        final String[] modulesNames = new String[modules.length + 1];
+        modulesNames[0] = "<all modules>";
+        for (int i = 0; i < modules.length; i++) {
+            modulesNames[i + 1] = modules[i].getName();
+        }
+        this.configurationPanel.getModuleComboBox().setModel(new DefaultComboBoxModel<>(modulesNames));
+        this.configurationPanel.getModuleComboBox().setSelectedIndex(0);
+        this.configurationPanel.getModuleComboBox().setSelectedItem(selectedModuleName);
+
+
+
         // Jetty XML (Optional)
         this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
         // Env Vars (Optional)
@@ -96,6 +111,8 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
      */
     @Override
     protected void applyEditorTo(JettyRunnerConfiguration jettyRunnerConfiguration) throws ConfigurationException {
+        JComboBox<String> moduleComboBox = this.configurationPanel.getModuleComboBox();
+        jettyRunnerConfiguration.setSelectedModuleName(moduleComboBox.getItemAt(moduleComboBox.getSelectedIndex()));
         jettyRunnerConfiguration.setWebappPaths(this.configurationPanel.getPathField().getText());
         jettyRunnerConfiguration.setWebappFolders(this.configurationPanel.getWebappField().getText());
         jettyRunnerConfiguration.setClassesDirectories(this.configurationPanel.getClassesField().getText());
@@ -126,12 +143,12 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
     /**
      * Retrieves the output directory for the main module
      * @param project Project
+     * @param modules Concerned modules array
      * @return String value
      */
-    private String getMainOutputDirectory(final Project project) {
+    private String getMainOutputDirectory(final Project project, Module[] modules) {
         // Preparing things up for a sneaky "CompileTask"
         final CompilerManager compilerManager = CompilerManager.getInstance(project);
-        final Module[] modules = ModuleManager.getInstance(project).getModules();
         final ModuleCompileScope compileScope = new ModuleCompileScope(project, modules, false);
         final Module mainModule = modules[0];
         // Though a "CompileTask" I can get hold of the "CompileContext"
