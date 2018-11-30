@@ -84,12 +84,17 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         final Module[] modules = ModuleManager.getInstance(project).getModules();
         final String[] modulesNames = new String[modules.length + 1];
         modulesNames[0] = "<all modules>";
+        int indexToSelect = 0;
         for (int i = 0; i < modules.length; i++) {
-            modulesNames[i + 1] = modules[i].getName();
+            final String currentModuleName = modules[i].getName();
+            modulesNames[i + 1] = currentModuleName;
+
+            if (currentModuleName.equals(selectedModuleName)) {
+                indexToSelect = i + 1;
+            }
         }
         this.configurationPanel.getModuleComboBox().setModel(new DefaultComboBoxModel<>(modulesNames));
-        this.configurationPanel.getModuleComboBox().setSelectedIndex(0);
-        this.configurationPanel.getModuleComboBox().setSelectedItem(selectedModuleName);
+        this.configurationPanel.getModuleComboBox().setSelectedIndex(indexToSelect);
 
 
 
