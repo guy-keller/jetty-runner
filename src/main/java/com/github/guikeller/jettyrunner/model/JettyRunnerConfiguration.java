@@ -20,8 +20,10 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Jetty Runner Configuration - UI Model
@@ -31,6 +33,7 @@ import java.util.Map;
 public class JettyRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
 
     public static final String PREFIX = "JettyRunnerV112-";
+    public static final String SELECTED_MODULE_NAME_FIELD = PREFIX + "SelectedModuleName";
     public static final String WEBAPP_PATH_FIELD = PREFIX + "WebAppPath";
     public static final String WEBAPP_FOLDER_FIELD = PREFIX + "WebAppFolder";
     public static final String CLASSES_DIRECTORY_FIELD = PREFIX + "ClassesDirectory";
@@ -51,6 +54,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     private boolean passParentEnvironmentVariables = false;
 
     private Project project;
+    private String selectedModuleName = "";
 
 
     public JettyRunnerConfiguration(Project project, ConfigurationFactory factory, String name) {
@@ -79,6 +83,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
         super.readExternal(element);
         // Reads the conf file into this class
         this.webappPaths = JDOMExternalizerUtil.readField(element, WEBAPP_PATH_FIELD);
+        this.selectedModuleName = JDOMExternalizerUtil.readField(element, SELECTED_MODULE_NAME_FIELD);
         this.webappFolders = JDOMExternalizerUtil.readField(element, WEBAPP_FOLDER_FIELD);
         this.classesDirectories = JDOMExternalizerUtil.readField(element, CLASSES_DIRECTORY_FIELD);
         this.runningOnPort = JDOMExternalizerUtil.readField(element, RUN_PORT_FIELD);
@@ -93,6 +98,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     public void writeExternal(Element element) throws WriteExternalException {
         super.writeExternal(element);
         // Stores the values of this class into the parent
+        JDOMExternalizerUtil.writeField(element, SELECTED_MODULE_NAME_FIELD, this.getSelectedModuleName());
         JDOMExternalizerUtil.writeField(element, WEBAPP_PATH_FIELD, this.getWebappPaths());
         JDOMExternalizerUtil.writeField(element, WEBAPP_FOLDER_FIELD, this.getWebappFolders());
         JDOMExternalizerUtil.writeField(element, CLASSES_DIRECTORY_FIELD, this.getClassesDirectories());
@@ -108,8 +114,21 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     @Override
     @NotNull
     public Module[] getModules() {
-        ModuleManager moduleManager = ModuleManager.getInstance(this.project);
-        return moduleManager.getModules();
+        Module[] modules = ModuleManager.getInstance(this.project).getModules();
+
+        if (this.selectedModuleName == null) {
+            return modules;
+        }
+
+        Optional<Module> selectedModule = Arrays.stream(modules).filter(module -> selectedModuleName.equals(module.getName())).findFirst();
+        if (modules != null && modules.length > 0) {
+
+            // if we found a selected module, we use it, otherwise, we add all modules
+            if (selectedModule.isPresent()) {
+                return new Module[]{selectedModule.get()};
+            }
+        }
+        return modules;
     }
 
     // Getters and Setters
@@ -178,4 +197,11 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
         this.passParentEnvironmentVariables = passParentEnvironmentVariables;
     }
 
+    public void setSelectedModuleName(String selectedModuleName) {
+        this.selectedModuleName = selectedModuleName;
+    }
+
+    public String getSelectedModuleName() {
+        return selectedModuleName;
+    }
 }

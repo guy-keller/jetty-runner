@@ -24,6 +24,10 @@ public class JettyRunnerEditorTest {
 
         JettyRunnerConfPanel confPanel = Mockito.mock(JettyRunnerConfPanel.class);
 
+        @SuppressWarnings("unchecked")
+        JComboBox<String> moduleComboBox = Mockito.mock(JComboBox.class);
+        Mockito.when(confPanel.getModuleComboBox()).thenReturn(moduleComboBox);
+
         JTextField pathField = Mockito.mock(JTextField.class);
         Mockito.when(confPanel.getPathField()).thenReturn(pathField);
 
@@ -58,6 +62,7 @@ public class JettyRunnerEditorTest {
             }
         }
 
+        Mockito.verify(confPanel, Mockito.times(1)).getModuleComboBox();
         Mockito.verify(confPanel, Mockito.times(1)).getClassesField();
         Mockito.verify(confPanel, Mockito.times(1)).getPathField();
         Mockito.verify(confPanel, Mockito.times(1)).getWebappField();
