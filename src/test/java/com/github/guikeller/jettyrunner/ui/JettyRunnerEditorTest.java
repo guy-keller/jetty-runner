@@ -2,6 +2,7 @@ package com.github.guikeller.jettyrunner.ui;
 
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
+import com.intellij.ui.components.fields.ExpandableTextField;
 import org.jdom.Element;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,7 +44,7 @@ public class JettyRunnerEditorTest {
         JTextField xmlField = Mockito.mock(JTextField.class);
         Mockito.when(confPanel.getXmlField()).thenReturn(xmlField);
 
-        JTextField vmArgsField = Mockito.mock(JTextField.class);
+        ExpandableTextField vmArgsField = Mockito.mock(ExpandableTextField.class);
         Mockito.when(confPanel.getVmArgsField()).thenReturn(vmArgsField);
 
         EnvironmentVariablesComponent environmentVariables = Mockito.mock(EnvironmentVariablesComponent.class);

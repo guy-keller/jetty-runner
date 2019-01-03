@@ -205,7 +205,7 @@
               <text value="VM Args:"/>
             </properties>
           </component>
-          <component id="40a52" class="javax.swing.JTextField" binding="vmArgsField">
+          <component id="ac383" class="com.intellij.ui.components.fields.ExpandableTextField" binding="vmArgsField">
             <constraints>
               <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>

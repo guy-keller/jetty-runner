@@ -1,6 +1,7 @@
 package com.github.guikeller.jettyrunner.ui;
 
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
+import com.intellij.ui.components.fields.ExpandableTextField;
 
 import javax.swing.*;
 import java.io.File;
@@ -19,7 +20,7 @@ public class JettyRunnerConfPanel {
     private JTextField runOnPortField;
     private JTextField xmlField;
     private JButton browseButton;
-    private JTextField vmArgsField;
+    private ExpandableTextField vmArgsField;
     private EnvironmentVariablesComponent environmentVariables;
     private JLabel spacerLabel;
     private JLabel vmArgsLabel;
@@ -56,6 +57,7 @@ public class JettyRunnerConfPanel {
                 }
             }
         });
+
     }
 
     public JPanel getMainPanel() {
@@ -82,7 +84,7 @@ public class JettyRunnerConfPanel {
         return xmlField;
     }
 
-    public JTextField getVmArgsField() {
+    public ExpandableTextField getVmArgsField() {
         return vmArgsField;
     }
 
