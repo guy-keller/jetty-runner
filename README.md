@@ -20,7 +20,7 @@ tags: jetty, container, webapp, runner, tomcat, runner <br>
 3) User friendly UI - created using IntelliJ.<br>
 4) Internal code is documented and it is relatively easy to follow / read.<br>
 5) A good coverage of unit tests.<br>
-6) Uses jetty-runner-9.4.6<br>
+6) Uses jetty-runner-9.4.14<br>
 
 <b>PLEASE READ THE: Getting Started</b><br>
 https://github.com/guikeller/jetty-runner/wiki/Getting-Started

@@ -100,7 +100,7 @@
               <forms defaultalign-horz="false"/>
             </constraints>
             <properties>
-              <toolTipText value="Eg: /path/to/src/main/webapp (Accepts multiple values) [Optional - CSV]"/>
+              <toolTipText value="Eg: /path/to/src/main/webapp (Accepts multiple values) [Mandatory - CSV]"/>
             </properties>
           </component>
           <component id="c6409" class="javax.swing.JLabel" binding="classesLabel">
