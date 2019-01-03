@@ -24,6 +24,9 @@ import java.util.Set;
  */
 public class JettyRunnerCommandLine extends JavaCommandLineState {
 
+    // TODO - The 'Runner' class has been deprecated with the message below:
+    // "No replacement provided or available. Migrate to jetty-home (and use ${jetty.base} directory)."
+    // Which is not very helpful at all and provides no clear direction on what needs doing.
     // Jetty "Main Class" - the target (Jetty Runner)
     private static final String MAIN_CLASS = Runner.class.getName();
 
@@ -39,6 +42,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
     @Override
     public JavaParameters createJavaParameters() throws ExecutionException {
         JavaParameters javaParams = new JavaParameters();
+        javaParams.setMainClass(MAIN_CLASS);
         // Use the same JDK as the project
         Project project = this.environment.getProject();
         ProjectRootManager manager = ProjectRootManager.getInstance(project);
@@ -51,10 +55,9 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
                 javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
             }
         }
-        // Dynamically adds the jetty-runner.jar to the classpath
+        // Dynamically adds the 'jetty-runner.jar' to the classpath
         String jarPath = PathUtil.getJarPathForClass(Runner.class);
         javaParams.getClassPath().add(jarPath);
-        javaParams.setMainClass(MAIN_CLASS);
         // Jetty XML - configured by the user
         String jettyXmls = this.getJettyXmlPaths();
         if(jettyXmls != null) {
@@ -102,35 +105,31 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
      * @return String value
      */
     protected String getWebAppPath() {
+        StringBuffer value = new StringBuffer(" --path ");
         String paths = model.getWebappPaths();
         String folders = model.getWebappFolders();
         // Multiple values allowed - CSV
-        String[] pathsArray = null;
+        String[] pathsArray = new String[]{};
         if(paths != null && !paths.isEmpty()){
             pathsArray = paths.split(",");
         }
         // Multiple values allowed - CSV
-        String[] foldersArray = null;
+        String[] foldersArray = new String[]{};
         if(folders != null && !folders.isEmpty()) {
             foldersArray = folders.split(",");
         }
         // Checking that we have paths and folders
-        if( pathsArray != null && pathsArray.length > 0
-                && foldersArray != null && foldersArray.length >0 ){
-            // One path, one folder - two paths, two folders..
-            if(foldersArray.length != pathsArray.length){
-                throw new IllegalArgumentException("Incorrect folder(s) param: "+folders);
-            }
+        if(pathsArray.length > 0 && foldersArray.length > 0) {
             // Creates the 'path' parameter
-            StringBuffer value = new StringBuffer(" --path ");
             for(int i=0; i<pathsArray.length; i++){
                 String path = pathsArray[i];
                 String folderPath = PathUtil.toPresentableUrl(foldersArray[i]);
                 value.append(path).append(" ").append(folderPath).append(" ");
             }
-            return value.toString();
+        } else {
+            throw new IllegalArgumentException("Number of Path(s) and Folder(s) must match: " + paths + " / " + folders);
         }
-        throw new IllegalArgumentException("Number of Path(s) and Folder(s) must match: "+paths+" / "+folders);
+        return value.toString();
     }
 
     /**

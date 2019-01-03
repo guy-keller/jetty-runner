@@ -32,7 +32,7 @@ import java.util.Optional;
  */
 public class JettyRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
 
-    public static final String PREFIX = "JettyRunnerV112-";
+    public static final String PREFIX = "JettyRunnerV130-";
     public static final String SELECTED_MODULE_NAME_FIELD = PREFIX + "SelectedModuleName";
     public static final String WEBAPP_PATH_FIELD = PREFIX + "WebAppPath";
     public static final String WEBAPP_FOLDER_FIELD = PREFIX + "WebAppFolder";
@@ -115,20 +115,18 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     @NotNull
     public Module[] getModules() {
         Module[] modules = ModuleManager.getInstance(this.project).getModules();
-
         if (this.selectedModuleName == null) {
             return modules;
-        }
-
-        Optional<Module> selectedModule = Arrays.stream(modules).filter(module -> selectedModuleName.equals(module.getName())).findFirst();
-        if (modules != null && modules.length > 0) {
-
-            // if we found a selected module, we use it, otherwise, we add all modules
-            if (selectedModule.isPresent()) {
-                return new Module[]{selectedModule.get()};
+        } else {
+            Optional<Module> selectedModule = Arrays.stream(modules).filter(module -> selectedModuleName.equals(module.getName())).findFirst();
+            if (modules != null && modules.length > 0) {
+                // if we found a selected module, we use it, otherwise, we add all modules
+                if (selectedModule.isPresent()) {
+                    return new Module[]{selectedModule.get()};
+                }
             }
+            return modules;
         }
-        return modules;
     }
 
     // Getters and Setters

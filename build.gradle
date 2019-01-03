@@ -42,7 +42,7 @@ repositories {
 // Project dependencies
 dependencies {
     // Third Party dependencies - Local lib folder
-    compile(name : 'jetty-runner-9.4.6.v20170531')
+    compile(name : 'jetty-runner-9.4.14.v20181114.jar')
     // IntelliJ CE Dependencies - Copy.com/Repo
     compile('com.github.guikeller.jetty-runner:util:2017.1')
     compile('com.github.guikeller.jetty-runner:idea:2017.1')

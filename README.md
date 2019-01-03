@@ -25,20 +25,12 @@ tags: jetty, container, webapp, runner, tomcat, runner <br>
 <b>PLEASE READ THE: Getting Started</b><br>
 https://github.com/guikeller/jetty-runner/wiki/Getting-Started
 
-<b>Code Analysis Reports:</b><br>
- - Unit tests report - http://www.indexerapp.com/jetty-runner/reports/tests/index.html <br>
- - Cobertura report - http://www.indexerapp.com/jetty-runner/reports/cobertura/index.html <br>
- - Findbugs report - http://www.indexerapp.com/jetty-runner/reports/findbugs/main.html <br>
- - Copy Paste Detector (CPD) report - http://www.indexerapp.com/jetty-runner/reports/cpd/cpd.html <br>
- - PMD report - http://www.indexerapp.com/jetty-runner/reports/pmd/main.html <br>
- - Checkstyle report - http://www.indexerapp.com/jetty-runner/reports/checkstyle/main.html <br>
-
 <p>
  <b>Many thanks to the following collaborations:</b><br>
  @tchudyk - Pull Request #1<br>
  @dcritchl - Pull Request #3<br>
  @emongstad - Pull Request #46<br>
- And http://www.IndexerApp.com for hosting our static code analysis reports.
+ @aaitmouloud - Pull Request #61<br>
 </p>
 
 <p>
@@ -46,4 +38,10 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
  The project is well and alive thanks for your interest! :wink: <br>
  Note that as the project is well tested, reliable and stable changes will be occasional.<br> 
  Changes will happen when a new Jetty version is released or a reproduceable bug is reported.
+</p>
+
+<p>
+ <b>How can I donate?</b> <br>
+ You can download my mobile app (WavesTracker) and purchase a subscription.<br>
+ Otherwise, rating the plugin and my app (WavesTracker) 5(five) stars would be great.<br>
 </p>

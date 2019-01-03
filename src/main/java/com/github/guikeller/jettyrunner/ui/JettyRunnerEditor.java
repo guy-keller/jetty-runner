@@ -80,7 +80,6 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
 
         // Choose modules (all modules default)
         String selectedModuleName = jettyRunnerConfiguration.getSelectedModuleName();
-
         final Module[] modules = ModuleManager.getInstance(project).getModules();
         final String[] modulesNames = new String[modules.length + 1];
         modulesNames[0] = "<all modules>";
@@ -95,8 +94,6 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         }
         this.configurationPanel.getModuleComboBox().setModel(new DefaultComboBoxModel<>(modulesNames));
         this.configurationPanel.getModuleComboBox().setSelectedIndex(indexToSelect);
-
-
 
         // Jetty XML (Optional)
         this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
@@ -130,7 +127,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         addOrRemoveEnvVar(jettyRunnerConfiguration.getEnvironmentVariables(), envVars);
         jettyRunnerConfiguration.setEnvironmentVariables(envVars);
         try {
-            // Not entirely sure if 'I have' to do this - the IntelliJ framework may do
+            // Not entirely sure if 'I have to' do this - the IntelliJ framework may do
             jettyRunnerConfiguration.writeExternal(new Element(JettyRunnerConfiguration.PREFIX + UUID.randomUUID().toString()));
         } catch (WriteExternalException e) {
             throw new RuntimeException(e);
@@ -182,20 +179,24 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
      */
     private String getWebAppsFolder(Project project) {
         // Using the api to look for the web.xml
+        String webappsFolder = "";
         PsiShortNamesCache namesCache = PsiShortNamesCache.getInstance(project);
         PsiFile[] webXML = namesCache.getFilesByName("web.xml");
-        if (webXML == null || webXML.length < 1) return "";
-        // Grab the first one that the api found
-        PsiFile file = webXML[0];
-        // The parent folder is the "WEB-INF" folder
-        PsiDirectory webInfFolder = file.getParent();
-        if (webInfFolder == null) return "";
-        // The parent folder to "WEB-INF" is the WebApps folder
-        PsiDirectory webappFolder = webInfFolder.getParent();
-        if (webappFolder == null) return "";
-        // Folder found, returns it to the user
-        VirtualFile virtualFile = webappFolder.getVirtualFile();
-        return virtualFile.getPresentableUrl();
+        if (webXML != null && webXML.length > 0) {
+            // Grab the first one that the api found
+            PsiFile file = webXML[0];
+            // The parent folder is the "WEB-INF" folder
+            PsiDirectory webInfFolder = file.getParent();
+            if (webInfFolder != null) {
+                // The parent folder to "WEB-INF" is the WebApps folder
+                PsiDirectory webappFolder = webInfFolder.getParent();
+                if (webappFolder != null){
+                    VirtualFile virtualFile = webappFolder.getVirtualFile();
+                    webappsFolder = virtualFile.getPresentableUrl();
+                }
+            }
+        }
+        return webappsFolder;
     }
 
     /**
