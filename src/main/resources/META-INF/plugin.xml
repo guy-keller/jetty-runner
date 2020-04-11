@@ -1,7 +1,7 @@
-<idea-plugin version="2">
+<idea-plugin>
     <id>JettyRunner-GK</id>
     <name>IDEA Jetty Runner</name>
-    <version>1.3.1</version>
+    <version>1.4.13</version>
     <vendor email="guikeller@gmail.com" url="https://github.com/guikeller/jetty-runner">IntelliJ Jetty Runner</vendor>
 
     <description><![CDATA[
@@ -24,9 +24,15 @@ Thanks for dropping by.
     ]]>
     </change-notes>
 
-    <idea-version since-build="131"/>
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html -->
+    <idea-version since-build="201"/>
 
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html#modules-available-in-all-products -->
     <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.xdebugger</depends>
+
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html#modules-specific-to-functionality -->
+    <depends>com.intellij.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Initialises the UI when the user selects the plugin from the menu -->

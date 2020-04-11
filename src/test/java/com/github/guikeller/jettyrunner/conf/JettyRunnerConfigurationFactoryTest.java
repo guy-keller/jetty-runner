@@ -2,6 +2,7 @@ package com.github.guikeller.jettyrunner.conf;
 
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.execution.configurations.RunConfiguration;
+import com.intellij.execution.configurations.RunConfigurationSingletonPolicy;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.IconUtil;
 import org.junit.Test;
@@ -28,6 +29,6 @@ public class JettyRunnerConfigurationFactoryTest {
         Project project = Mockito.mock(Project.class);
         RunConfiguration configuration = factory.createTemplateConfiguration(project);
         assertNotNull(configuration);
-        assertTrue(factory.isConfigurationSingletonByDefault());
+        assertTrue(factory.getSingletonPolicy() == RunConfigurationSingletonPolicy.SINGLE_INSTANCE_ONLY);
     }
 }

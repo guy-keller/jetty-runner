@@ -9,23 +9,20 @@ import com.intellij.execution.configurations.*;
 import com.intellij.execution.executors.DefaultDebugExecutor;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.ui.RunContentDescriptor;
-import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
- * Jetty Program Debugger - Jetty Runner on Debug mode or Normal mode
+ * Jetty Program Debugger - Jetty Runner on Debug mode
  * @see com.intellij.debugger.impl.GenericDebuggerRunner
  * @author Gui Keller
  */
 public class JettyProgramDebugger extends GenericDebuggerRunner {
 
-    // These are JVM 6 onwards hence the JVM6 as min requirement
+    // These are JVM 8 onwards hence why the JVM 8 as min requirement
     private static final String XDEBUG = "-Xdebug";
     private static final String JDWP = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=";
 
     private static final String LOCALHOST = "127.0.0.1";
-
 
     public JettyProgramDebugger(){
         super();
@@ -44,35 +41,33 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
     }
 
     @Override
-    @Nullable
-    protected RunContentDescriptor createContentDescriptor(RunProfileState state, ExecutionEnvironment env)
-            throws ExecutionException {
+    protected RunContentDescriptor createContentDescriptor(@NotNull RunProfileState state,
+                                                           @NotNull ExecutionEnvironment environment) throws ExecutionException {
         // Now we figure out if it the Debug button has been hit
-        Executor executor = env.getExecutor();
+        Executor executor = environment.getExecutor();
         // If was the debug, then we do some extra magic
         if(executor instanceof DefaultDebugExecutor) {
-            // Get hold of the JavaParameters
-            JavaCommandLine javaCommandLine = (JavaCommandLine) state;
-            JavaParameters javaParameters = javaCommandLine.getJavaParameters();
-            // Making the assumption that it's JVM 7 onwards
-            javaParameters.getVMParametersList().addParametersString(XDEBUG);
-            // Debugger port
             String debuggerPort = DebuggerUtils.getInstance().findAvailableDebugAddress(true);
-            String remotePort = JDWP + debuggerPort;
-            javaParameters.getVMParametersList().addParametersString(remotePort);
+            // Get hold of the JavaParameters
+            addParamsToJavaCmdLine(state, debuggerPort);
             // Creating a 'Remote' configuration on the fly
             RemoteConnection connection = new RemoteConnection(true, LOCALHOST, debuggerPort, false);
             // Attaches the remote configuration to the VM and then starts it up
-            return super.attachVirtualMachine(state, env, connection, true);
+            return super.attachVirtualMachine(state, environment, connection, true);
         }else{
             // If it was something else then we don't do anything special
-            return super.createContentDescriptor(state, env);
+            return super.createContentDescriptor(state, environment);
         }
     }
 
-    @Override
-    protected RunContentDescriptor doExecute(@NotNull Project project, @NotNull RunProfileState state, RunContentDescriptor contentToReuse, @NotNull ExecutionEnvironment env) throws ExecutionException {
-        return super.doExecute(project, state, contentToReuse, env);
+    protected void addParamsToJavaCmdLine(RunProfileState state, String debuggerPort) throws  ExecutionException {
+        JavaCommandLine javaCommandLine = (JavaCommandLine) state;
+        JavaParameters javaParameters = javaCommandLine.getJavaParameters();
+        // Making the assumption that it's JVM 7 onwards
+        javaParameters.getVMParametersList().addParametersString(XDEBUG);
+        // Debugger port
+        String remotePort = JDWP + debuggerPort;
+        javaParameters.getVMParametersList().addParametersString(remotePort);
     }
 
 }

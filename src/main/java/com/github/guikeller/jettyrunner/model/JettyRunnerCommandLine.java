@@ -83,10 +83,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
         // Env Vars
         Map<String, String> environmentVariables = this.getEnvVars();
         if(!environmentVariables.isEmpty()) {
-            // The below should work, but does not
-            boolean passParentEnvironmentVariables = this.isPassParentEnvironmentVariables();
-            javaParams.setupEnvs(environmentVariables, passParentEnvironmentVariables);
-            // This is a workaround for the problem above..
+            // Pass it through to the VM that will be created when running jetty-runner
             Set<String> keys = environmentVariables.keySet();
             for(String key : keys) {
                 String value = environmentVariables.get(key);

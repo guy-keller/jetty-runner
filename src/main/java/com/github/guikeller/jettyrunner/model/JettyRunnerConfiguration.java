@@ -30,6 +30,7 @@ import java.util.Optional;
  * @see com.intellij.execution.configurations.LocatableConfigurationBase
  * @author Gui Keller
  */
+@SuppressWarnings("all")
 public class JettyRunnerConfiguration extends LocatableConfigurationBase implements RunProfileWithCompileBeforeLaunchOption {
 
     public static final String PREFIX = "JettyRunnerV130-";

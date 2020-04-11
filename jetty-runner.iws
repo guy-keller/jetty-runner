@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d83f5ac2-84c9-4203-9b8c-061fba429914" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetty-runner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/create_repo.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/create_repo_cygwin.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerCommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerCommandLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactoryTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1aORGaAXGJDxnW4IyTlVZcmWUNQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.unlinked.gradle.project.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="jetty-runner" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="jetty-runner" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SQLPlugin.ProjectConfiguration">
+    <queries />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d83f5ac2-84c9-4203-9b8c-061fba429914" name="Default Changelist" comment="" />
+      <created>1586604558959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586604558959</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="211" y="23" key="#Project_Structure" timestamp="1586606225448">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="211" y="23" key="#Project_Structure/0.23.1440.797@0.23.1440.797" timestamp="1586606225448" />
+    <state x="187" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586606514574">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="187" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1586606514574" />
+    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser" timestamp="1586620323810">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser/0.23.1440.797@0.23.1440.797" timestamp="1586620323810" />
+    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog" timestamp="1586613346036">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog/0.23.1440.797@0.23.1440.797" timestamp="1586613346036" />
+    <state width="1358" height="204" key="GridCell.Tab.0.bottom" timestamp="1586607273778">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1586607273778" />
+    <state width="1358" height="204" key="GridCell.Tab.0.center" timestamp="1586607273777">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1586607273777" />
+    <state width="1358" height="204" key="GridCell.Tab.0.left" timestamp="1586607273777">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1586607273777" />
+    <state width="1358" height="204" key="GridCell.Tab.0.right" timestamp="1586607273778">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1586607273778" />
+    <state width="1358" height="204" key="GridCell.Tab.1.bottom" timestamp="1586607273781">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1586607273781" />
+    <state width="1358" height="204" key="GridCell.Tab.1.center" timestamp="1586607273779">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1586607273779" />
+    <state width="1358" height="204" key="GridCell.Tab.1.left" timestamp="1586607273779">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1586607273779" />
+    <state width="1358" height="204" key="GridCell.Tab.1.right" timestamp="1586607273780">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1586607273780" />
+    <state x="311" y="163" key="IDE.errors.dialog" timestamp="1586608686603">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="311" y="163" key="IDE.errors.dialog/0.23.1440.797@0.23.1440.797" timestamp="1586608686603" />
+    <state x="232" y="60" key="SettingsEditor" timestamp="1586618877230">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="232" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1586618877230" />
+    <state x="232" y="60" key="SettingsEditor/0.23.1440.801@0.23.1440.801" timestamp="1586606971068" />
+    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1586613346037">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1440.797@0.23.1440.797" timestamp="1586613346037" />
+    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586613346037">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.797@0.23.1440.797" timestamp="1586613346037" />
+  </component>
+</project>

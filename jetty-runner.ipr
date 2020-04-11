@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+      <option name="myName" value="Jetty-Runner" />
+    </profile>
+    <version value="1.0" />
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jetty-runner.iml" filepath="$PROJECT_DIR$/jetty-runner.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="IntelliJ IDEA Community Edition IC-201.6668.121" project-jdk-type="IDEA JDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="compile">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/compile/jetty-runner-9.4.14.v20181114.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="test">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/test/cglib-nodep-2.2.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/test/javassist-3.21.0-GA.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/test/junit-4.11.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/test/mockito-all-1.9.5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/test/objenesis-2.6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/test/powermock-mockito-release-full-1.5.6-full.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/test/mockito-all-1.9.5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/test/powermock-mockito-release-full-1.5.6-full.jar!/" />
+      </SOURCES>
+    </library>
+  </component>
+</project>
