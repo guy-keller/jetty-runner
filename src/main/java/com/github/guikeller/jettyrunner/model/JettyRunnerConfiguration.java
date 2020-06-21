@@ -40,6 +40,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     public static final String CLASSES_DIRECTORY_FIELD = PREFIX + "ClassesDirectory";
     public static final String RUN_PORT_FIELD = PREFIX + "RunOnPort";
     public static final String JETTY_XML_FIELD = PREFIX + "JettyXML";
+    public static final String JETTY_RUNNER_JAR_PATH = PREFIX + "JettyRunnerPath";
     public static final String VM_ARGS_FIELD = PREFIX + "VmArgs";
     public static final String PASS_PARENT_ENV_VARS_FIELD = PREFIX + "PassParentEnvVars";
 
@@ -48,6 +49,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
     private String classesDirectories;
 
     private String runningOnPort;
+    private String jettyRunnerJarPath;
     private String jettyXml;
     private String vmArgs;
 
@@ -89,6 +91,7 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
         this.classesDirectories = JDOMExternalizerUtil.readField(element, CLASSES_DIRECTORY_FIELD);
         this.runningOnPort = JDOMExternalizerUtil.readField(element, RUN_PORT_FIELD);
         this.jettyXml = JDOMExternalizerUtil.readField(element, JETTY_XML_FIELD);
+        this.jettyRunnerJarPath = JDOMExternalizerUtil.readField(element, JETTY_RUNNER_JAR_PATH);
         this.vmArgs = JDOMExternalizerUtil.readField(element, VM_ARGS_FIELD);
         String passParentEnvironmentVariablesValue = JDOMExternalizerUtil.readField(element, PASS_PARENT_ENV_VARS_FIELD);
         this.passParentEnvironmentVariables = Boolean.valueOf(passParentEnvironmentVariablesValue);
@@ -104,9 +107,10 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
         JDOMExternalizerUtil.writeField(element, WEBAPP_FOLDER_FIELD, this.getWebappFolders());
         JDOMExternalizerUtil.writeField(element, CLASSES_DIRECTORY_FIELD, this.getClassesDirectories());
         JDOMExternalizerUtil.writeField(element, RUN_PORT_FIELD, this.getRunningOnPort());
+        JDOMExternalizerUtil.writeField(element, JETTY_RUNNER_JAR_PATH, this.getJettyRunnerJarPath());
         JDOMExternalizerUtil.writeField(element, JETTY_XML_FIELD, this.getJettyXml());
         JDOMExternalizerUtil.writeField(element, VM_ARGS_FIELD, this.getVmArgs());
-        JDOMExternalizerUtil.writeField(element, PASS_PARENT_ENV_VARS_FIELD, ""+this.isPassParentEnvironmentVariables());
+        JDOMExternalizerUtil.writeField(element, PASS_PARENT_ENV_VARS_FIELD, String.valueOf(this.isPassParentEnvironmentVariables()));
         if(this.environmentVariables != null && !this.environmentVariables.isEmpty()){
             EnvironmentVariablesComponent.writeExternal(element, this.getEnvironmentVariables());
         }
@@ -162,6 +166,14 @@ public class JettyRunnerConfiguration extends LocatableConfigurationBase impleme
 
     public void setRunningOnPort(String runningOnPort) {
         this.runningOnPort = runningOnPort;
+    }
+
+    public String getJettyRunnerJarPath() {
+        return jettyRunnerJarPath;
+    }
+
+    public void setJettyRunnerJarPath(String jettyRunnerJarPath) {
+        this.jettyRunnerJarPath = jettyRunnerJarPath;
     }
 
     public String getJettyXml() {

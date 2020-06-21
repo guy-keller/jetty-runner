@@ -2,24 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d83f5ac2-84c9-4203-9b8c-061fba429914" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jetty-runner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/create_repo.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/create_repo_cygwin.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetty-runner.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetty-runner.iws" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/provided/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/compile/jetty-runner-9.4.14.v20181114.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerCommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerCommandLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +37,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.unlinked.gradle.project.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/provided" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
@@ -84,66 +82,129 @@
       <option name="presentableId" value="Default" />
       <updated>1586604558959</updated>
     </task>
+    <task id="LOCAL-00001" summary="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints">
+      <created>1586622504830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586622504830</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="211" y="23" key="#Project_Structure" timestamp="1586606225448">
+    <state x="211" y="23" key="#Project_Structure" timestamp="1592743175637">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="211" y="23" key="#Project_Structure/0.23.1440.797@0.23.1440.797" timestamp="1586606225448" />
+    <state x="211" y="23" key="#Project_Structure/0.23.1440.797@0.23.1440.797" timestamp="1592743175637" />
     <state x="187" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586606514574">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="187" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1586606514574" />
-    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser" timestamp="1586620323810">
+    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser" timestamp="1592779883793">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser/0.23.1440.797@0.23.1440.797" timestamp="1586620323810" />
-    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog" timestamp="1586613346036">
+    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser/0.23.1440.797@0.23.1440.797" timestamp="1592779883793" />
+    <state x="561" y="139" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1592742965852">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog/0.23.1440.797@0.23.1440.797" timestamp="1586613346036" />
-    <state width="1358" height="204" key="GridCell.Tab.0.bottom" timestamp="1586607273778">
+    <state x="561" y="139" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1440.797@0.23.1440.797" timestamp="1592742965852" />
+    <state x="335" y="23" key="CommitChangelistDialog2" timestamp="1586622504189">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1586607273778" />
-    <state width="1358" height="204" key="GridCell.Tab.0.center" timestamp="1586607273777">
+    <state x="335" y="23" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1586622504189" />
+    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog" timestamp="1592781553313">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1586607273777" />
-    <state width="1358" height="204" key="GridCell.Tab.0.left" timestamp="1586607273777">
+    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog/0.23.1440.797@0.23.1440.797" timestamp="1592781553313" />
+    <state width="1358" height="204" key="GridCell.Tab.0.bottom" timestamp="1592783051276">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1592782934057" />
+    <state width="1358" height="204" key="GridCell.Tab.0.bottom/0.23.1440.801@0.23.1440.801" timestamp="1592783051276" />
+    <state width="1358" height="204" key="GridCell.Tab.0.center" timestamp="1592783051274">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1592782934056" />
+    <state width="1358" height="204" key="GridCell.Tab.0.center/0.23.1440.801@0.23.1440.801" timestamp="1592783051274" />
+    <state width="1358" height="204" key="GridCell.Tab.0.left" timestamp="1592783051272">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1592782934056" />
+    <state width="1358" height="204" key="GridCell.Tab.0.left/0.23.1440.801@0.23.1440.801" timestamp="1592783051272" />
+    <state width="1358" height="204" key="GridCell.Tab.0.right" timestamp="1592783051275">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1592782934056" />
+    <state width="1358" height="204" key="GridCell.Tab.0.right/0.23.1440.801@0.23.1440.801" timestamp="1592783051275" />
+    <state width="1358" height="204" key="GridCell.Tab.1.bottom" timestamp="1592783051279">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1592782934061" />
+    <state width="1358" height="204" key="GridCell.Tab.1.bottom/0.23.1440.801@0.23.1440.801" timestamp="1592783051279" />
+    <state width="1358" height="204" key="GridCell.Tab.1.center" timestamp="1592783051277">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1592782934058" />
+    <state width="1358" height="204" key="GridCell.Tab.1.center/0.23.1440.801@0.23.1440.801" timestamp="1592783051277" />
+    <state width="1358" height="204" key="GridCell.Tab.1.left" timestamp="1592783051277">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1592782934057" />
+    <state width="1358" height="204" key="GridCell.Tab.1.left/0.23.1440.801@0.23.1440.801" timestamp="1592783051277" />
+    <state width="1358" height="204" key="GridCell.Tab.1.right" timestamp="1592783051278">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="1358" height="204" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1592782934059" />
+    <state width="1358" height="204" key="GridCell.Tab.1.right/0.23.1440.801@0.23.1440.801" timestamp="1592783051278" />
+    <state width="1358" height="253" key="GridCell.Tab.2.bottom" timestamp="1592781762984">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1586607273777" />
-    <state width="1358" height="204" key="GridCell.Tab.0.right" timestamp="1586607273778">
+    <state width="1358" height="253" key="GridCell.Tab.2.bottom/0.23.1440.797@0.23.1440.797" timestamp="1592781762984" />
+    <state width="1358" height="253" key="GridCell.Tab.2.center" timestamp="1592781762983">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1586607273778" />
-    <state width="1358" height="204" key="GridCell.Tab.1.bottom" timestamp="1586607273781">
+    <state width="1358" height="253" key="GridCell.Tab.2.center/0.23.1440.797@0.23.1440.797" timestamp="1592781762983" />
+    <state width="1358" height="253" key="GridCell.Tab.2.left" timestamp="1592781762982">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1586607273781" />
-    <state width="1358" height="204" key="GridCell.Tab.1.center" timestamp="1586607273779">
+    <state width="1358" height="253" key="GridCell.Tab.2.left/0.23.1440.797@0.23.1440.797" timestamp="1592781762982" />
+    <state width="1358" height="253" key="GridCell.Tab.2.right" timestamp="1592781762983">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1586607273779" />
-    <state width="1358" height="204" key="GridCell.Tab.1.left" timestamp="1586607273779">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1586607273779" />
-    <state width="1358" height="204" key="GridCell.Tab.1.right" timestamp="1586607273780">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1586607273780" />
-    <state x="311" y="163" key="IDE.errors.dialog" timestamp="1586608686603">
-      <screen x="0" y="23" width="1440" height="797" />
+    <state width="1358" height="253" key="GridCell.Tab.2.right/0.23.1440.797@0.23.1440.797" timestamp="1592781762983" />
+    <state x="311" y="163" key="IDE.errors.dialog" timestamp="1586622128494">
+      <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="311" y="163" key="IDE.errors.dialog/0.23.1440.797@0.23.1440.797" timestamp="1586608686603" />
+    <state x="311" y="163" key="IDE.errors.dialog/0.23.1440.798@0.23.1440.798" timestamp="1586622128494" />
+    <state x="499" y="130" key="RollbackChangesDialog" timestamp="1592783087004">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="499" y="130" key="RollbackChangesDialog/0.23.1440.801@0.23.1440.801" timestamp="1592783087004" />
     <state x="232" y="60" key="SettingsEditor" timestamp="1586618877230">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="232" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1586618877230" />
     <state x="232" y="60" key="SettingsEditor/0.23.1440.801@0.23.1440.801" timestamp="1586606971068" />
+    <state x="323" y="161" key="Vcs.Push.Dialog.v2" timestamp="1586622511989">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="323" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1586622511989" />
     <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1586613346037">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -152,5 +213,9 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.797@0.23.1440.797" timestamp="1586613346037" />
+    <state x="123" y="123" width="1200" height="596" key="dock-window-1" timestamp="1592740711794">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="123" y="123" width="1200" height="596" key="dock-window-1/0.23.1440.797@0.23.1440.797" timestamp="1592740711794" />
   </component>
 </project>

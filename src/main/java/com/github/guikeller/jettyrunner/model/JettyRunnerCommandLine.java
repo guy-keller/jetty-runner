@@ -8,7 +8,6 @@ import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.util.PathUtil;
-import org.eclipse.jetty.runner.Runner;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -24,11 +23,8 @@ import java.util.Set;
  */
 public class JettyRunnerCommandLine extends JavaCommandLineState {
 
-    // TODO - The 'Runner' class has been deprecated with the message below:
-    // "No replacement provided or available. Migrate to jetty-home (and use ${jetty.base} directory)."
-    // Which is not very helpful at all and provides no clear direction on what needs doing.
-    // Jetty "Main Class" - the target (Jetty Runner)
-    private static final String MAIN_CLASS = Runner.class.getName();
+    // The jetty-runner main class
+    private static final String JETTY_MAIN_CLASS = "org.eclipse.jetty.runner.Runner";
 
     private ExecutionEnvironment environment;
     private JettyRunnerConfiguration model;
@@ -42,7 +38,7 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
     @Override
     public JavaParameters createJavaParameters() throws ExecutionException {
         JavaParameters javaParams = new JavaParameters();
-        javaParams.setMainClass(MAIN_CLASS);
+        javaParams.setMainClass(JETTY_MAIN_CLASS);
         // Use the same JDK as the project
         Project project = this.environment.getProject();
         ProjectRootManager manager = ProjectRootManager.getInstance(project);
@@ -55,9 +51,11 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
                 javaParams.configureByModule(module, JavaParameters.JDK_AND_CLASSES);
             }
         }
+
         // Dynamically adds the 'jetty-runner.jar' to the classpath
-        String jarPath = PathUtil.getJarPathForClass(Runner.class);
-        javaParams.getClassPath().add(jarPath);
+        String jettyRunnerjarPath = getJettyRunnerJarPath();
+        javaParams.getClassPath().add(jettyRunnerjarPath);
+
         // Jetty XML - configured by the user
         String jettyXmls = this.getJettyXmlPaths();
         if(jettyXmls != null) {
@@ -206,6 +204,14 @@ public class JettyRunnerCommandLine extends JavaCommandLineState {
             return model.getEnvironmentVariables();
         }
         return new HashMap<String, String>(0);
+    }
+
+    protected String getJettyRunnerJarPath() {
+        String jettyRunnerJarPath = model.getJettyRunnerJarPath();
+        if (jettyRunnerJarPath != null && jettyRunnerJarPath.trim().length() > 0) {
+            return model.getJettyRunnerJarPath();
+        }
+        throw new IllegalArgumentException("Invalid Jetty Runner Path: "+ jettyRunnerJarPath);
     }
 
     /**

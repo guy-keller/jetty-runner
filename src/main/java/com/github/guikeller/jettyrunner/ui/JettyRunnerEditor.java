@@ -97,6 +97,9 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
 
         // Jetty XML (Optional)
         this.configurationPanel.getXmlField().setText(jettyRunnerConfiguration.getJettyXml());
+        // Jetty Runner Path
+        this.configurationPanel.getJettyRunnerField().setText(jettyRunnerConfiguration.getJettyRunnerJarPath());
+
         // Env Vars (Optional)
         Map<String, String> environmentVariables = jettyRunnerConfiguration.getEnvironmentVariables();
         if(environmentVariables != null && !environmentVariables.isEmpty()){
@@ -120,6 +123,7 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
         jettyRunnerConfiguration.setClassesDirectories(this.configurationPanel.getClassesField().getText());
         jettyRunnerConfiguration.setRunningOnPort(this.configurationPanel.getRunOnPortField().getText());
         jettyRunnerConfiguration.setJettyXml(this.configurationPanel.getXmlField().getText());
+        jettyRunnerConfiguration.setJettyRunnerJarPath(this.configurationPanel.getJettyRunnerField().getText());
         jettyRunnerConfiguration.setVmArgs(this.configurationPanel.getVmArgsField().getText());
         jettyRunnerConfiguration.setPassParentEnvironmentVariables(this.configurationPanel.getEnvironmentVariables().isPassParentEnvs());
         // Deals with adding / removing env vars before saving to the conf file
