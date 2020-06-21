@@ -49,18 +49,18 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
         if(executor instanceof DefaultDebugExecutor) {
             String debuggerPort = DebuggerUtils.getInstance().findAvailableDebugAddress(true);
             // Get hold of the JavaParameters
-            addParamsToJavaCmdLine(state, debuggerPort);
+            RunProfileState stateWithDebug = addParamsToJavaCmdLine(state, debuggerPort);
             // Creating a 'Remote' configuration on the fly
             RemoteConnection connection = new RemoteConnection(true, LOCALHOST, debuggerPort, false);
             // Attaches the remote configuration to the VM and then starts it up
-            return super.attachVirtualMachine(state, environment, connection, true);
+            return super.attachVirtualMachine(stateWithDebug, environment, connection, true);
         }else{
             // If it was something else then we don't do anything special
             return super.createContentDescriptor(state, environment);
         }
     }
 
-    protected void addParamsToJavaCmdLine(RunProfileState state, String debuggerPort) throws  ExecutionException {
+    protected RunProfileState addParamsToJavaCmdLine(RunProfileState state, String debuggerPort) throws  ExecutionException {
         JavaCommandLine javaCommandLine = (JavaCommandLine) state;
         JavaParameters javaParameters = javaCommandLine.getJavaParameters();
         // Making the assumption that it's JVM 7 onwards
@@ -68,6 +68,7 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
         // Debugger port
         String remotePort = JDWP + debuggerPort;
         javaParameters.getVMParametersList().addParametersString(remotePort);
+        return javaCommandLine;
     }
 
 }

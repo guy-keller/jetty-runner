@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d83f5ac2-84c9-4203-9b8c-061fba429914" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/jetty-runner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetty-runner.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetty-runner.iws" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/provided/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/compile/jetty-runner-9.4.14.v20181114.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerCommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerCommandLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/model/JettyRunnerConfiguration.java" afterDir="false" />
+    <list default="true" id="d83f5ac2-84c9-4203-9b8c-061fba429914" name="Default Changelist" comment="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerConfPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/ui/JettyRunnerEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586622504830</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Jetty Runner JAR has been externalised, the plugin user must download it and browse to it, also re-shuffled some fields on the UI it now looks a bit better.">
+      <created>1592783451294</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592783451294</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -103,8 +101,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints" />
+    <MESSAGE value="Jetty Runner JAR has been externalised, the plugin user must download it and browse to it, also re-shuffled some fields on the UI it now looks a bit better." />
+    <option name="LAST_COMMIT_MESSAGE" value="Jetty Runner JAR has been externalised, the plugin user must download it and browse to it, also re-shuffled some fields on the UI it now looks a bit better." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="211" y="23" key="#Project_Structure" timestamp="1592743175637">
@@ -123,14 +125,14 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="561" y="139" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1440.797@0.23.1440.797" timestamp="1592742965852" />
-    <state x="335" y="23" key="CommitChangelistDialog2" timestamp="1586622504189">
+    <state x="335" y="23" key="CommitChangelistDialog2" timestamp="1592783450461">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="335" y="23" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1586622504189" />
-    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog" timestamp="1592781553313">
+    <state x="335" y="23" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1592783450461" />
+    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog" timestamp="1592783331566">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog/0.23.1440.797@0.23.1440.797" timestamp="1592781553313" />
+    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog/0.23.1440.797@0.23.1440.797" timestamp="1592783331566" />
     <state width="1358" height="204" key="GridCell.Tab.0.bottom" timestamp="1592783051276">
       <screen x="0" y="23" width="1440" height="801" />
     </state>
