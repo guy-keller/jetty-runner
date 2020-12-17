@@ -49,7 +49,9 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
 <p>
  <h3>Project supported by JetBrains</h3>
  Many thanks to Jetbrains for kindly providing a license for me to work on this and other open-source projects.
- ![Jetbrains](https://raw.githubusercontent.com/guikeller/blob/master/jetbrains.png)
- 
- ![https://www.jetbrains.com/](https://www.jetbrains.com/?from=7505-idea-jetty-runner)
+ <br>
+ <img alt="Jetbrains" src="https://raw.githubusercontent.com/guikeller/blob/master/jetbrains.png" width="48" height="48">
+ <br>
+ <br>
+[https://www.jetbrains.com/](https://www.jetbrains.com/?from=7505-idea-jetty-runner)
 </p>
