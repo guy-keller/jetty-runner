@@ -45,3 +45,11 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
  You can download my mobile app (WavesTracker) and purchase a subscription.<br>
  Otherwise, rating the plugin and my app (WavesTracker) 5(five) stars would be great.<br>
 </p>
+
+<p>
+ <h3>Project supported by JetBrains</h3>
+ Many thanks to Jetbrains for kindly providing a license for me to work on this and other open-source projects.
+ ![Jetbrains](https://raw.githubusercontent.com/guikeller/blob/master/jetbrains.png)
+ 
+ ![https://www.jetbrains.com/](https://www.jetbrains.com/?from=7505-idea-jetty-runner)
+</p>
