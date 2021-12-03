@@ -2,6 +2,7 @@ package com.github.guikeller.jettyrunner.runner;
 
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.execution.configurations.RunProfile;
+import com.intellij.execution.executors.DefaultRunExecutor;
 import com.intellij.execution.impl.DefaultJavaProgramRunner;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,9 +24,9 @@ public class JettyProgramRunner extends DefaultJavaProgramRunner {
     }
 
     @Override
-    public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
+    public boolean canRun(@NotNull String executorId, @NotNull RunProfile runProfile) {
         // It can only run JettyRunnerConfigurations
-        return runProfile instanceof JettyRunnerConfiguration;
+        return executorId.equals(DefaultRunExecutor.EXECUTOR_ID) && runProfile instanceof JettyRunnerConfiguration;
     }
 
 }

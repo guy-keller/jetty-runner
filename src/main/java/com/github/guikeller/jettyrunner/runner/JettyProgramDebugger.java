@@ -7,6 +7,7 @@ import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.*;
 import com.intellij.execution.executors.DefaultDebugExecutor;
+import com.intellij.execution.executors.DefaultRunExecutor;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.ui.RunContentDescriptor;
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +36,9 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
     }
 
     @Override
-    public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
+    public boolean canRun(@NotNull String executorId, @NotNull RunProfile runProfile) {
         // It can only run JettyRunnerConfigurations
-        return runProfile instanceof JettyRunnerConfiguration;
+        return executorId.equals(DefaultDebugExecutor.EXECUTOR_ID) && runProfile instanceof JettyRunnerConfiguration;
     }
 
     @Override
