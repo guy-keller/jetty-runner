@@ -31,6 +31,7 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
  @dcritchl - Pull Request #3<br>
  @emongstad - Pull Request #46<br>
  @aaitmouloud - Pull Request #61<br>
+ @achievec - Pull Request #77<br>
 </p>
 
 <p>
