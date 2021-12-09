@@ -35,9 +35,9 @@ public class JettyProgramDebugger extends GenericDebuggerRunner {
     }
 
     @Override
-    public boolean canRun(@NotNull String value, @NotNull RunProfile runProfile) {
+    public boolean canRun(@NotNull String executorId, @NotNull RunProfile runProfile) {
         // It can only run JettyRunnerConfigurations
-        return runProfile instanceof JettyRunnerConfiguration;
+        return executorId.equals(DefaultDebugExecutor.EXECUTOR_ID) && runProfile instanceof JettyRunnerConfiguration;
     }
 
     @Override
