@@ -2,7 +2,10 @@ package com.github.guikeller.jettyrunner.ui;
 
 import com.github.guikeller.jettyrunner.model.JettyRunnerConfiguration;
 import com.intellij.compiler.impl.ModuleCompileScope;
-import com.intellij.notification.*;
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationGroup;
+import com.intellij.notification.NotificationGroupManager;
+import com.intellij.notification.NotificationType;
 import com.intellij.openapi.compiler.CompileTask;
 import com.intellij.openapi.compiler.CompilerManager;
 import com.intellij.openapi.module.Module;
@@ -165,9 +168,10 @@ public class JettyRunnerEditor extends SettingsEditor<JettyRunnerConfiguration> 
                 JettyRunnerEditor.this.mainOutputDirectory = mainOutputDirectory.getPresentableUrl();
             } else {
                 // Project hasn't been compiled yet, so there is no output directory
-                NotificationGroup notificationGroup = new NotificationGroup("IDEA Jetty Runner", NotificationDisplayType.BALLOON, true);
+                NotificationGroupManager notificationGroupManager = NotificationGroupManager.getInstance();
+                NotificationGroup notificationGroup = notificationGroupManager.getNotificationGroup("IDEA_JETTY_RUNNER");
                 Notification notification = notificationGroup.createNotification("Jetty Runner - Couldn't determine the classes folder:<br>Please compile / make your project before creating the conf.", NotificationType.ERROR);
-                Notifications.Bus.notify(notification, project);
+                notification.notify(project);
             }
             return true;
         };

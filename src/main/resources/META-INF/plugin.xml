@@ -25,7 +25,7 @@ Thanks for dropping by.
     </change-notes>
 
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html -->
-    <idea-version since-build="201"/>
+    <idea-version since-build="203.5981.155"/>
 
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html#modules-available-in-all-products -->
     <depends>com.intellij.modules.lang</depends>
@@ -41,6 +41,8 @@ Thanks for dropping by.
         <programRunner id="Run" implementation="com.github.guikeller.jettyrunner.runner.JettyProgramRunner" order="first"/>
         <!-- Debug - same as run but stops on breakpoints, you get the idea -->
         <programRunner id="Debug" implementation="com.github.guikeller.jettyrunner.runner.JettyProgramDebugger" order="last"/>
+        <!-- Notification Group for the Plugin -->
+        <notificationGroup id="IDEA_JETTY_RUNNER" displayType="BALLOON" />
     </extensions>
 
 </idea-plugin>
