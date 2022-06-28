@@ -1,5 +1,13 @@
 Jetty-Runner
 ============
+<br>
+<b> *ATTENTION: LOOKING FOR A NEW MAINTAINER!</b>
+<br>
+After 8+ (EIGHT) YEARS it is time to let go of this project.<br>
+If you are interested in taking over it please see: https://github.com/guikeller/jetty-runner/issues/80 
+<br>
+<br>
+<hr>
 A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 <br>
 If you require full support please consider buying the IntelliJ IDEA Enterprise Edition. <br>
@@ -35,16 +43,17 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
 </p>
 
 <p>
- <b>Project Status: ACTIVE!</b> <br>
- The project is well and alive thanks for your interest! :wink: <br>
+ <b>Project Status: *LOOKING FOR A NEW MAINTAINER!*</b> 
+ <br>
+ After 8+ (EIGHT) YEARS it is time to let go of this project. <br>
+ If you are interested in taking over it please see: https://github.com/guikeller/jetty-runner/issues/80 <br><br>
  Note that as the project is well tested, reliable and stable; changes will be occasional.<br> 
  Changes will happen when a reproduceable bug is reported - as you now BYO jetty-runner version.
 </p>
 
 <p>
  <b>How can I donate?</b> <br>
- You can download my mobile app (WavesTracker) and purchase a subscription.<br>
- Otherwise, rating the plugin and my app (WavesTracker) 5(five) stars would be great.<br>
+ Rate the plugin 5(five) stars on the Jetbrains Marketplace, that would be great.<br>
 </p>
 
 <p>
