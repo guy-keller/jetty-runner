@@ -3,7 +3,6 @@ Jetty-Runner
 <br>
 <b> *ATTENTION: LOOKING FOR A NEW MAINTAINER!</b>
 <br>
-After 8+ (EIGHT) YEARS it is time to let go of this project.<br>
 If you are interested in taking over it please see: https://github.com/guikeller/jetty-runner/issues/80 
 <br>
 <br>
