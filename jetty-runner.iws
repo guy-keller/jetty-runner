@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d83f5ac2-84c9-4203-9b8c-061fba429914" name="Default Changelist" comment="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/runner/JettyProgramDebugger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetty-runner.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetty-runner.iws" beforeDir="false" afterPath="$PROJECT_DIR$/jetty-runner.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/guikeller/jettyrunner/conf/JettyRunnerConfigurationFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,20 +24,32 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1aORGaAXGJDxnW4IyTlVZcmWUNQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="show.unlinked.gradle.project.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/provided" />
@@ -43,7 +59,8 @@
     <configuration name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="jetty-runner" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <alternative-path path="19" alternative-path-enabled="true" />
       <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -62,6 +79,7 @@
   <component name="SQLPlugin.ProjectConfiguration">
     <queries />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -72,6 +90,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586604558959</updated>
+      <workItem from="1681483258267" duration="1175000" />
+      <workItem from="1681487338361" duration="78000" />
     </task>
     <task id="LOCAL-00001" summary="It should work with IntelliJ 2020.1 onwards. &#10;However, the debugger is not stopping on breakpoints">
       <created>1586622504830</created>
@@ -90,6 +110,9 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
       <list>
@@ -107,117 +130,5 @@
     <MESSAGE value="Jetty Runner JAR has been externalised, the plugin user must download it and browse to it, also re-shuffled some fields on the UI it now looks a bit better." />
     <option name="LAST_COMMIT_MESSAGE" value="Jetty Runner JAR has been externalised, the plugin user must download it and browse to it, also re-shuffled some fields on the UI it now looks a bit better." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="211" y="23" key="#Project_Structure" timestamp="1592743175637">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="211" y="23" key="#Project_Structure/0.23.1440.797@0.23.1440.797" timestamp="1592743175637" />
-    <state x="187" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586606514574">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="187" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1586606514574" />
-    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser" timestamp="1592779883793">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="536" y="134" key="#com.intellij.ide.util.MemberChooser/0.23.1440.797@0.23.1440.797" timestamp="1592779883793" />
-    <state x="561" y="139" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1592742965852">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="561" y="139" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1440.797@0.23.1440.797" timestamp="1592742965852" />
-    <state x="335" y="23" key="CommitChangelistDialog2" timestamp="1592783450461">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="335" y="23" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1592783450461" />
-    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog" timestamp="1592783331566">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="123" y="123" width="1200" height="596" key="DiffContextDialog/0.23.1440.797@0.23.1440.797" timestamp="1592783331566" />
-    <state width="1358" height="204" key="GridCell.Tab.0.bottom" timestamp="1592783051276">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1592782934057" />
-    <state width="1358" height="204" key="GridCell.Tab.0.bottom/0.23.1440.801@0.23.1440.801" timestamp="1592783051276" />
-    <state width="1358" height="204" key="GridCell.Tab.0.center" timestamp="1592783051274">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1592782934056" />
-    <state width="1358" height="204" key="GridCell.Tab.0.center/0.23.1440.801@0.23.1440.801" timestamp="1592783051274" />
-    <state width="1358" height="204" key="GridCell.Tab.0.left" timestamp="1592783051272">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1592782934056" />
-    <state width="1358" height="204" key="GridCell.Tab.0.left/0.23.1440.801@0.23.1440.801" timestamp="1592783051272" />
-    <state width="1358" height="204" key="GridCell.Tab.0.right" timestamp="1592783051275">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1592782934056" />
-    <state width="1358" height="204" key="GridCell.Tab.0.right/0.23.1440.801@0.23.1440.801" timestamp="1592783051275" />
-    <state width="1358" height="204" key="GridCell.Tab.1.bottom" timestamp="1592783051279">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1592782934061" />
-    <state width="1358" height="204" key="GridCell.Tab.1.bottom/0.23.1440.801@0.23.1440.801" timestamp="1592783051279" />
-    <state width="1358" height="204" key="GridCell.Tab.1.center" timestamp="1592783051277">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1592782934058" />
-    <state width="1358" height="204" key="GridCell.Tab.1.center/0.23.1440.801@0.23.1440.801" timestamp="1592783051277" />
-    <state width="1358" height="204" key="GridCell.Tab.1.left" timestamp="1592783051277">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1592782934057" />
-    <state width="1358" height="204" key="GridCell.Tab.1.left/0.23.1440.801@0.23.1440.801" timestamp="1592783051277" />
-    <state width="1358" height="204" key="GridCell.Tab.1.right" timestamp="1592783051278">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state width="1358" height="204" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1592782934059" />
-    <state width="1358" height="204" key="GridCell.Tab.1.right/0.23.1440.801@0.23.1440.801" timestamp="1592783051278" />
-    <state width="1358" height="253" key="GridCell.Tab.2.bottom" timestamp="1592781762984">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state width="1358" height="253" key="GridCell.Tab.2.bottom/0.23.1440.797@0.23.1440.797" timestamp="1592781762984" />
-    <state width="1358" height="253" key="GridCell.Tab.2.center" timestamp="1592781762983">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state width="1358" height="253" key="GridCell.Tab.2.center/0.23.1440.797@0.23.1440.797" timestamp="1592781762983" />
-    <state width="1358" height="253" key="GridCell.Tab.2.left" timestamp="1592781762982">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state width="1358" height="253" key="GridCell.Tab.2.left/0.23.1440.797@0.23.1440.797" timestamp="1592781762982" />
-    <state width="1358" height="253" key="GridCell.Tab.2.right" timestamp="1592781762983">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state width="1358" height="253" key="GridCell.Tab.2.right/0.23.1440.797@0.23.1440.797" timestamp="1592781762983" />
-    <state x="311" y="163" key="IDE.errors.dialog" timestamp="1586622128494">
-      <screen x="0" y="23" width="1440" height="798" />
-    </state>
-    <state x="311" y="163" key="IDE.errors.dialog/0.23.1440.797@0.23.1440.797" timestamp="1586608686603" />
-    <state x="311" y="163" key="IDE.errors.dialog/0.23.1440.798@0.23.1440.798" timestamp="1586622128494" />
-    <state x="499" y="130" key="RollbackChangesDialog" timestamp="1592783087004">
-      <screen x="0" y="23" width="1440" height="801" />
-    </state>
-    <state x="499" y="130" key="RollbackChangesDialog/0.23.1440.801@0.23.1440.801" timestamp="1592783087004" />
-    <state x="232" y="60" key="SettingsEditor" timestamp="1586618877230">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="232" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1586618877230" />
-    <state x="232" y="60" key="SettingsEditor/0.23.1440.801@0.23.1440.801" timestamp="1586606971068" />
-    <state x="323" y="161" key="Vcs.Push.Dialog.v2" timestamp="1586622511989">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="323" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1586622511989" />
-    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1586613346037">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1440.797@0.23.1440.797" timestamp="1586613346037" />
-    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586613346037">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="123" y="123" width="1200" height="596" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.797@0.23.1440.797" timestamp="1586613346037" />
-    <state x="123" y="123" width="1200" height="596" key="dock-window-1" timestamp="1592740711794">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="123" y="123" width="1200" height="596" key="dock-window-1/0.23.1440.797@0.23.1440.797" timestamp="1592740711794" />
   </component>
 </project>

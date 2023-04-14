@@ -132,7 +132,7 @@
       <module fileurl="file://$PROJECT_DIR$/jetty-runner.iml" filepath="$PROJECT_DIR$/jetty-runner.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="IntelliJ IDEA Community Edition IC-201.6668.121" project-jdk-type="IDEA JDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="IntelliJ IDEA IU-231.8109.175" project-jdk-type="IDEA JDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">

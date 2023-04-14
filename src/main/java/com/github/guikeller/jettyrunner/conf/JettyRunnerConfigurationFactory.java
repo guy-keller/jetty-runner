@@ -6,6 +6,7 @@ import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.configurations.RunConfigurationSingletonPolicy;
 import com.intellij.openapi.project.Project;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -17,6 +18,11 @@ public class JettyRunnerConfigurationFactory extends ConfigurationFactory {
 
     public JettyRunnerConfigurationFactory(@NotNull ConfigurationType type) {
         super(type);
+    }
+
+    @Override
+    public String getId() {
+        return super.getName();
     }
 
     @Override
