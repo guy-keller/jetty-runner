@@ -1,11 +1,6 @@
 Jetty-Runner
 ============
 <br>
-<b> *ATTENTION: LOOKING FOR A NEW MAINTAINER!</b>
-<br>
-If you are interested in taking over it please see: https://github.com/guikeller/jetty-runner/issues/80 
-<br>
-<br>
 <hr>
 A plugin that allows you to quickly run Jetty from IntelliJ IDEA. <br>
 <br>
