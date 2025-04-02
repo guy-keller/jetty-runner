@@ -37,29 +37,14 @@ https://github.com/guikeller/jetty-runner/wiki/Getting-Started
 </p>
 
 <p>
- <b>Project Status: *LOOKING FOR A NEW MAINTAINER!*</b> 
- <br>
- After 8+ (EIGHT) YEARS it is time to let go of this project. <br>
- If you are interested in taking over it please see: https://github.com/guikeller/jetty-runner/issues/80 <br><br>
- Note that as the project is well tested, reliable and stable; changes will be occasional.<br> 
- Changes will happen when a reproduceable bug is reported - as you now BYO jetty-runner version.
-</p>
-
-<p>
+ <b>How can I help?</b> <br>
+ You can help by: raising bugs, feature requests, and simply using the plugin. <br>
  <b>How can I donate?</b> <br>
  Rate the plugin 5(five) stars on the Jetbrains Marketplace, that would be great.<br>
 </p>
 
 <p>
- <h3>Project supported by JetBrains</h3>
- Many thanks to Jetbrains for kindly providing a license for me to work on this and other open-source projects.
- <br>
- <a href="https://www.jetbrains.com/?from=7505-idea-jetty-runner">
-   <img alt="Jetbrains" src="https://raw.githubusercontent.com/guikeller/blob/master/jetbrains.png" width="250" height="250">
- </a>
- <br>
- <a href="https://www.jetbrains.com/?from=7505-idea-jetty-runner">
-   https://www.jetbrains.com
- </a>
- <br>
+ <h3>Project no longer supported by JetBrains</h3>
+ Yeah that's right, on the bright side, we have reached 200000+ downloads! <br>
+ Many thanks to all of you that have used the plugin for so long.
 </p>
